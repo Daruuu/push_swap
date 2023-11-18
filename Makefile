@@ -1,13 +1,13 @@
 
 HEADER= push_swap.h
-NAME= push_swap.a
+NAME= push_swap
 
 CFLAGS= -Wall -Wextra -Werror
 CC= cc
 RM= rm -f
+INCL= src_libft/
 
 SRCS= push_swap.c push_swap.h
-
 
 OBJS= $(SRCS:.c=.o)
 
