@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.c                                          :+:      :+:    :+:   */
+/*   ft_check_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/19 17:53:48 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/19 18:17:48 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ int	check_duplicate_number(int argc, char **argv)
 		while (j < argc)
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				return (1);
+				return (0);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
-int	check_range_number(char *argv[])
+int	check_range_number(char **argv)
 {
 	int	i;
 
@@ -55,28 +55,9 @@ void	check_all_input(int argc, char *argv[])
 		write (1, "error\n",6);
 	else
 	{
-		//funcion comprobar que no se repitan los numeros
-		//if (check_range_number(argv) || check_duplicate_number(argv))
-		if (check_duplicate_number(argc, argv))
-		//if (check_range_number(argv))
+		if (check_range_number(argv) && check_duplicate_number(argc, argv))
 			write(1, "valid input\n", 12);
 		else
-			write(1, "invalid input\n", 14);
+			write(1, "INVALID INPUT\n", 14);
 	}
-}
-
-
-/*
- * example input:
- * CASE 1:
- * ./push_swap 1 3 5 6 7
- *
- * CASE 2:
- * ARG="4 1 9 2"./push_swap $ARG | wc -l
- *
- */
-int	main(int argc, char *argv[])
-{
-	check_all_input(argc, argv);
-	return (0);
 }

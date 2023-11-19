@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/19 18:46:35 by dasalaza         ###   ########.fr       */
+/*   Created: 2023/11/19 18:11:47 by dasalaza          #+#    #+#             */
+/*   Updated: 2023/11/19 18:19:37 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <limits.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "srcs/src_libft/libft.h"
+/*
+ * example input:
+ * CASE 1:
+ * ./push_swap 1 3 5 6 7
+ *
+ * CASE 2:
+ * ARG="4 1 9 2"./push_swap $ARG | wc -l
+ */
 
-typedef struct s_list
+int	main(int argc, char *argv[])
 {
-	int value;
-	int index;
-	struct s_list *next;
-}	t_list;
+	check_all_input(argc, argv);
 
-typedef struct s_stack
-{
-	int len;
-	struct s_list *first;
-}		t_stack;	
+	return (0);
+}
 
-void	check_all_input(int argc, char **argv);
-
-#endif

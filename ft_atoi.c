@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/19 18:46:35 by dasalaza         ###   ########.fr       */
+/*   Created: 2023/09/11 15:56:14 by dasalaza          #+#    #+#             */
+/*   Updated: 2023/11/19 18:03:07 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
 
-# include <limits.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "srcs/src_libft/libft.h"
-
-typedef struct s_list
+int	ft_atoi(const char *str)
 {
-	int value;
-	int index;
-	struct s_list *next;
-}	t_list;
+	unsigned int	i;
+	int				signo;
+	int				result;
 
-typedef struct s_stack
-{
-	int len;
-	struct s_list *first;
-}		t_stack;	
-
-void	check_all_input(int argc, char **argv);
-
-#endif
+	i = 0;
+	signo = 1;
+	result = 0;
+	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			signo = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	return (signo * result);
+}
