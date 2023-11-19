@@ -6,27 +6,48 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/18 23:56:35 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/19 03:20:46 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_duplicate_number(char *argv)
+int	check_duplicate_number(char **argv)
 {
+
+
+	/*
 	int	i;
 	int	j;
 
-	i = -1;
-	j = 0;
-	while (argv[i] != '\0')
+	i = 0;
+	j = 1;
+
+	while (argv[1][i] != '\0')
 	{
-		if (argv[i] == argv[j])
-			return(1);
+		if (!(argv[1][i] == argv[1][j]))
+			return(0);
 		i++;
 		j++;
 	}
-	return (0);
+	*/
+	return (1);
+}
+
+int	check_range_number(char *argv[])
+{
+	int	i;
+
+	i = 0;
+	while (argv[1][i] != '\0')
+	{
+		if (argv[1][i] < '0' && argv[1][i] > '9') 
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }
 
 /*
@@ -39,29 +60,26 @@ int	check_duplicate_number(char *argv)
  *
  */
 
-void	check_type_input(int args, char *argv[])
+void	check_all_input(int argc, char *argv[])
 {
 	int	i;
 
 	i = 0;
-	if (args != 2)
-	{
+	if (argc < 2)
 		write (1, "error\n",6);
-	}
 	else
 	{
-		while (argv[i][0] != '\0')
-		{
-			//funcion comprobar que no se repitan los numeros
-
-			i++;
-		}
-
+		//funcion comprobar que no se repitan los numeros
+		//if (check_range_number(argv) || check_duplicate_number(argv))
+		if (check_duplicate_number(argv))
+			write(1, "valid input\n", 12);
+		else
+			write(1, "invalid input\n", 14);
 	}
 }
 
-
-int	main(int args, char *argv[])
+int	main(int argc, char *argv[])
 {
-
+	check_all_input(argc, argv);
+	return (0);
 }
