@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/19 18:46:35 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/20 19:24:53 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ typedef struct s_stack
 }		t_stack;	
 
 void	check_all_input(int argc, char **argv);
+t_stack	fill_t_list(int argc, char **argv);
 
 #endif
