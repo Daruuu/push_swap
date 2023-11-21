@@ -1,5 +1,14 @@
-# push_swap
+# Push_swap
+
+## Description project
 Sort data into a stack, with a limited set of movements
+
+### Notes:
+- see documentation of basic algorithms like : 
+  - insertion sort
+  - merge sort
+  - bubble sort
+  - 
 
 NOTES:
 
