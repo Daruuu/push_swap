@@ -6,17 +6,16 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/22 16:05:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:55:07 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 /*
  * this is function execute after fill the list with the argv
 */
-void	print_stack(int argc, char **argv)
+void	print_list(int argc, char **argv)
 {
 	t_stack stack_a;
 	stack_a = fill_t_list(argc, argv);
@@ -24,14 +23,15 @@ void	print_stack(int argc, char **argv)
 	t_list *current = stack_a.first;
 	while (current != NULL)
 	{
-		printf("index: [%d] -> value: %d\n", current->index, current->value);
-		current = current->next;
+		printf("index: [%d] -> value: %d\n");
 	}
+
 }
 
 /*
  * funct to fill stack a with argv
  */
+
 t_stack	fill_t_list(int argc, char **argv)
 {
 	t_stack	stack_a;
@@ -64,6 +64,7 @@ t_stack	fill_t_list(int argc, char **argv)
  * parameter: t_stack stack_a
  * return : the stack_a updated with index
  *
+*/
 t_stack	order_stack_by_index(t_stack stack_a)
 {
 	t_stack	stack_update;
@@ -74,4 +75,3 @@ t_stack	order_stack_by_index(t_stack stack_a)
 
 	return (stack_update);
 }
-*/
