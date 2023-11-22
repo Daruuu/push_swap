@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/22 16:05:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/22 22:33:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	print_stack(int argc, char **argv)
 
 /*
  * funct to fill stack a with argv
- */
+*/
+
 t_stack	fill_t_list(int argc, char **argv)
 {
 	t_stack	stack_a;
@@ -59,19 +60,14 @@ t_stack	fill_t_list(int argc, char **argv)
 	return (stack_a);
 }
 
-/*
- * function to add index to stack_a
- * parameter: t_stack stack_a
- * return : the stack_a updated with index
- *
-t_stack	order_stack_by_index(t_stack stack_a)
+int	ft_lst_size(t_list *lst)
 {
-	t_stack	stack_update;
+	size_t	i;
 
-
-
-
-
-	return (stack_update);
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
-*/

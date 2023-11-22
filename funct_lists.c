@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:08:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/20 18:11:03 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/22 22:01:41 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,15 @@ void	ft_lstadd_front(t_lista **lst, t_lista *new)
 	}
 }
 
-int	ft_lstize(t_lista *lst)
+/*
+int	ft_lst_size(t_list *lst)
 {
-
-	return (0);
+	size_t	i;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
+*/
