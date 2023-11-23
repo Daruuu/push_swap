@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/19 18:17:48 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:45:53 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int	check_range_number(char **argv)
 	i = 0;
 	while (argv[1][i] != '\0')
 	{
-		if (argv[1][i] < '0' && argv[1][i] > '9') 
-			return (0);
-		i++;
+		if (argv[1][i] >= '0' || argv[1][i] <= '9') {
+			i++;
+		} else return (0);
 	}
 	return (1);
 }
@@ -55,9 +55,14 @@ void	check_all_input(int argc, char *argv[])
 		write (1, "error\n",6);
 	else
 	{
-		if (check_range_number(argv) && check_duplicate_number(argc, argv))
-			write(1, "valid input\n", 12);
+		//check_duplicate_number(argv);
+		//check_range_number(argv);
+		if (!(check_range_number(argv) && check_duplicate_number(argc, argv)))
+		{
+			//write(1, "INVALID *INPUT\n", 15);
+			exit(EXIT_FAILURE);
+		}
 		else
-			write(1, "INVALID INPUT\n", 14);
+			write(1, "valid input\n", 12);
 	}
 }

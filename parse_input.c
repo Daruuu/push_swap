@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/22 22:33:36 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:02:14 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 /*
  * this is function execute after fill the list with the argv
 */
+
 void	print_stack(int argc, char **argv)
 {
 	t_stack stack_a;

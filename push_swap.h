@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/22 22:33:57 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:24:53 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "srcs/src_libft/libft.h"
+//# include "srcs/src_libft/libft.h"
 
 typedef struct s_list
 {
@@ -35,6 +35,7 @@ void	check_all_input(int argc, char **argv);
 t_stack	fill_t_list(int argc, char **argv);
 void	print_stack(int argc, char **argv);
 int		ft_lst_size(t_list *lst);
+int		ft_atoi(const char *str);
 
 
 
