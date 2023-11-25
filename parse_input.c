@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/23 17:02:14 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/25 13:54:05 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_stack(int argc, char **argv)
 	t_stack stack_a;
 	stack_a = fill_t_list(argc, argv);
 
-	t_list *current = stack_a.first;
+	t_node *current = stack_a.first;
 	while (current != NULL)
 	{
 		printf("index: [%d] -> value: %d\n", current->index, current->value);
@@ -34,12 +34,12 @@ void	print_stack(int argc, char **argv)
  * funct to fill stack a with argv
 */
 
-t_stack	fill_t_list(int argc, char **argv)
+t_stack	fill_linked_list(int argc, char **argv)
 {
 	t_stack	stack_a;
 	int		i;
 	int		value;
-	t_list	*new_node;
+	t_node	*new_node;
 
 	stack_a.len = 0;
 	stack_a.first = NULL;
@@ -61,7 +61,7 @@ t_stack	fill_t_list(int argc, char **argv)
 	return (stack_a);
 }
 
-int	ft_lst_size(t_list *lst)
+int	ft_lst_size(t_node *lst)
 {
 	size_t	i;
 
