@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/22 22:51:19 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/26 03:39:06 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
  * function to swap positions of stack in order of value
 */
 
-t_stack	order_stack_by_index(t_list *stack_a)
+/*
+t_stack	order_stack_by_index(t_node *stack_a)
 {
 	t_stack	stack_update;
 	int	len_list;
@@ -32,10 +33,9 @@ t_stack	order_stack_by_index(t_list *stack_a)
 
 	}
 
-
-
 	return (stack_update);
 }
+*/
 
 /*
  * swap integers
@@ -48,4 +48,3 @@ void	ft_swap (int *a, int *b)
 	*a = *b;
 	*b = *tmp;
 }
-

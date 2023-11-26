@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/25 13:54:05 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/26 03:58:23 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_stack	fill_linked_list(int argc, char **argv)
 	while (i < argc)
 	{
 		value = ft_atoi(argv[i]);/* create a new node for the list */
-		new_node = malloc (sizeof(t_list));
+		new_node = malloc (sizeof(t_node));
 		if (!new_node)
 			exit(EXIT_FAILURE);
 		new_node->value = value;
