@@ -6,7 +6,7 @@
 #    By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 02:43:51 by dasalaza          #+#    #+#              #
-#    Updated: 2023/11/19 18:26:05 by dasalaza         ###   ########.fr        #
+#    Updated: 2023/11/26 01:12:18 by dasalaza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,7 @@ CC = cc
 RM = rm -f
 LIBFTDIR = srcs/src_libft/
 
-SRCS = push_swap.c check_input.c main.c 
-
-
+SRCS = push_swap.c check_input.c  
 
 OBJS = $(SRCS:.c=.o)
 INCLUDE = -L ./libft 
