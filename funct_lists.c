@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:08:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/22 22:01:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/26 20:26:20 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ typedef struct s_lista
 
 t_lista	*ft_lstnew(void *content)
 {
-	t_lista *new_list;
+	t_lista	*new_list;
 
-	if (!(new_list = (t_lista*) malloc(sizeof(*new_list))))
+	if (!(new_list == (t_lista*) malloc(sizeof(*new_list))))
 		return (NULL);
 	new_list->content = content;
 	new_list->next = NULL;
@@ -38,7 +38,6 @@ void	ft_lstadd_front(t_lista **lst, t_lista *new)
 		*lst = new;
 	}
 }
-
 /*
 int	ft_lst_size(t_list *lst)
 {

@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utils_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:56:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/19 22:58:53 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/26 20:17:44 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
 int	ft_atoi(const char *str)
 {
@@ -34,4 +35,17 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (signo * result);
+}
+
+int	ft_lst_size(t_node *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
