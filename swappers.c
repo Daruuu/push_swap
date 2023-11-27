@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/26 21:29:34 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/11/27 21:24:37 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 /*
  * function to order stack in order of value
- *
 */
-
 t_stack	order_stack_by_index(t_node *stack_a)
 {
-	t_stack	stack_update;
 	int	len_list;
 	int	i;
 
@@ -29,12 +26,9 @@ t_stack	order_stack_by_index(t_node *stack_a)
 		i++;
 	}
 
-	return (stack_update);
+	return (0);
 }
 
-/*
- * swap integers
-*/
 void	ft_swap (int *a, int *b)
 {
 	int	*tmp;
@@ -44,11 +38,24 @@ void	ft_swap (int *a, int *b)
 	*b = *tmp;
 }
 
-/*
- *
- *
-*/
-void	ft_swap_node(t_node *node_a, t_node *node_b)
+void	swap_nodes(t_node *node_a, t_node *node_b)
 {
+	int	tempValue;
+	int	tempIndex;
+
+	tempValue = node_a->value;
+	tempIndex = node_a->index;
+	node_a->index = node_b->index;
+	node_a->value = node_b->value;
+	node_b->index = tempIndex;
+	node_b->value = tempValue;
+}
+
+/*
+ * function if input ist are sorted, finish the program 
+*/
+void	if_stack_is_sorted(t_stack *stack_input)
+{
+
 
 }
