@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/26 20:30:26 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/02 21:00:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ t_stack	fill_linked_list(int argc, char **argv)
 		value = ft_atoi(argv[i]);/* create a new node for the list */
 		new_node = malloc (sizeof(t_node));
 		if (!new_node)
-			exit(EXIT_FAILURE);
+			write(1, "error fill linked list\n", 23);
+			//exit(EXIT_FAILURE);
 		new_node->value = value;
 		new_node->index = i - 1;
 		new_node->next = NULL; /*add the node to the front of the list */

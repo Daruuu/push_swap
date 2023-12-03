@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/27 21:24:37 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/03 02:58:27 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,43 @@
 
 /*
  * function to order stack in order of value
+ * TODO: function to remake with other way
 */
-t_stack	order_stack_by_index(t_node *stack_a)
+
+void	sort_stack_by_number(t_node **head_ref)
 {
-	int	len_list;
-	int	i;
+	t_node	*sort_stack;
+	t_node	*current_node;
+	t_node	*next_node;
+	t_node	*temp;
 
-	len_list = ft_lst_size(stack_a);
-	while (i < len_list) 
+	sort_stack = NULL;
+	current_node = *head_ref;
+	while (current_node != NULL)
 	{
-		i++;
+		next_node = current_node->next;
+		if (sort_stack == NULL || sort_stack->index > current_node->index)
+		{
+			current_node->next = sort_stack;
+			current_node->previous = NULL;
+			if (sort_stack != NULL)
+				sort_stack->previous = next_node;
+			sort_stack = current_node;
+		}
+		else
+		{
+			temp = sort_stack;
+			while (temp->next != NULL && temp->next->index < current_node->index)
+				temp = temp->next;
+			current_node->next = temp->next;
+			if (temp->next != NULL)
+				temp->next->previous = current_node;
+			temp->next = current_node;
+			current_node->previous = temp;
+		}
+		current_node= next_node;
 	}
-
-	return (0);
+	*head_ref = sort_stack;
 }
 
 void	ft_swap (int *a, int *b)
@@ -38,7 +62,7 @@ void	ft_swap (int *a, int *b)
 	*b = *tmp;
 }
 
-void	swap_nodes(t_node *node_a, t_node *node_b)
+void	swap_nodes (t_node *node_a, t_node *node_b)
 {
 	int	tempValue;
 	int	tempIndex;
@@ -54,6 +78,7 @@ void	swap_nodes(t_node *node_a, t_node *node_b)
 /*
  * function if input ist are sorted, finish the program 
 */
+
 void	if_stack_is_sorted(t_stack *stack_input)
 {
 
