@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/03 02:58:27 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/03 08:32:48 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
  * TODO: function to remake with other way
 */
 
-void	sort_stack_by_number(t_node **head_ref)
+void	sort_stack_ascendent(t_node **head_ref)
 {
 	t_node	*sort_stack;
 	t_node	*current_node;
 	t_node	*next_node;
-	t_node	*temp;
+	t_node	*tmp;
 
 	sort_stack = NULL;
 	current_node = *head_ref;
@@ -39,48 +39,49 @@ void	sort_stack_by_number(t_node **head_ref)
 		}
 		else
 		{
-			temp = sort_stack;
-			while (temp->next != NULL && temp->next->index < current_node->index)
-				temp = temp->next;
-			current_node->next = temp->next;
-			if (temp->next != NULL)
-				temp->next->previous = current_node;
-			temp->next = current_node;
-			current_node->previous = temp;
+			tmp = sort_stack;
+			while (tmp->next != NULL && tmp->next->index < current_node->index)
+				tmp = tmp->next;
+			current_node->next = tmp->next;
+			if (tmp->next != NULL)
+				tmp->next->previous = current_node;
+			tmp->next = current_node;
+			current_node->previous = tmp;
 		}
-		current_node= next_node;
+		current_node = next_node;
 	}
 	*head_ref = sort_stack;
 }
 
-void	ft_swap (int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
 	int	*tmp;
 
+	tmp = NULL;
 	*tmp = *a;
 	*a = *b;
 	*b = *tmp;
 }
 
-void	swap_nodes (t_node *node_a, t_node *node_b)
+void	swap_nodes(t_node *node_a, t_node *node_b)
 {
-	int	tempValue;
-	int	tempIndex;
+	int	temp_value;
+	int	temp_index;
 
-	tempValue = node_a->value;
-	tempIndex = node_a->index;
+	temp_value = node_a->value;
+	temp_index = node_a->index;
 	node_a->index = node_b->index;
 	node_a->value = node_b->value;
-	node_b->index = tempIndex;
-	node_b->value = tempValue;
+	node_b->index = temp_index;
+	node_b->value = temp_value;
 }
 
 /*
  * function if input ist are sorted, finish the program 
 */
-
+/*
 void	if_stack_is_sorted(t_stack *stack_input)
 {
 
-
 }
+*/
