@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/03 08:16:59 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/07 21:31:16 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,14 @@ t_stack	fill_linked_list(int argc, char **argv)
 			//exit(EXIT_FAILURE);
 		new_node->value = value;
 		new_node->index = i - 1;
-		/*add the node to the front of the list */
-		new_node->next = NULL;
-		new_node->previous = NULL;
 		new_node->next = stack_a.first;
+		new_node->previous = NULL;
 		if (stack_a.first != NULL)
-
+			stack_a.first->previous = new_node;
 		stack_a.first = new_node;
 		stack_a.len++;
 		i++;
 	}
-	sort_stack_ascendent(&stack_a.first);
+	//sort_stack_ascendent(&stack_a.first);
 	return (stack_a);
 }
