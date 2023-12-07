@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/07 22:39:26 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/07 22:41:52 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	sort_stack_ascendent(t_node **head_ref)
 	{
 		next_node = current_node->next;
 		//if (sort_stack == NULL || sort_stack->index > current_node->index)
-		if (head_ref == NULL)
+		if (* == NULL)
+		{
+
+		}
 
 		while (current_node->value > next_node->value)
 		{
