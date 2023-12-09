@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/07 21:31:16 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/09 21:38:47 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ t_stack	fill_linked_list(int argc, char **argv)
 		stack_a.len++;
 		i++;
 	}
-	//sort_stack_ascendent(&stack_a.first);
+	sort_stack_per_value(&(stack_a.first));
 	return (stack_a);
 }

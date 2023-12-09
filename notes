@@ -248,3 +248,140 @@ t_stack fill_linked_list(int argc, char **argv)
     return stack_a;
 }
 
+
+
+
+
+
+
+
+************************************************************************
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct s_node {
+    int value;
+    int index;
+    struct s_node *next;
+    struct s_node *previous;
+} t_node;
+
+typedef struct s_stack {
+    int len;
+    t_node *first;
+} t_stack;
+
+void insertionSort(t_stack *stack) {
+    if (stack == NULL || stack->first == NULL) {
+        return; // Lista vacía o nula, no hay nada que ordenar
+    }
+
+    t_node *sorted = NULL;
+    t_node *current = stack->first;
+
+    while (current != NULL) {
+        t_node *next = current->next;
+
+        if (sorted == NULL || sorted->value > current->value) {
+            current->next = sorted;
+            current->previous = NULL;
+            if (sorted != NULL) {
+                sorted->previous = current;
+            }
+            sorted = current;
+        } else {
+            t_node *temp = sorted;
+            while (temp->next != NULL && temp->next->value < current->value) {
+                temp = temp->next;
+            }
+            current->next = temp->next;
+            if (temp->next != NULL) {
+                temp->next->previous = current;
+            }
+            temp->next = current;
+            current->previous = temp;
+        }
+
+        current = next;
+    }
+
+    stack->first = sorted;
+}
+
+// Función auxiliar para imprimir la lista
+void printList(t_node *node) {
+    while (node != NULL) {
+        printf("(%d, %d) ", node->value, node->index);
+        node = node->next;
+    }
+    printf("\n");
+}
+
+int main() {
+    t_stack stack_a;
+
+    // Agregar nodos a la lista (cambia según tus necesidades)
+    for (int i = 5; i >= 1; i--) {
+        t_node *new_node = malloc(sizeof(t_node));
+        new_node->value = i * 10;
+        new_node->index = i;
+        new_node->next = stack_a.first;
+        new_node->previous = NULL;
+        if (stack_a.first != NULL) {
+            stack_a.first->previous = new_node;
+        }
+        stack_a.first = new_node;
+    }
+
+    printf("Lista no ordenada: ");
+    printList(stack_a.first);
+
+    insertionSort(&stack_a);
+
+    printf("Lista ordenada: ");
+    printList(stack_a.first);
+
+    return 0;
+}
+
+
+****************************************
+void sort_stack_per_value(t_node **head)
+{
+    if (head == NULL || *head == NULL)
+        return; // Lista vacía o nula, no hay nada que ordenar
+
+    t_node *sorted = NULL;
+    t_node *current = *head;
+
+    while (current != NULL)
+    {
+        t_node *next = current->next;
+
+        if (sorted == NULL || sorted->value > current->value)
+        {
+            current->next = sorted;
+            current->previous = NULL;
+            if (sorted != NULL)
+                sorted->previous = current;
+            sorted = current;
+        }
+        else
+        {
+            t_node *temp = sorted;
+            while (temp->next != NULL && temp->next->value < current->value)
+                temp = temp->next;
+            current->next = temp->next;
+            if (temp->next != NULL)
+                temp->next->previous = current;
+            temp->next = current;
+            current->previous = temp;
+        }
+
+        current = next;
+    }
+
+    *head = sorted;
+}
+
