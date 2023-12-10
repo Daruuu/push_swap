@@ -6,16 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/09 21:30:33 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/09 22:44:14 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
- * function to order stack in order of value
- * TODO: function to remake with other way
-*/
 
 void	sort_stack_per_value(t_node **head_ref)
 {
@@ -54,7 +49,6 @@ void	sort_stack_per_value(t_node **head_ref)
 	}
 	*head_ref = sort_stack;
 }
-
 /*
 void	sort_stack_per_value(t_stack *head_ref)
 {

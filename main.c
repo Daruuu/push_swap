@@ -6,12 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 18:11:47 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/25 13:43:57 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/09 22:48:24 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//#include <stdio.h>
 
 /*
  * example input:
