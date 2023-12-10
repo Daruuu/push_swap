@@ -6,88 +6,72 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/09 22:44:14 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:37:25 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_stack_per_value(t_node **head_ref)
+// Set indexes in the pieces
+void	set_index_in_stack(t_node **head_ref)
 {
-	t_node	*sort_stack;
-	t_node	*current_node;
-	t_node	*next_node;
-	t_node	*tmp;
+	t_node *current;
+	t_node *others;
+	int new_index;
 
-	if (head_ref == NULL || *head_ref == NULL )
-		return ;
-	sort_stack = NULL;
-	current_node = *head_ref;
-	while (current_node != NULL)
+	current = *head_ref;
+	others = current;
+	while(current)
 	{
-		next_node = current_node->next;
-		if (sort_stack == NULL || sort_stack->value > current_node->value)
+		new_index = 0;
+		while(others)
 		{
-			current_node->next = sort_stack;
-			current_node->previous = NULL;
-			if (sort_stack != NULL)
-				sort_stack->previous = current_node;
-			sort_stack = current_node;
+			if(others->value < current->value)
+				new_index++;
+			others = others->next;
 		}
-		else
-		{
-			tmp = sort_stack;
-			while (tmp->next != NULL && tmp->next->value < current_node->value)
-				tmp = tmp->next;
-			current_node->next = tmp->next;
-			if (tmp->next != NULL)
-				tmp->next->previous = current_node;
-			tmp->next = current_node;
-			current_node->previous = tmp;
-		}
-		current_node = next_node;
+		current->index = new_index;
+		others = *head_ref;
+		current = current->next;
 	}
-	*head_ref = sort_stack;
 }
-/*
-void	sort_stack_per_value(t_stack *head_ref)
-{
-	t_node	*sort_stack;
-	t_node	*current_node;
-	t_node	*next_node;
-	t_node	*tmp;
+// void	sort_stack_per_value(t_node **head_ref)
+// {
+// 	t_node	*sort_stack;
+// 	t_node	*current_node;
+// 	t_node	*next_node;
+// 	t_node	*tmp;
 
-	if (head_ref == NULL || head_ref->first == NULL )
-		return ;
-	sort_stack = NULL;
-	current_node = head_ref->first;
-	next_node = current_node->next;
-	while (current_node != NULL)
-	{
-		if (sort_stack == NULL || sort_stack->value > current_node->value)
-		{
-			current_node->next = sort_stack;
-			current_node->previous = NULL;
-			if (sort_stack != NULL)
-				sort_stack->previous = current_node;
-			sort_stack = current_node;
-		}
-		else
-		{
-			tmp = sort_stack;
-			while (tmp->next != NULL && tmp->next->value < current_node->value)
-				tmp = tmp->next;
-			current_node->next = tmp->next;
-			if (tmp->next != NULL)
-				tmp->next->previous = current_node;
-			tmp->next = current_node;
-			current_node->previous = tmp;
-		}
-		current_node = next_node;
-	}
-	head_ref->first = sort_stack;
-}
-*/
+// 	if (head_ref == NULL || *head_ref == NULL )
+// 		return ;
+// 	sort_stack = NULL;
+// 	current_node = *head_ref;
+// 	while (current_node != NULL)
+// 	{
+// 		next_node = current_node->next;
+// 		if (sort_stack == NULL || sort_stack->value > current_node->value)
+// 		{
+// 			current_node->next = sort_stack;
+// 			current_node->previous = NULL;
+// 			if (sort_stack != NULL)
+// 				sort_stack->previous = current_node;
+// 			sort_stack = current_node;
+// 		}
+// 		else
+// 		{
+// 			tmp = sort_stack;
+// 			while (tmp->next != NULL && tmp->next->value < current_node->value)
+// 				tmp = tmp->next;
+// 			current_node->next = tmp->next;
+// 			if (tmp->next != NULL)
+// 				tmp->next->previous = current_node;
+// 			tmp->next = current_node;
+// 			current_node->previous = tmp;
+// 		}
+// 		current_node = next_node;
+// 	}
+// 	*head_ref = sort_stack;
+// }
 /*
 void	ft_swap(int *a, int *b)
 {

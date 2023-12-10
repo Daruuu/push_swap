@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/09 21:33:00 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:33:35 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ t_stack	fill_linked_list(int argc, char **argv);
 void	print_stack(int argc, char **argv);
 int		ft_lst_size(t_node *lst);
 int		ft_atoi(const char *str);
-void	sort_stack_per_value(t_node **head_ref);
+void	set_index_in_stack(t_node **head_ref);
 
 #endif

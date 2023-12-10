@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/03 08:42:57 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:42:51 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,44 @@ int	check_duplicate_number(int argc, char **argv)
 int	check_range_number(char **argv)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	while (argv[1][i] != '\0')
+	j = 1;
+	while (argv[j])
 	{
-		if (argv[1][i] >= '0' && argv[1][i] <= '9')
-			return (1);
-		i++;
+		i = 0;
+		if (argv[j][i] == '\0')
+			return (0);
+		while (argv[j][i])
+		{
+			if (!(argv[j][i] >= '0' && argv[j][i] <= '9'))
+				return (0);
+			i++;
+		}
+		j++;
 	}
-	return (0);
+	return (1);
+}
+
+int	check_negative_number(char **argv)
+{
+	int	i;
+	int	j;
+
+	j = 1;
+	while (argv[j])
+	{
+		i = 0;
+		while (argv[j][i])
+		{
+			if ((argv[j][i] != '-') || ((argv[j][i] == '-')
+					&& (argv[j][i + 1] == '-')))
+				return (0);
+			i++;
+		}
+		j++;
+	}
+	return (1);
 }
 
 void	check_all_input(int argc, char **argv)
@@ -55,14 +84,19 @@ void	check_all_input(int argc, char **argv)
 		write(1, "error argc\n", 11);
 	else
 	{
-		if (!(check_range_number(argv)))
+		if ((check_range_number(argv)))
 		{
-			write(1, "error check\n", 12);
+			write(1, "error range number\n", 12);
 			exit(EXIT_FAILURE);
 		}
 		else if (!(check_duplicate_number(argc, argv)))
 		{
-			write(1, "numero repetido\n", 15);
+			write(1, "numero duplicado\n", 17);
+			exit(EXIT_FAILURE);
+		}
+		else if (check_negative_number(argv))
+		{
+			write(1, "numero negativo\n", 16);
 			exit(EXIT_FAILURE);
 		}
 		else
