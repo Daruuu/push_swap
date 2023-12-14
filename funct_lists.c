@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:08:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/11/26 20:26:20 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:34:51 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_lista	*ft_lstnew(void *content)
 {
 	t_lista	*new_list;
 
+	new_list = NULL;
 	if (!(new_list == (t_lista*) malloc(sizeof(*new_list))))
 		return (NULL);
 	new_list->content = content;
