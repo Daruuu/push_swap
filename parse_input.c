@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/30 15:59:00 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/31 19:06:14 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
  * this is function execute after fill the list with the argv
 */
 
+/*
 void	print_stack(int argc, char **argv)
 {
 	t_stack	stack_a;
@@ -31,7 +32,7 @@ void	print_stack(int argc, char **argv)
 		printf("index: [%d] -> value: %d\n", current->index, current->value);
 	}
 }
-/*
+*/
 void	print_stack(int argc, char **argv)
 {
 	t_stack	stack_a;
@@ -44,7 +45,7 @@ void	print_stack(int argc, char **argv)
 		current = current->next;
 	}
 }
-*/
+
 
 /*
  * funct to fill stack a with argv

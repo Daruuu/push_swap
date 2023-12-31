@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/30 15:24:56 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/12/31 19:26:05 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	check_duplicate_number(int argc, char **argv)
 	return (1);
 }
 
+//TODO: error en esta funcion con el rango megativo
 int	check_range_number(char **argv)
 {
 	int	i;
@@ -46,12 +47,13 @@ int	check_range_number(char **argv)
 		while (argv[j][i])
 		{
 			if (!(argv[j][i] >= '0' && argv[j][i] <= '9'))
-				return (0);
+			//if ((argv[j][i] < '0' && argv[j][i] > '9'))
+				return (1);
 			i++;
 		}
 		j++;
 	}
-	return (1);
+	return (0);
 }
 
 int	check_negative_number(char **argv)
@@ -84,9 +86,9 @@ void	check_all_input(int argc, char **argv)
 		write(1, "error argc\n", 11);
 	else
 	{
-		if ((check_range_number(argv)))
+		if (check_range_number(argv))
 		{
-			write(1, "error range number\n", 12);
+			write(1, "error range number\n", 20);
 			exit(EXIT_FAILURE);
 		}
 		else if (!(check_duplicate_number(argc, argv)))
