@@ -6,13 +6,13 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/31 19:26:05 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/01/03 19:26:41 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_duplicate_number(int argc, char **argv)
+int	has_duplicated_numbers(int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -24,16 +24,16 @@ int	check_duplicate_number(int argc, char **argv)
 		while (j < argc)
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				return (0);
+				return (TRUE);
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (FALSE);
 }
 
 //TODO: error en esta funcion con el rango megativo
-int	check_range_number(char **argv)
+int	has_invalid_characters(char **argv)
 {
 	int	i;
 	int	j;
@@ -43,20 +43,19 @@ int	check_range_number(char **argv)
 	{
 		i = 0;
 		if (argv[j][i] == '\0')
-			return (0);
+			return (FALSE);
 		while (argv[j][i])
 		{
-			if (!(argv[j][i] >= '0' && argv[j][i] <= '9'))
-			//if ((argv[j][i] < '0' && argv[j][i] > '9'))
-				return (1);
+			if (!(argv[j][i] >= '0' && argv[j][i] <= '9') && argv[j][i] != '-')
+				return (TRUE);
 			i++;
 		}
 		j++;
 	}
-	return (0);
+	return (FALSE);
 }
 
-int	check_negative_number(char **argv)
+int	has_duplicated_negative_sign(char **argv)
 {
 	int	i;
 	int	j;
@@ -67,38 +66,34 @@ int	check_negative_number(char **argv)
 		i = 0;
 		while (argv[j][i])
 		{
-			if ((argv[j][i] != '-') || ((argv[j][i] == '-')
-					&& (argv[j][i + 1] == '-')))
-				return (0);
+			if (((argv[j][i] == '-') && (argv[j][i + 1] == '-')))
+				return (TRUE);
 			i++;
 		}
 		j++;
 	}
-	return (1);
+	return (FALSE);
 }
 
 void	check_all_input(int argc, char **argv)
 {
-	int	i;
-
-	i = 0;
 	if (argc < 2)
 		write(1, "error argc\n", 11);
 	else
 	{
-		if (check_range_number(argv))
+		if (has_invalid_characters(argv))
 		{
-			write(1, "error range number\n", 20);
+			write(1, "invalid character\n", 19);
 			exit(EXIT_FAILURE);
 		}
-		else if (!(check_duplicate_number(argc, argv)))
+		else if (has_duplicated_numbers(argc, argv))
 		{
-			write(1, "numero duplicado\n", 17);
+			write(1, "duplicated number\n", 17);
 			exit(EXIT_FAILURE);
 		}
-		else if (check_negative_number(argv))
+		else if (has_duplicated_negative_sign(argv))
 		{
-			write(1, "numero negativo\n", 16);
+			write(1, "double negative sign\n", 20);
 			exit(EXIT_FAILURE);
 		}
 		else

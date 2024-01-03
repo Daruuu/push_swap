@@ -6,12 +6,14 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/10 20:33:35 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/01/03 18:26:07 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define TRUE 1
+# define FALSE 0
 
 # include <limits.h>
 # include <stdlib.h>
