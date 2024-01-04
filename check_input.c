@@ -6,13 +6,13 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/03 19:26:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:46:15 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	has_duplicated_numbers(int argc, char **argv)
+static int	has_duplicated_numbers(int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -32,8 +32,7 @@ int	has_duplicated_numbers(int argc, char **argv)
 	return (FALSE);
 }
 
-//TODO: error en esta funcion con el rango megativo
-int	has_invalid_characters(char **argv)
+static int	has_invalid_characters(char **argv)
 {
 	int	i;
 	int	j;
@@ -55,7 +54,7 @@ int	has_invalid_characters(char **argv)
 	return (FALSE);
 }
 
-int	has_duplicated_negative_sign(char **argv)
+static int	has_duplicated_negative_sign(char **argv)
 {
 	int	i;
 	int	j;
