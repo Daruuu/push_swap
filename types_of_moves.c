@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   diff_sort_options.c                                :+:      :+:    :+:   */
+/*   types_of_moves.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/05 18:28:55 by dasalaza         ###   ########.fr       */
+/*   Created: 2024/01/05 19:36:51 by dasalaza          #+#    #+#             */
+/*   Updated: 2024/01/05 23:03:49 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three_numbers(t_stack **stack_a)
+//SA
+//swap between 2 nodes
+
+void	swap_a(t_node **head_ref)
 {
-	if (*stack_a->value > *stack_a->next)
+	int	counter;
+
+	counter = 0;
+	if (*head_ref == NULL)
 	{
+		write(1,"error\n", 6);
+		counter++;
 
 	}
-
-}
-
-void	ft_select_input()
-{
 
 }
