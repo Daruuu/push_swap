@@ -6,13 +6,13 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:56:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/03 20:02:33 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/01/15 19:15:43 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	number_out_of_range(long long *result)
+static void	number_out_of_range(long long *result)
 {
 	if (*result > INT_MAX || *result < INT_MIN)
 	{
