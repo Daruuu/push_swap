@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/05 21:56:22 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/01/16 20:47:33 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define PUSH_SWAP_H
 # define TRUE 1
 # define FALSE 0
+# include "incl/libft/libft.h"
+# include "incl/printf/ft_printf.h"
 
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-/*# include "srcs/src_libft/libft.h"*/
 
 typedef struct s_node
 {
@@ -32,7 +33,7 @@ typedef struct s_stack
 {
 	int				len;
 	struct s_node	*first;
-}			t_stack;	
+}			t_stack;
 
 void	check_all_input(int argc, char **argv);
 t_stack	fill_linked_list(int argc, char **argv);

@@ -1,9 +1,7 @@
-
 CC =		cc
 CFLAGS =	-Wall -Wextra -Werror
 
 RM =		rm -f
-
 LIB =		ar rc
 
 NAME =		libftprintf.a
@@ -27,7 +25,6 @@ $(NAME):	$(OBJS)
 
 clean:
 			$(RM) $(OBJS)
-
 fclean:		clean
 			$(RM) $(NAME)
 

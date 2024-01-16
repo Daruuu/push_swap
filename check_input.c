@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/15 18:46:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/01/16 20:49:02 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,10 @@ static int	has_duplicated_negative_sign(char **argv)
 	return (FALSE);
 }
 
-/*
-void	ft_error()
-{
-	free();
-	ft_pri
-}
-*/
-
 void	check_all_input(int argc, char **argv)
 {
 	if (argc < 2)
-		write(1, "error argc\n", 11);
+		ft_printf("error argc test\n");
 	else
 	{
 		if (has_invalid_characters(argv))
