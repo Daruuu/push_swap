@@ -1,10 +1,7 @@
+NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-RM = rm -f
-
 ARC = ar rcs
-
-NAME = libft.a
 HEADER = libft.h
 
 SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
@@ -22,23 +19,25 @@ SRCS_PRINTF = ft_printf.c ft_put_ptr.c ft_put_uint_nbr.c ft_putchar_n.c \
 			  ft_puthexa_nbr.c ft_putnbr_n.c ft_putstr.c
 
 SOURCES = $(addprefix libft/, $(SRC)) \
-		  		$(addprefix printf/, $(SRCS_PRINTF)) 
-OBJS = $(SOURCES:.c=.o)
-DEPS = $(SOURCES:.c= .d)
+		  $(addprefix printf/, $(SRCS_PRINTF)) 
 
-# Metodo Implicito
-%.o:%.c 	$(HEADER) Makefile
-			@echo "He compilado perroooo!!! 😎 $@"
-			$(CC) -MMD -c $(CFLAGS) $< -o $@
+OBJS = $(SOURCES:.c=.o)
+DEPS = $(SOURCES:.c=.d)
 
 all: 		$(NAME)
 
-$(NAME): 	$(OBJS) $(HEADER)
+# Metodo Implicito
+%.o:%.c 	$(HEADER) #Makefile
+			@echo "He compilado perroooo!!! 😎 $@"
+			$(CC) -MMD -c $(CFLAGS) $< -o $@
+
+$(NAME): 	$(OBJS)
 			@echo "\nLinking ... $@\n"
-			$(ARC) $(NAME) $(OBJS)
+			$(ARC) ${NAME} ${OBJS}
+			@echo "\nHecho!\n"
 
 clean:
-			@rm -rf $(OBJS) $(OBJS) $(DEPS) $(DEPS)
+			@rm -rf $(OBJS) $(DEPS)
 			@printf "removed objects (.o) & deps (.d)!\n"
 
 fclean: 	clean
@@ -47,6 +46,6 @@ fclean: 	clean
 
 re:			fclean all
 
--include $(DEPS) $(DEPS)
+-include $(DEPS)
 
 .PHONY: all clean fclean re
