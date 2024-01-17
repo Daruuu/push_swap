@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/12/31 19:06:14 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/01/17 19:41:25 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	print_stack(int argc, char **argv)
 		current = current->next;
 	}
 }
-
 
 /*
  * funct to fill stack a with argv

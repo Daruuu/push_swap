@@ -8,7 +8,7 @@ RM = 	rm -f
 LIBFTDIR = 		incl/libft/libft.a
 LIBPRINTFDIR = 	incl/printf/libftprintf.a
 
-SRCS = push_swap.c check_input.c  
+SRCS = check_input.c fill_linked_list.c \ 
 
 OBJS = $(SRCS:.c=.o)
 
@@ -16,11 +16,11 @@ all: ${NAME}
 
 %.o: %.c	${HEADER} Makefile
 			make -C ${LIBFTDIR}
+			make -C ${LIBPRINTFDIR}
 			${CC} ${CFLAGS} ${OBJS} -o ${NAME} ${INCLUDE}
 
 fclean: clean
 		$(RM) $(NAME)
-
 clean:
 		$(RM) $(OBJS)
 		@cd ${LIBFTDIR} && ${MAKE} clean

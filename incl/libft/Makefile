@@ -18,24 +18,35 @@ SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 		ft_strmapi.c ft_striteri.c \
 	   	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 
-OBJS = $(SRCS:.c=.o)
+SRCS_PRINTF = ft_printf.c ft_put_ptr.c ft_put_uint_nbr.c ft_putchar_n.c \
+			  ft_puthexa_nbr.c ft_putnbr_n.c ft_putstr.c
+
+SOURCES = $(addprefix libft/, $(SRC)) \
+		  		$(addprefix printf/, $(SRCS_PRINTF)) 
+OBJS = $(SOURCES:.c=.o)
+DEPS = $(SOURCES:.c= .d)
 
 # Metodo Implicito
 %.o:%.c 	$(HEADER) Makefile
-			$(CC) $(CFLAGS) -c $< -o $@
+			@echo "He compilado perroooo!!! 😎 $@"
+			$(CC) -MMD -c $(CFLAGS) $< -o $@
 
 all: 		$(NAME)
 
-$(NAME): 	$(OBJS)
+$(NAME): 	$(OBJS) $(HEADER)
+			@echo "\nLinking ... $@\n"
 			$(ARC) $(NAME) $(OBJS)
 
 clean:
-			$(RM) $(OBJS)
+			@rm -rf $(OBJS) $(OBJS) $(DEPS) $(DEPS)
+			@printf "removed objects (.o) & deps (.d)!\n"
 
 fclean: 	clean
-			$(RM) $(NAME)
-			$(RM) $(bonus)
+			@rm -rf $(NAME)
+			@printf "Removed libft.a!\n"
 
 re:			fclean all
+
+-include $(DEPS) $(DEPS)
 
 .PHONY: all clean fclean re

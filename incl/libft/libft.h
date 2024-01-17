@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 00:15:18 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/16 19:28:50 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/01/17 19:57:09 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <errno.h>
+# include <ctype.h>
+# include <stdlib.h>
+# include <stdarg.h>
+# include <fcntl.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -58,5 +63,15 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+	/*	MY PRINTF	*/
+
+int				ft_printf(char const *format, ...);
+int				ft_putchar_n(char c, int *counter_len);
+void			ft_putstr(char *str, int *counter_len);
+void			ft_putnbr_n(int nbr, int *counter_len);
+void			ft_put_uint_nbr(unsigned int nbr, int *counter_len);
+void			ft_puthexa_nbr(int nbr, int *counter_len, char *base);
+void			ft_put_ptr(unsigned long nbr, int *counter_len);
 
 #endif
