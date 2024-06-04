@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/17 19:41:01 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/04 22:12:04 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define TRUE 1
 # define FALSE 0
 # include "incl/libft/libft.h"
-# include "incl/printf/ft_printf.h"
+# include "incl/libft/printf/ft_printf.h"
 
 # include <limits.h>
 # include <stdlib.h>
