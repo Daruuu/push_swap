@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/17 19:35:06 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/05 10:36:03 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ static int	has_duplicated_negative_sign(char **argv)
 void	check_all_input(int argc, char **argv)
 {
 	if (argc < 2)
-		//ft_printf("error argc test\n");
 		write(1, "error argc test\n", 17);
 	else
 	{

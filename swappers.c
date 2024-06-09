@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/17 19:45:53 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:09:53 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 // Set indexes in the pieces
 void	set_index_in_stack(t_node **head_ref)
 {
-	t_node *current;
-	t_node *others;
-	int new_index;
+	t_node	*current;
+	t_node	*others;
+	int		new_index;
 
 	current = *head_ref;
 	others = current;
-	while(current)
+	while (current)
 	{
 		new_index = 0;
-		while(others)
+		while (others)
 		{
-			if(others->value < current->value)
+			if (others->value < current->value)
 				new_index++;
 			others = others->next;
 		}
@@ -60,16 +60,16 @@ void	swap_nodes(t_node *node_a, t_node *node_b)
 	node_b->index = temp_index;
 	node_b->value = temp_value;
 }
-/*
- * function if input list are sorted, finish the program 
-*/
 
 /*
+ * function if input list are sorted,
+ * finish the program 
+*/
 void	if_stack_is_sorted(t_stack *stack_input)
 {
+	if ()
 
 }
-*/
 
 /*
  void	sort_stack_per_value(t_node **head_ref)
