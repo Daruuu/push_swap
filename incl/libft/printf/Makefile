@@ -2,7 +2,6 @@ CC =		cc
 CFLAGS =	-Wall -Wextra -Werror
 
 RM =		rm -f
-
 LIB =		ar rc
 
 NAME =		libftprintf.a

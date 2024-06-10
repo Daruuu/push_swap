@@ -11,6 +11,7 @@ LIBPRINTFDIR = 	incl/libft/printf
 SRCS=	check_input.c \
 		parse_input.c utils_functions.c \
 		divide_stack.c swappers.c \
+		main.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -20,16 +21,16 @@ all: ${NAME}
 	${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}: $(OBJS)
-	make -C ${LIBFTDIR}
-	make -C ${LIBPRINTFDIR}
-	${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME}
+		make -C ${LIBFTDIR}
+		make -C ${LIBPRINTFDIR}
+		${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME}
 
 fclean: clean
 	$(RM) $(NAME)
 
 clean:
 	$(RM) $(OBJS)
-	@cd ${LIBFTDIR} && ${MAKE} clean
+	cd ${LIBFTDIR} && ${MAKE} clean
 	@cd ${LIBPRINTFDIR} && ${MAKE} clean
 
 re: fclean all
