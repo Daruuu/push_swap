@@ -1,7 +1,10 @@
-NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-ARC = ar rcs
+RM = rm -f
+
+LIB = ar rc
+
+NAME = libft.a
 HEADER = libft.h
 
 SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
@@ -11,41 +14,34 @@ SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	   	ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
 	   	ft_atoi.c \
 		ft_strdup.c ft_calloc.c \
-	   	ft_substr.c ft_strjoin.c ft_strtrim.c \
-		ft_strmapi.c ft_striteri.c \
-	   	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+	   	ft_substr.c ft_strjoin.c ft_strtrim.c\
+		ft_itoa.c ft_strmapi.c ft_striteri.c \
+	   	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-SRCS_PRINTF = ft_printf.c ft_put_ptr.c ft_put_uint_nbr.c ft_putchar_n.c \
-			  ft_puthexa_nbr.c ft_putnbr_n.c ft_putstr.c
+BONUS_SRCS	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+				ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+				ft_lstmap.c
 
-SOURCES = $(addprefix libft/, $(SRC)) \
-		  $(addprefix printf/, $(SRCS_PRINTF)) 
+OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-OBJS = $(SOURCES:.c=.o)
-DEPS = $(SOURCES:.c=.d)
+%.o:%.c 	$(HEADER) Makefile
+			$(CC) $(CFLAGS) -c $< -o $@
 
 all: 		$(NAME)
 
-# Metodo Implicito
-%.o:%.c 	$(HEADER) #Makefile
-			@echo "He compilado perroooo!!! 😎 $@"
-			$(CC) -MMD -c $(CFLAGS) $< -o $@
-
 $(NAME): 	$(OBJS)
-			@echo "\nLinking ... $@\n"
-			$(ARC) ${NAME} ${OBJS}
-			@echo "\nHecho!\n"
+			$(LIB) $(NAME) $(OBJS)
+
+bonus:		$(OBJS) $(BONUS_OBJS)
+			$(LIB) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 clean:
-			@rm -rf $(OBJS) $(DEPS)
-			@printf "removed objects (.o) & deps (.d)!\n"
+			$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: 	clean
-			@rm -rf $(NAME)
-			@printf "Removed libft.a!\n"
+			$(RM) $(NAME)
 
 re:			fclean all
 
--include $(DEPS)
-
-.PHONY: all clean fclean re
+.PHONY:		all bonus clean fclean re

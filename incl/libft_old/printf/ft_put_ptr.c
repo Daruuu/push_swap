@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa_nbr.c                                   :+:      :+:    :+:   */
+/*   ft_put_ptr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 17:36:42 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/01 20:55:09 by dasalaza         ###   ########.fr       */
+/*   Created: 2023/09/30 01:02:04 by dasalaza          #+#    #+#             */
+/*   Updated: 2023/10/01 17:51:25 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puthexa_nbr(int nbr, int *counter_len, char *base)
+static void	ft_print_ptr(unsigned long nbr, int *count)
 {
-	unsigned int	unbr;
+	char	*base;
 
-	unbr = (unsigned int) nbr;
-	if (unbr >= 16 && *counter_len != -1)
+	base = "0123456789abcdef";
+	if (*count != -1)
 	{
-		ft_puthexa_nbr(unbr / 16, counter_len, base);
+		if (nbr >= 16 && *count != -1)
+			ft_print_ptr(nbr / 16, count);
+		if (*count != -1 && ft_putchar_n(base[nbr % 16], count) == -1)
+			*count = -1;
 	}
-	if (*counter_len != -1 && ft_putchar_n(base[unbr % 16], counter_len) == -1)
-	{
-		*counter_len = -1;
-	}
+}
+
+void	ft_put_ptr(unsigned long nbr, int *counter_len)
+{
+	ft_putstr("0x", counter_len);
+	ft_print_ptr(nbr, counter_len);
 }

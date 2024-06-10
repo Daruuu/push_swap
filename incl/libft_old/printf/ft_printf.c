@@ -6,14 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 18:19:20 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/01 23:21:31 by dasalaza         ###   ########.fr       */
+/*   Updated: 2023/10/02 20:36:35 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
- * funcion variadica
-*/
 
 static void	check_type_input(char format, va_list args, int *counter_len)
 {

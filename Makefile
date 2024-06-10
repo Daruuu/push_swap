@@ -5,26 +5,33 @@ CFLAGS = -Wall -Wextra -Werror
 CC = 	cc
 RM = 	rm -f
 
-LIBFTDIR = 		incl/libft/libft.a
-LIBPRINTFDIR = 	incl/printf/libftprintf.a
+LIBFTDIR = 		incl/libft
+LIBPRINTFDIR = 	incl/libft/printf
 
-SRCS = check_input.c fill_linked_list.c \ 
+SRCS=	check_input.c \
+		parse_input.c utils_functions.c \
+		divide_stack.c swappers.c \
 
 OBJS = $(SRCS:.c=.o)
 
 all: ${NAME}
 
-%.o: %.c	${HEADER} Makefile
-			make -C ${LIBFTDIR}
-			make -C ${LIBPRINTFDIR}
-			${CC} ${CFLAGS} ${OBJS} -o ${NAME} ${INCLUDE}
+%.o: %.c ${HEADER} Makefile
+	${CC} ${CFLAGS} -c $< -o $@
+
+${NAME}: $(OBJS)
+	make -C ${LIBFTDIR}
+	make -C ${LIBPRINTFDIR}
+	${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME}
 
 fclean: clean
-		$(RM) $(NAME)
+	$(RM) $(NAME)
+
 clean:
-		$(RM) $(OBJS)
-		@cd ${LIBFTDIR} && ${MAKE} clean
-		@cd ${LIBPRINTFDIR} && ${MAKE} clean
+	$(RM) $(OBJS)
+	@cd ${LIBFTDIR} && ${MAKE} clean
+	@cd ${LIBPRINTFDIR} && ${MAKE} clean
 
 re: fclean all
+
 .PHONY: all clean fclean re

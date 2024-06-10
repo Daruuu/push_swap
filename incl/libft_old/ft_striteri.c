@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa_nbr.c                                   :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 17:36:42 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/01 20:55:09 by dasalaza         ###   ########.fr       */
+/*   Created: 2023/09/13 22:52:11 by dasalaza          #+#    #+#             */
+/*   Updated: 2023/09/14 00:00:00 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_puthexa_nbr(int nbr, int *counter_len, char *base)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int	unbr;
+	unsigned int	i;
 
-	unbr = (unsigned int) nbr;
-	if (unbr >= 16 && *counter_len != -1)
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		ft_puthexa_nbr(unbr / 16, counter_len, base);
-	}
-	if (*counter_len != -1 && ft_putchar_n(base[unbr % 16], counter_len) == -1)
-	{
-		*counter_len = -1;
+		f(i, &s[i]);
+		i++;
 	}
 }

@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa_nbr.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 17:36:42 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/01 20:55:09 by dasalaza         ###   ########.fr       */
+/*   Created: 2023/09/13 18:20:49 by dasalaza          #+#    #+#             */
+/*   Updated: 2023/09/13 21:07:11 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_puthexa_nbr(int nbr, int *counter_len, char *base)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	unbr;
+	char	digit;
 
-	unbr = (unsigned int) nbr;
-	if (unbr >= 16 && *counter_len != -1)
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		ft_puthexa_nbr(unbr / 16, counter_len, base);
+		write (fd, "-", 1);
+		n = n * -1;
+		ft_putnbr_fd(n, fd);
 	}
-	if (*counter_len != -1 && ft_putchar_n(base[unbr % 16], counter_len) == -1)
+	else if (n > 9)
 	{
-		*counter_len = -1;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else if (n < 10)
+	{
+		digit = '0' + n;
+		write (fd, &digit, 1);
 	}
 }

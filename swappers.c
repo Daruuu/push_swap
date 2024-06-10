@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/05 11:09:53 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:25:05 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,16 @@ void	swap_nodes(t_node *node_a, t_node *node_b)
  * function if input list are sorted,
  * finish the program 
 */
-void	if_stack_is_sorted(t_stack *stack_input)
+/*
+void	if_stack_is_sorted(char **av)
 {
-	if ()
+	int	i;
+	int	j;
+
+	i = 0;
 
 }
-
+*/
 /*
  void	sort_stack_per_value(t_node **head_ref)
  {

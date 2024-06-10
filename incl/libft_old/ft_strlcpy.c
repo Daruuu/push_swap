@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa_nbr.c                                   :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 17:36:42 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/01 20:55:09 by dasalaza         ###   ########.fr       */
+/*   Created: 2023/09/11 17:48:53 by dasalaza          #+#    #+#             */
+/*   Updated: 2023/09/11 18:16:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_puthexa_nbr(int nbr, int *counter_len, char *base)
+static int	ft_new_strlen(const char *src)
 {
-	unsigned int	unbr;
+	int	i;
 
-	unbr = (unsigned int) nbr;
-	if (unbr >= 16 && *counter_len != -1)
+	i = 0;
+	while (src[i] != '\0')
+		i++;
+	return (i);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	size_src;
+
+	i = 0;
+	size_src = ft_new_strlen(src);
+	if (dstsize == 0)
+		return (size_src);
+	while (src[i] != '\0' && i < (dstsize - 1))
 	{
-		ft_puthexa_nbr(unbr / 16, counter_len, base);
+		dst[i] = src[i];
+		i++;
 	}
-	if (*counter_len != -1 && ft_putchar_n(base[unbr % 16], counter_len) == -1)
-	{
-		*counter_len = -1;
-	}
+	dst[i] = '\0';
+	return (size_src);
 }

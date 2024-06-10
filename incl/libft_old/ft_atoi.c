@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa_nbr.c                                   :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 17:36:42 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/01 20:55:09 by dasalaza         ###   ########.fr       */
+/*   Created: 2023/09/11 15:56:14 by dasalaza          #+#    #+#             */
+/*   Updated: 2023/09/11 18:49:00 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void	ft_puthexa_nbr(int nbr, int *counter_len, char *base)
+int	ft_atoi(const char *str)
 {
-	unsigned int	unbr;
+	unsigned int	i;
+	int				signo;
+	int				result;
 
-	unbr = (unsigned int) nbr;
-	if (unbr >= 16 && *counter_len != -1)
+	i = 0;
+	signo = 1;
+	result = 0;
+	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		ft_puthexa_nbr(unbr / 16, counter_len, base);
+		if (str[i] == '-')
+			signo = -1;
+		i++;
 	}
-	if (*counter_len != -1 && ft_putchar_n(base[unbr % 16], counter_len) == -1)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		*counter_len = -1;
+		result = (result * 10) + (str[i] - '0');
+		i++;
 	}
+	return (signo * result);
 }

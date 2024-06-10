@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/17 19:41:25 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:24:34 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ void	print_stack(int argc, char **argv)
 void	print_stack(int argc, char **argv)
 {
 	t_stack	stack_a;
+	t_node	*current;
 
-	stack_a = fill_linked_list (argc, argv);
-	t_node	*current = stack_a.first;
+	current = NULL;
+	stack_a = fill_linked_list(argc, argv);
+	current = stack_a.first;
 	while (current != NULL)
 	{
 		printf("index: [%d] -> value: %d\n", current->index, current->value);
@@ -61,7 +63,7 @@ t_stack	fill_linked_list(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		value = ft_atoi(argv[i]);/* create a new node for the list */
+		value = ft_atoi(argv[i]);
 		new_node = malloc (sizeof(t_node));
 		if (!new_node)
 			write(1, "error fill linked list\n", 23);

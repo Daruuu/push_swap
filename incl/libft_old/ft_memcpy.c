@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa_nbr.c                                   :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 17:36:42 by dasalaza          #+#    #+#             */
-/*   Updated: 2023/10/01 20:55:09 by dasalaza         ###   ########.fr       */
+/*   Created: 2023/09/09 01:01:34 by dasalaza          #+#    #+#             */
+/*   Updated: 2023/09/10 04:02:24 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_puthexa_nbr(int nbr, int *counter_len, char *base)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned int	unbr;
+	size_t	i;
+	char	*ch_dst;
+	char	*ch_src;
 
-	unbr = (unsigned int) nbr;
-	if (unbr >= 16 && *counter_len != -1)
+	ch_dst = (char *) dst;
+	ch_src = (char *) src;
+	if (!dst && !src)
+		return (0);
+	i = 0;
+	while (i < n)
 	{
-		ft_puthexa_nbr(unbr / 16, counter_len, base);
+		ch_dst[i] = ch_src[i];
+		i++;
 	}
-	if (*counter_len != -1 && ft_putchar_n(base[unbr % 16], counter_len) == -1)
-	{
-		*counter_len = -1;
-	}
+	return ((void *)ch_dst);
 }
