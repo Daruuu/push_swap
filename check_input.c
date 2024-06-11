@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/05 10:36:03 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:39:20 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,26 @@ static int	has_duplicated_numbers(int argc, char **argv)
 		i++;
 	}
 	return (FALSE);
+}
+
+// CHECK IF STACK IS IN CORRECT SORTED
+// min number to max number
+
+static int	if_numbers_are_sorted(int ac, char **av)
+{
+	int	i;
+
+	i = 0;
+	if (ac == 2)
+	{
+		while (av[1][i] != '\0')
+		{
+			if (ft_atoi(&av[1][i]) > ft_atoi(&av[1][i + 1]))
+				return (FALSE);
+			i++;
+		}
+	}
+	return (TRUE);
 }
 
 static int	has_invalid_characters(char **argv)
@@ -76,26 +96,58 @@ static int	has_duplicated_negative_sign(char **argv)
 
 void	check_all_input(int argc, char **argv)
 {
-	if (argc < 2)
-		write(1, "error argc test\n", 17);
+	if (argc != 2)
+		ft_printf("error argc test\n");
 	else
 	{
 		if (has_invalid_characters(argv))
 		{
-			write(1, "invalid character\n", 19);
+			ft_printf("invalid character\n");
 			exit(EXIT_FAILURE);
 		}
 		else if (has_duplicated_numbers(argc, argv))
 		{
-			write(1, "duplicated number\n", 17);
+			ft_printf("duplicated number\n");
 			exit(EXIT_FAILURE);
 		}
 		else if (has_duplicated_negative_sign(argv))
 		{
-			write(1, "double negative sign\n", 20);
+			ft_printf("double negative sign\n");
 			exit(EXIT_FAILURE);
 		}
+		else if (if_numbers_are_sorted(argc, argv))
+			ft_printf("numeros ordenados\n");
 		else
-			write(1, "valid input\n", 12);
+			ft_printf("valid input\n");
 	}
 }
+
+/*
+void	check_all_input(int argc, char **argv)
+{
+	if (argc != 2)
+		ft_printf("error argc test\n");
+	else
+	{
+		if (has_invalid_characters(argv))
+		{
+			ft_printf("invalid character\n");
+			exit(EXIT_FAILURE);
+		}
+		else if (has_duplicated_numbers(argc, argv))
+		{
+			ft_printf("duplicated number\n");
+			exit(EXIT_FAILURE);
+		}
+		else if (has_duplicated_negative_sign(argv))
+		{
+			ft_printf("double negative sign\n");
+			exit(EXIT_FAILURE);
+		}
+		else if (if_numbers_are_sorted(argv))
+			ft_printf("numeros ordenados\n");
+		else
+			ft_printf("valid input\n");
+	}
+}
+*/

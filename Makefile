@@ -10,7 +10,7 @@ LIBPRINTFDIR = 	incl/libft/printf
 
 SRCS=	check_input.c \
 		parse_input.c utils_functions.c \
-		divide_stack.c swappers.c \
+		swappers.c \
 		main.c
 
 OBJS = $(SRCS:.c=.o)
@@ -30,7 +30,7 @@ fclean: clean
 
 clean:
 	$(RM) $(OBJS)
-	cd ${LIBFTDIR} && ${MAKE} clean
+	@cd ${LIBFTDIR} && ${MAKE} clean
 	@cd ${LIBPRINTFDIR} && ${MAKE} clean
 
 re: fclean all
