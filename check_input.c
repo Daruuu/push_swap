@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/11 18:39:20 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:53:48 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ static int	has_duplicated_negative_sign(char **argv)
 	return (FALSE);
 }
 
+/*
 void	check_all_input(int argc, char **argv)
 {
 	if (argc != 2)
@@ -121,7 +122,7 @@ void	check_all_input(int argc, char **argv)
 			ft_printf("valid input\n");
 	}
 }
-
+*/
 /*
 void	check_all_input(int argc, char **argv)
 {

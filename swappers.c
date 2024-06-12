@@ -6,13 +6,13 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/10 16:25:05 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:14:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Set indexes in the pieces
+// Set indexes in STACK
 void	set_index_in_stack(t_node **head_ref)
 {
 	t_node	*current;
