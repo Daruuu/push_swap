@@ -1,1 +1,5 @@
 cc main.c check_input.c parse_input.c push_swap.h utils_functions.c divide_stack.c swappers.c
+
+// TESTING WITH VALGRIND
+
+valgrind --leak-check=full ./a.out

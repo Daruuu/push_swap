@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/12 22:58:19 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:07:29 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,6 @@ static int	has_duplicated_numbers(int argc, char **argv)
 	return (FALSE);
 }
 
-// CHECK IF STACK IS IN CORRECT SORTED
-// min number to max number
-
-static int	if_numbers_are_sorted(int ac, char **av)
-{
-	int	i;
-
-	i = 0;
-	if (ac == 2)
-	{
-		while (av[1][i] != '\0')
-		{
-			if (ft_atoi(&av[1][i]) > ft_atoi(&av[1][i + 1]))
-				return (FALSE);
-			i++;
-		}
-	}
-	return (TRUE);
-}
-
 static int	has_invalid_characters(char **argv)
 {
 	int	i;
@@ -72,6 +52,35 @@ static int	has_invalid_characters(char **argv)
 		j++;
 	}
 	return (FALSE);
+}
+
+char	**split_arguments(int ac, char **av, int count_args)
+{
+	char	**split;
+	char	**result;
+	int		i;
+	int		j;
+
+	if (ac == 2)
+		split = ft_split(av[1], ' ');
+	else
+		return (av + 1);
+	i = 0;
+	while (split[i])
+		i++;
+	result = malloc(sizeof(char *) * (i + 1));
+	if (!result)
+		return (NULL);
+	j = 0;
+	while (j < i)
+	{
+		result[i] = split[j];
+		j++;
+	}
+	result[j] = NULL;
+	count_args = i;
+	free(split);
+	return (result);
 }
 
 static int	has_duplicated_negative_sign(char **argv)
@@ -95,34 +104,24 @@ static int	has_duplicated_negative_sign(char **argv)
 }
 
 /*
-void	check_all_input(int argc, char **argv)
+static int	if_numbers_are_sorted(int ac, char **av)
 {
-	if (argc != 2)
-		ft_printf("error argc test\n");
-	else
+	int	i;
+
+	i = 0;
+	if (ac == 2)
 	{
-		if (has_invalid_characters(argv))
+		while (av[1][i] != '\0')
 		{
-			ft_printf("invalid character\n");
-			exit(EXIT_FAILURE);
+			if (ft_atoi(&av[1][i]) > ft_atoi(&av[1][i + 1]))
+				return (FALSE);
+			i++;
 		}
-		else if (has_duplicated_numbers(argc, argv))
-		{
-			ft_printf("duplicated number\n");
-			exit(EXIT_FAILURE);
-		}
-		else if (has_duplicated_negative_sign(argv))
-		{
-			ft_printf("double negative sign\n");
-			exit(EXIT_FAILURE);
-		}
-		else if (if_numbers_are_sorted(argc, argv))
-			ft_printf("numeros ordenados\n");
-		else
-			ft_printf("valid input\n");
 	}
+	return (TRUE);
 }
 */
+
 /*
 void	check_all_input(int argc, char **argv)
 {

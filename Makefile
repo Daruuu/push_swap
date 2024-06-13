@@ -11,6 +11,7 @@ LIBPRINTFDIR = 	incl/libft/printf
 SRCS=	check_input.c \
 		parse_input.c utils_functions.c \
 		swappers.c \
+		ft_split.c \
 		main.c
 
 OBJS = $(SRCS:.c=.o)

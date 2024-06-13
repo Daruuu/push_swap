@@ -6,15 +6,15 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:02:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/12 23:35:36 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/13 11:23:14 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int is_valid_number(char *str)
+static int	is_valid_number(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '-' && str[i + 1] != '\0')
@@ -30,7 +30,7 @@ static int is_valid_number(char *str)
 
 static int	has_invalid_charecters(int count, char **av)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < count)
@@ -42,10 +42,13 @@ static int	has_invalid_charecters(int count, char **av)
 	return (FALSE);
 }
 
+/*
+ * 1 4 5 11 -1
+*/
 static int	has_duplicated_numbers(int ac, char **av)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < ac)
@@ -64,7 +67,7 @@ static int	has_duplicated_numbers(int ac, char **av)
 
 static int	if_numbers_are_sorted(int ac, char **av)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < ac -1)
@@ -76,12 +79,6 @@ static int	if_numbers_are_sorted(int ac, char **av)
 	return (TRUE);
 }
 
-/*
-void	check_all_input(int ac, char **av)
-{
-
-}
-*/
 void	check_all_input(int argc, char **argv)
 {
 	char	**args;
