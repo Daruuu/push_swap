@@ -8,11 +8,11 @@ RM = 	rm -f
 LIBFTDIR = 		incl/libft
 LIBPRINTFDIR = 	incl/libft/printf
 
-SRCS=	check_input.c \
-		parse_input.c utils_functions.c \
+SRCS=	check_input.c validations.c \
+		parse_input.c \
 		swappers.c \
 		ft_split.c \
-		main.c
+		push_swap.c
 
 OBJS = $(SRCS:.c=.o)
 

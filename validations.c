@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:02:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/13 11:23:14 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/16 00:01:58 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ static int	is_valid_number(char *str)
 	int	i;
 
 	i = 0;
-	if (str[i] == '-' && str[i + 1] != '\0')
+	if ((str[i] == '-' || str[i] == '+') && str[i + 1] != '\0')
 		i++;
 	while (str[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (ft_isdigit(str[i]))
 			return (TRUE);
 		i++;
 	}
 	return (FALSE);
 }
 
-static int	has_invalid_charecters(int count, char **av)
+static int	has_invalid_characters(int count, char **av)
 {
 	int	i;
 
@@ -41,7 +41,6 @@ static int	has_invalid_charecters(int count, char **av)
 	}
 	return (FALSE);
 }
-
 /*
  * 1 4 5 11 -1
 */
@@ -70,7 +69,7 @@ static int	if_numbers_are_sorted(int ac, char **av)
 	int	i;
 
 	i = 0;
-	while (i < ac -1)
+	while (i < ac - 1)
 	{
 		if (ft_atoi(av[i]) > ft_atoi(av[i + 1]))
 			return (FALSE);
@@ -79,16 +78,16 @@ static int	if_numbers_are_sorted(int ac, char **av)
 	return (TRUE);
 }
 
-void	check_all_input(int argc, char **argv)
+void	check_all_inputs(int ac, char **av)
 {
 	char	**args;
 	int		count;
 
-	args = split_arguments(argc, argv, &count);
-	if (count < 1)
+	args = split_arguments(ac, av, &count);
+	if (ac < 2)
 	{
-		ft_printf("error argc test\n");
-		return ;
+		ft_printf("error argc\n");
+		exit (EXIT_FAILURE);
 	}
 	if (has_invalid_characters(count, args))
 	{

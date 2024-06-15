@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/04 22:12:04 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/15 22:58:40 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,14 @@ typedef struct s_stack
 	struct s_node	*first;
 }		t_stack;
 
-void	check_all_input(int argc, char **argv);
+/*VALIDATIONS.C*/
+void	check_all_inputs(int ac, char **av);
+
+/*CHECK_INPUT.C*/
+char	**split_arguments(int ac, char **av, int *count_args);
+int		has_duplicated_negative_sign(char **av);
+
+
 t_stack	fill_linked_list(int argc, char **argv);
 void	print_stack(int argc, char **argv);
 

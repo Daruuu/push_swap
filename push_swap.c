@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:37 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/11 13:29:43 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/15 23:09:39 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@
  * CASE 2:
  * ARG="4 1 9 2"./push_swap $ARG | wc -l
 */
-/*
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-	check_all_input(argc, argv);
-	print_stack(argc, argv);
+	check_all_inputs(ac, av);
+	print_stack(ac, av);
 	return (0);
 }
-*/
 
 /*
     t_stack stack_a;
