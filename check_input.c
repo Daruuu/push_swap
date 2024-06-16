@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/15 22:49:45 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/16 16:47:15 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ char	**split_arguments(int ac, char **av, int *count_args)
 	if (ac == 2)
 		split = ft_split(av[1], ' ');
 	else
+	{
+		*count_args = ac - 1;
 		return (av + 1);
+	}
 	i = 0;
 	while (split[i])
 		i++;

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:02:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/16 00:01:58 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/16 16:45:34 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static int	is_valid_number(char *str)
 		i++;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]))
-			return (TRUE);
+		if (!ft_isdigit(str[i]))
+			return (FALSE);
 		i++;
 	}
-	return (FALSE);
+	return (1);
 }
 
 static int	has_invalid_characters(int count, char **av)
@@ -83,12 +83,12 @@ void	check_all_inputs(int ac, char **av)
 	char	**args;
 	int		count;
 
-	args = split_arguments(ac, av, &count);
 	if (ac < 2)
 	{
 		ft_printf("error argc\n");
 		exit (EXIT_FAILURE);
 	}
+	args = split_arguments(ac, av, &count);
 	if (has_invalid_characters(count, args))
 	{
 		ft_printf("invalid character\n");

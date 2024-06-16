@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:37 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/15 23:09:39 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/16 16:47:56 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 int	main(int ac, char **av)
 {
 	check_all_inputs(ac, av);
-	print_stack(ac, av);
+	//print_stack(ac, av);
 	return (0);
 }
 
