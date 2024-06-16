@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:37 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/16 16:47:56 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/16 20:53:58 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,4 @@ int	main(int ac, char **av)
         printf("Index: %d -> value: [%d]\n", current->index, current->value);
         current = current->next;
     }
-*/
-
-/*
-int	main(int ac, char **av)
-{
-	t_stack	*a;
-	t_stack	*b;
-
-	a = NULL;
-	b = NULL;
-
-	return(0);
-}
 */

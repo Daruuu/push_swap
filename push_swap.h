@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/15 22:58:40 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/16 20:50:56 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 typedef struct s_node
 {
-	int				value;
+	int				data;
 	int				index;
 	struct s_node	*next;
 	struct s_node	*previous;
@@ -32,7 +32,7 @@ typedef struct s_node
 typedef struct s_stack
 {
 	int				len;
-	struct s_node	*first;
+	struct s_node	*head;
 }		t_stack;
 
 /*VALIDATIONS.C*/

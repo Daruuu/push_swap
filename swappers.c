@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/16 00:22:19 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/16 20:57:00 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,45 +45,51 @@ void	swap_nodes(t_node *stack)
 	if (stack == NULL || stack->next == NULL)
 		return ;
 	// update value
-	temp_data = stack->value;
-	stack->value = stack->next->value;
-	stack->next->value = temp_data;
+	temp_data = stack->data;
+	stack->data = stack->next->data;
+	stack->next->data= temp_data;
 	// UPDATE INDEX;
 	temp_index = stack->index;
 	stack->index = stack->next->index;
 	stack->next->index = temp_index;
 }
 
+int	ft_size_stack(t_stack *stack)
+{
+	int		i;
+	t_node	*current_node;
+
+	current_node = stack->head;
+	i = 0;
+	while (current_node != NULL)
+	{
+		i++;
+		current_node = current_node->next;
+	}
+	stack->len = i;
+	return (i);
+}
+
 /*
  * function if input list are sorted,
  * finish the program 
 */
-/*
-void	if_stack_is_sorted_two_args(char **av)
+
+int	stack_is_sorted(struct s_stack *stack_a)
 {
-	int	i;
-	int	j;
+	t_node	*current;
 
-	i = 0;
-	while (av[1][i] != '\0')
+	if (stack_a == NULL || stack_a->head == NULL)
+		return (EXIT_FAILURE);
+	current = stack_a->head;
+	while (current != NULL)
 	{
-	}
-}
-
-int	if_stack_is_sorted_x_args(int ac, char *av)
-{
-	int	i;
-
-	i = 0;
-	while (i < ac - 1)
-	{
-		if (ft_atoi(av[i]) > ft_atoi(av[i + 1]))
+		if (current->data > current->next->data)
 			return (FALSE);
-		i++;
+		current = current->next;
 	}
 	return (TRUE);
 }
-*/
 
 /*
 void	sort_stack_per_value(t_node **head_ref)
