@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 21:27:19 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/15 23:08:54 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/17 22:55:41 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static char	**free_table(char **table, int i)
 	return (0);
 }
 */
-
 char	**ft_split(char const *s, char c)
 {
 	char	**table;

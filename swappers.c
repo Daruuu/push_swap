@@ -6,36 +6,18 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/16 20:57:00 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/17 23:05:53 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Set indexes in STACK*/
+/* */
+/*
 void	set_index_in_stack(t_node **head_ref)
 {
-	t_node	*current;
-	t_node	*others;
-	int		new_index;
-
-	current = *head_ref;
-	others = current;
-	while (current)
-	{
-		new_index = 0;
-		while (others)
-		{
-			if (others->value < current->value)
-				new_index++;
-			others = others->next;
-		}
-		current->index = new_index;
-		others = *head_ref;
-		current = current->next;
-	}
 }
-
+*/
 /* SWAP DATA AND INDEX OF NODES*/
 void	swap_nodes(t_node *stack)
 {
@@ -44,51 +26,71 @@ void	swap_nodes(t_node *stack)
 
 	if (stack == NULL || stack->next == NULL)
 		return ;
-	// update value
+	/* update value*/
 	temp_data = stack->data;
 	stack->data = stack->next->data;
 	stack->next->data= temp_data;
-	// UPDATE INDEX;
+	/* UPDATE INDEX */
 	temp_index = stack->index;
 	stack->index = stack->next->index;
 	stack->next->index = temp_index;
 }
 
-int	ft_size_stack(t_stack *stack)
+void	swap_a(t_node *stack_a)
 {
-	int		i;
-	t_node	*current_node;
-
-	current_node = stack->head;
-	i = 0;
-	while (current_node != NULL)
-	{
-		i++;
-		current_node = current_node->next;
-	}
-	stack->len = i;
-	return (i);
+	swap_nodes(stack_a);
 }
 
-/*
- * function if input list are sorted,
- * finish the program 
-*/
-
-int	stack_is_sorted(struct s_stack *stack_a)
+int	main(void)
 {
-	t_node	*current;
+	t_stack	*stack_a;
 
-	if (stack_a == NULL || stack_a->head == NULL)
-		return (EXIT_FAILURE);
-	current = stack_a->head;
-	while (current != NULL)
-	{
-		if (current->data > current->next->data)
-			return (FALSE);
-		current = current->next;
-	}
-	return (TRUE);
+	stack_a = (t_stack *) malloc(sizeof(t_stack));
+	if (!stack_a)
+		return (1);
+	stack_a->head = NULL;
+	
+	t_node	*node01;
+	t_node	*node02;
+	t_node	*node03;
+	t_node	*node04;
+	t_node	*node05;
+
+	node01 = (t_node *) malloc(sizeof(t_node));
+	node02 = (t_node *) malloc(sizeof(t_node));
+	node03 = (t_node *) malloc(sizeof(t_node));
+	node04 = (t_node *) malloc(sizeof(t_node));
+	node05 = (t_node *) malloc(sizeof(t_node));
+
+	node01->data = 1;
+	node01->next = NULL;
+	
+	node02->data = 6;
+	node02->next = NULL;
+
+	node03->data = 4;
+	node03->next = NULL;
+
+	node04->data = -1;
+	node04->next = NULL;
+
+	node05->data = 27;
+	node05->next = NULL;
+	
+	stack_a->head = node01;
+
+	node01->next = node02;
+	node02->next = node03;
+	node03->next = node04;
+	node04->next = node05;
+	int result = ft_size_stack(stack_a);
+	
+	printf("%d\n", result);
+	swap_a(stack_a->head);
+	printf("%i\n", stack_a->head->next->next);
+	printf("%d\n", stack_a->next->data);
+
+	return (0);
 }
 
 /*

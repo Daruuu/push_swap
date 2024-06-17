@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/16 20:50:56 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/17 22:57:58 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef struct s_node
 {
 	int				data;
 	int				index;
-	struct s_node	*next;
 	struct s_node	*previous;
+	struct s_node	*next;
 }			t_node;
 
 typedef struct s_stack
@@ -42,6 +42,10 @@ void	check_all_inputs(int ac, char **av);
 char	**split_arguments(int ac, char **av, int *count_args);
 int		has_duplicated_negative_sign(char **av);
 
+/*AUX LIST.C*/
+int		ft_size_stack(t_stack *stack);
+void	set_index_stack(t_node **head_ref);
+int		stack_is_sorted(struct s_stack *stack_a);
 
 t_stack	fill_linked_list(int argc, char **argv);
 void	print_stack(int argc, char **argv);

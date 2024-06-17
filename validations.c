@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:02:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/16 16:45:34 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/17 22:53:16 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static int	has_invalid_characters(int count, char **av)
 /*
  * 1 4 5 11 -1
 */
+
 static int	has_duplicated_numbers(int ac, char **av)
 {
 	int	i;

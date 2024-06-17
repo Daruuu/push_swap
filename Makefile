@@ -12,6 +12,7 @@ SRCS=	check_input.c validations.c \
 		parse_input.c \
 		swappers.c \
 		ft_split.c \
+		aux_lists.c
 		push_swap.c
 
 OBJS = $(SRCS:.c=.o)

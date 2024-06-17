@@ -6,12 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/16 21:00:56 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:18:21 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	ft_size_stack(t_stack *stack)
 {
@@ -43,7 +42,7 @@ void	set_index_stack(t_node **head_ref)
 		new_index = 0;
 		while (others)
 		{
-			if (others->data < current->value)
+			if (others->data < current->data)
 				new_index ++;
 			others = others->next;
 		}
