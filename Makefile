@@ -8,12 +8,13 @@ RM = 	rm -f
 LIBFTDIR = 		incl/libft
 LIBPRINTFDIR = 	incl/libft/printf
 
-SRCS=	check_input.c validations.c \
+#SRCS=	check_input.c validations.c \
 		parse_input.c \
 		swappers.c \
 		ft_split.c \
-		aux_lists.c
-		push_swap.c
+		aux_lists.c push_swap.c
+
+SRCS = $(wildcard *.c)
 
 OBJS = $(SRCS:.c=.o)
 
@@ -27,13 +28,13 @@ ${NAME}: $(OBJS)
 		make -C ${LIBPRINTFDIR}
 		${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME}
 
-fclean: clean
-	$(RM) $(NAME)
-
 clean:
 	$(RM) $(OBJS)
 	@cd ${LIBFTDIR} && ${MAKE} clean
 	@cd ${LIBPRINTFDIR} && ${MAKE} clean
+
+fclean: clean
+	$(RM) $(NAME)
 
 re: fclean all
 

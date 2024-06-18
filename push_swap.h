@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/17 22:57:58 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/18 13:23:46 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int		has_duplicated_negative_sign(char **av);
 
 /*AUX LIST.C*/
 int		ft_size_stack(t_stack *stack);
+void	iterate_stack(t_node *stack);
 void	set_index_stack(t_node **head_ref);
 int		stack_is_sorted(struct s_stack *stack_a);
 

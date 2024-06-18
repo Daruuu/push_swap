@@ -6,12 +6,12 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 19:08:49 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/05 10:38:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/18 14:04:06 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 typedef struct s_lista
 {
 	void			*content;
@@ -39,7 +39,7 @@ void	ft_lstadd_front(t_lista **lst, t_lista *new)
 		*lst = new;
 	}
 }
-
+*/
 /*
 int	ft_lst_size(t_list *lst)
 {
