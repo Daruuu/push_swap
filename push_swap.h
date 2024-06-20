@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/18 13:23:46 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/20 00:57:12 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_node
 typedef struct s_stack
 {
 	int				len;
-	struct s_node	*head;
+	struct t_node	*head;
 }		t_stack;
 
 /*VALIDATIONS.C*/
@@ -44,12 +44,17 @@ int		has_duplicated_negative_sign(char **av);
 
 /*AUX LIST.C*/
 int		ft_size_stack(t_stack *stack);
-void	iterate_stack(t_node *stack);
+void	print_stack(t_node *stack);
 void	set_index_stack(t_node **head_ref);
 int		stack_is_sorted(struct s_stack *stack_a);
 
 t_stack	fill_linked_list(int argc, char **argv);
 void	print_stack(int argc, char **argv);
+
+/* SWAPS.C */
+void	swap_a(t_node *stack_a);
+void	swap_b(t_node *stack_a);
+void	swap_a_b(t_node *stack);
 
 int		ft_lst_size(t_node *lst);
 int		ft_atoi(const char *str);

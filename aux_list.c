@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/18 14:28:16 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/20 00:56:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_size_stack(t_stack *stack)
 /*
  * iterate through stack
 */
-void	iterate_stack(t_node *stack)
+void	print_stack(t_node *stack)
 {
 	t_node	*current;
 	int		i;

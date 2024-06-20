@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swappers.c                                         :+:      :+:    :+:   */
+/*   swaps.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/18 14:31:09 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:12:43 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	swap_b(t_node *stack_b)
 	swap_nodes(stack_b);
 }
 
-void	swap_a_swap_b(t_node *stack)
+void	swap_a_b(t_node *stack)
 {
 	swap_a(stack);
 	swap_b(stack);
