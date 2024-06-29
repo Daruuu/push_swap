@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/20 00:57:12 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:39:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,25 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+/*
+ * @attribute data: is data of node
+ * @attribute index : indice del nodo
+ * @attribute previous : puntero al anterior nodo
+ * @attribute next : puntero al siguiente nodo
+*/
 typedef struct s_node
 {
 	int				data;
 	int				index;
 	struct s_node	*previous;
 	struct s_node	*next;
-}			t_node;
+}	t_node;
 
 typedef struct s_stack
 {
 	int				len;
 	struct t_node	*head;
+	struct t_node	*tail;
 }		t_stack;
 
 /*VALIDATIONS.C*/

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/19 16:12:43 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:42:05 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,27 @@
 
 /* SWAP DATA AND INDEX OF NODES*/
 
-void	swap_nodes(t_node *stack)
+void	swap_node(t_stack *stack)
 {
-	int	temp_data;
-	int	temp_index;
-
+	int				temp_data;
+	int				temp_index;
+	struct t_node	*first;
+	struct t_node	*second;
+	
+	temp_data = first->data;
+	/*
 	if (stack == NULL || stack->next == NULL)
 		return ;
-	/* update value*/
+	 update value*/
+	/*
+	first = ;
 	temp_data = stack->data;
 	stack->data = stack->next->data;
 	stack->next->data= temp_data;
-	/* UPDATE INDEX */
 	temp_index = stack->index;
 	stack->index = stack->next->index;
 	stack->next->index = temp_index;
+	*/
 }
 
 void	swap_a(t_node *stack_a)
