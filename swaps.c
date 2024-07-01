@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/21 18:42:05 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/01 18:00:23 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,41 @@
 
 /* SWAP DATA AND INDEX OF NODES*/
 
-void	swap_node(t_stack *stack)
+void	swap_nodes(t_stack *stack)
 {
-	int				temp_data;
-	int				temp_index;
-	struct t_node	*first;
-	struct t_node	*second;
+	int		temp_data;
+	int		temp_index;
+	t_node	*first;
+	t_node	*second;
 	
-	temp_data = first->data;
-	/*
-	if (stack == NULL || stack->next == NULL)
+	if (stack == NULL || stack->len < 2)
 		return ;
-	 update value*/
-	/*
-	first = ;
-	temp_data = stack->data;
-	stack->data = stack->next->data;
-	stack->next->data= temp_data;
-	temp_index = stack->index;
-	stack->index = stack->next->index;
-	stack->next->index = temp_index;
-	*/
+	first = stack->head;
+	second = stack->head->next;
+
+	temp_data = first->data;
+	first->data = second->data;
+	second->data = temp_data;
+
+	temp_index = first->index;
+	first->index = second->index;
+	second->index = temp_index;
 }
 
-void	swap_a(t_node *stack_a)
+void	swap_a(t_stack *stack_a)
 {
 	swap_nodes(stack_a);
+	ft_printf("sa\n");
 }
 
-void	swap_b(t_node *stack_b)
+void	swap_b(t_stack *stack_b)
 {
 	swap_nodes(stack_b);
+	ft_printf("sb\n");
 }
 
-void	swap_a_b(t_node *stack)
+void	swap_a_b(t_stack *stack_a, t_stack *stack_b)
 {
-	swap_a(stack);
-	swap_b(stack);
+	swap_a(stack_a);
+	swap_b(stack_b);
 }

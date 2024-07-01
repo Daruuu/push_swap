@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/20 00:56:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:23:37 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	stack_is_sorted(struct s_stack *stack_a)
 
 	if (stack_a == NULL || stack_a->head == NULL)
 		return (EXIT_FAILURE);
-	current = stack_a->head;
+	current = stack_a-> head;
 	while (current != NULL)
 	{
 		if (current->data > current->next->data)
@@ -132,7 +132,3 @@ void	sort_stack_per_value(t_node **head_ref)
  	*head_ref = sort_stack;
 }
 */
-
-
-
-

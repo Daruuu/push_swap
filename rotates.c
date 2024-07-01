@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:35:34 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/20 01:57:30 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/01 20:15:30 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,26 @@
  *
  * |prev|2|next|--> |prev|3|next| --> |prev|4|next| --> |prev|1|next| --> NULL 
 */
-void	rotate_a(t_stack **stack)
+// TODO: function to continue !!!
+void	rotate_a(t_stack *stack)
 {
-	// encontrar el ultimo nodo del STACK
-	// TODO: function to continue !!!
-	int	len_stack;
-	t_node	*current;
-	t_node	*current_to_change;
-	int		i;
+	t_node	*first;
+	t_node	*last;
 
-	len_stack = ft_size_stack(*stack);
-	// dereferenciar el ultimo NODE
-	// last_node->next->NULL
-	// last_node->next->HEAD
-	current_to_change = *stack;
-	current = *stack;
-	i = 0;
-	while (current->next != NULL)
-	{
-		if (i == len_stack - 1)
-			current->next = current_to_change;
-		i++;
-		current = current->next;
-	}
-	// update 
+	if (stack == NULL || stack->len < 2)
+		return ;
+	// inicializar los punteros al primer y ultimo nodo
+	first = stack->head;
+	last = stack->tail;
+	// desvincular el primer NODO al funal de la pila
+	stack->head = first->next; 
+	stack->head->previous = NULL;
+	//recolorcar el primer nodo al funal de la pila
+	/*
+	last->next = first;
+	first->previous = last;
+	first->next = NULL;
+	stack->tail = first;	
+	*/
+
 }

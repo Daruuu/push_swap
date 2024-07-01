@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/21 18:39:54 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/01 20:05:11 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	int				len;
-	struct t_node	*head;
-	struct t_node	*tail;
+	int		len;
+	t_node	*head;
+	t_node	*tail;
 }		t_stack;
 
 /*VALIDATIONS.C*/
@@ -53,15 +53,19 @@ int		has_duplicated_negative_sign(char **av);
 int		ft_size_stack(t_stack *stack);
 void	print_stack(t_node *stack);
 void	set_index_stack(t_node **head_ref);
-int		stack_is_sorted(struct s_stack *stack_a);
+int		stack_is_sorted(s_stack *stack_a);
+
+/* SWAPS.C */
+void	swap_nodes(t_stack *stack);
+void	swap_a(t_stack *stack_a);
+void	swap_b(t_stack *stack_b);
+void	swap_a_b(t_stack *stack_a, t_stack *stack_b);
+
+/* ROTATES.C */
+void	rotate_a(t_stack *stack);
 
 t_stack	fill_linked_list(int argc, char **argv);
 void	print_stack(int argc, char **argv);
-
-/* SWAPS.C */
-void	swap_a(t_node *stack_a);
-void	swap_b(t_node *stack_a);
-void	swap_a_b(t_node *stack);
 
 int		ft_lst_size(t_node *lst);
 int		ft_atoi(const char *str);
