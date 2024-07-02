@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 11:15:08 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/02 13:23:59 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/02 18:05:58 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
  * ROTATE LAST ELEMENT OF STACK TO FIRST POSITION OF STACK
- * |HEAD|-> |1|next| --> |prev|2|next|--> |prev|3|next| --> |prev|4|next| --> NULL
+ * |HEAD|-> |1|next| --> |prev|2|next|--> |prev|3|next|--> |prev|4|next|-->NULL
  *
  * |prev|2|next|--> |prev|3|next| --> |prev|4|next| --> |prev|1|next| --> NULL 
  * [10]	[4] [5] [1]
@@ -34,24 +34,23 @@ void	reverse_rotate_stack(t_stack *stack)
 	new_first->next = stack->head;
 	new_last = get_before_last_node_stack(stack);
 	new_last->next = NULL;
-	
 }
 
-void	rotate_a(t_stack **stack_a)
+void	rev_rotate_a(t_stack **stack_a)
 {
-	rotate_stack(*stack_a);
-	ft_printf("ra\n");
+	reverse_rotate_stack(*stack_a);
+	ft_printf("rra\n");
 }
 
-void	rotate_b(t_stack **stack_b)
+void	rev_rotate_b(t_stack **stack_b)
 {
-	rotate_stack(*stack_b);
-	ft_printf("rb\n");
+	reverse_rotate_stack(*stack_b);
+	ft_printf("rrb\n");
 }
 
 void	rr_a_b(t_stack **stack_a, t_stack **stack_b)
 {
-	rotate_a(stack_a);
-	rotate_b(stack_b);
-	ft_printf("rr\n");
+	rev_rotate_a(stack_a);
+	rev_rotate_b(stack_b);
+	ft_printf("rrr\n");
 }

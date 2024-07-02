@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/02 13:20:16 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/02 20:44:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
  * @attribute data: is data of node
  * @attribute index : indice del nodo
  * @attribute previous : puntero al anterior nodo
- * @attribute next : puntero al siguiente nodo
+ * @attribute next : pointer to next node
 */
 typedef struct s_node
 {
@@ -76,6 +76,9 @@ void	reverse_rotate_stack(t_stack *stack);
 void	r_rotate_a(t_stack **stack_a);
 void	r_rotate_b(t_stack **stack_b);
 void	rev_rotate_a_b(t_stack **stack_b);
+
+/* MOVES_PUSH.C */
+void	push_move(t_stack *stack_src, t_stack *stack_dest);
 
 t_stack	fill_linked_list(int argc, char **argv);
 void	print_stack(int argc, char **argv);
