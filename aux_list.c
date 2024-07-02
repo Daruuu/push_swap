@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/01 17:23:37 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/02 12:55:03 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	print_stack(t_node *stack)
 }
 
 /* Set indexes in STACK*/
+//TODO: redo this functions with others variables names
 void	set_index_stack(t_node **head_ref)
 {
 	t_node	*current;
@@ -91,6 +92,22 @@ int	stack_is_sorted(struct s_stack *stack_a)
 		current = current->next;
 	}
 	return (TRUE);
+}
+
+/*
+ * get last NODE of stack
+ * recorrer todo el stack y retornar el ultumo nodo
+*/
+t_node	*get_tail_of_stack(t_stack *stack)
+{
+	t_node	*current;
+
+	current = stack->head;
+	if (current == NULL)
+		return (NULL);
+	while (current->next != NULL)
+		current= current->next;
+	return (current);
 }
 
 /*

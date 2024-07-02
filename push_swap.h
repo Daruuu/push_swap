@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/01 20:05:11 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/02 13:20:16 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ int		ft_size_stack(t_stack *stack);
 void	print_stack(t_node *stack);
 void	set_index_stack(t_node **head_ref);
 int		stack_is_sorted(s_stack *stack_a);
+t_node	*get_tail_of_stack(t_stack *stack);
+
+/*AUX LIST 2.C*/
+t_node	*get_before_last_node_stack(t_stack *stack);
 
 /* SWAPS.C */
 void	swap_nodes(t_stack *stack);
@@ -62,7 +66,16 @@ void	swap_b(t_stack *stack_b);
 void	swap_a_b(t_stack *stack_a, t_stack *stack_b);
 
 /* ROTATES.C */
-void	rotate_a(t_stack *stack);
+void	rotate_stack(t_stack *stack);
+void	rotate_a(t_stack **stack_a);
+void	rotate_b(t_stack **stack_b);
+void	rotate_rotate(t_stack **stack_a, t_stack **stack_b);
+
+/* REVERSE_ROTATES.C */
+void	reverse_rotate_stack(t_stack *stack);
+void	r_rotate_a(t_stack **stack_a);
+void	r_rotate_b(t_stack **stack_b);
+void	rev_rotate_a_b(t_stack **stack_b);
 
 t_stack	fill_linked_list(int argc, char **argv);
 void	print_stack(int argc, char **argv);
