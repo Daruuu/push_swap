@@ -6,41 +6,52 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:43:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/02 21:03:27 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/03 11:40:06 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 /*
- *	enviar el primer node de STACK_SRC a 
- *	el STACK_DEST en la 1ra posicion del stack
- *
+ *	enviar el primer node de STACK_SRC al STACK_DEST 
+ *	en la 1ra posicion del stack
 */
 
 void	push_move(t_stack *stack_src, t_stack *stack_dest)
 {
-	t_node	*node_to_mv_a_new_stack;
+	t_node	*tmp_first_node_src;
 	t_node	*new_head_src;
 
-	if (*stack_src == NULL || stack_src->head == NULL)
+	if (stack_src == NULL || stack_src->head == NULL)
 		return ;
-	node_to_mv_a_new_stack = stack_src->head;
-	stack_dest->head = node_to_mv_a_new_stack;
-	node_to_mv_a_new_stack->next = stack_dest->head->next;
-	new_head_src = stack_src->head->next;
-	stack_src->head = new_head_src;
+	//	igualar a first node of STACK SRC 
+	tmp_first_node_src = stack_src->head;
+	//	update head of stack_src
+	stack_src->head = stack_src->head->next;
+	if (stack_src->head != NULL)
+		stack_src->head->previous = NULL;
+	else// si el stack se vacio , update tambien el tail
+		stack_src->tail = NULL;
+	// inserta el nodo tmp en STACK_DEST
+	tmp_first_node_src->next = stack_dest->head;
+	tmp_first_node_src->previous = NULL;
+	if (stack_dest->head != NULL)
+		stack_dest->head->previous = tmp_first_node_src;
+	stack_dest->head = tmp_first_node_src;
+	if (stack_dest->tail == NULL)
+		stack_dest->tail = tmp_first_node_src;
+	//	update length of STACK_SRC and STACK_DEST
+	stack_src->len--;
+	stack_dest->len++;
 }
 
-/*
-void	push_move(t_stack *stack_src, t_stack *stack_dest)
+void	push_a(t_stack *stack_src, t_stack *stack_dest)
 {
-	t_node	*tmp;
-
-	if (*stack_src == NULL || stack_src->head == NULL)
-		return ;
-	tmp = stack_src->head;
-	(*stack_src)->head = *stack_dest;
-	*stack_dest = *stack_src;
-	*stack_src = tmp;
+	push_move(stack_src, stack_dest);
+	ft_printf("pa\n");
 }
-*/
+
+void	push_b(t_stack *stack_src, t_stack *stack_dest)
+{
+	push_move(stack_src, stack_dest);
+	ft_printf("pb\n");
+}

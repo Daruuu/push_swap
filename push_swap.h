@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/02 20:44:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/03 11:44:48 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ void	rev_rotate_a_b(t_stack **stack_b);
 
 /* MOVES_PUSH.C */
 void	push_move(t_stack *stack_src, t_stack *stack_dest);
+void	push_a(t_stack *stack_src, t_stack *stack_dest);
+void	push_b(t_stack *stack_src, t_stack *stack_dest);
 
 t_stack	fill_linked_list(int argc, char **argv);
 void	print_stack(int argc, char **argv);
