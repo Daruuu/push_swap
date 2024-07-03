@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/03 13:07:43 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/03 14:11:05 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,36 +49,95 @@ void	print_stack(int argc, char **argv)
 	}
 }
 */
-/*
- * funct to fill stack a with argv
-*/
 
-t_stack	fill_linked_list(int argc, char **argv)
+/*
+ * fill STACK A with argv[1]
+*/
+/*
+t_stack	*fill_stack_a(int argc, char **argv)
 {
-	t_stack	stack_a;
+	t_stack	*stack_a;
 	int		i;
 	int		value;
 	t_node	*new_node;
 
-	stack_a.len = 0;
-	stack_a.first = NULL;
+	stack_a->len = 0;
+	stack_a->head = NULL;
 	i = 1;
-	while (i < argc)
+	while (i < argc - 1)
+		i++;
+	ft_printf("%d\n", i);
+	i = 0;
+	while (i < argc - 1)
 	{
 		value = ft_atoi(argv[i]);
-		new_node = malloc (sizeof(t_node));
+		new_node = malloc (sizeof(t_node *));
 		if (!new_node)
+		{
 			ft_printf("error fill linked list\n");
-		new_node->value = value;
-		new_node->index = i - 1;
+			free(new_node);
+		}
+		stack_a->value = value;
+		new_node->index = i - 1;	//?????????
 		new_node->next = stack_a.first;
 		new_node->previous = NULL;
 		if (stack_a.first != NULL)
 			stack_a.first->previous = new_node;
-		stack_a.first = new_node;
-		stack_a.len++;
+		stack_a->head = new_node;
+		stack_a->len++;
 		i++;
 	}
 	set_index_in_stack(&(stack_a.first));
 	return (stack_a);
 }
+*/
+#include <stdio.h>
+
+// Función para contar el número de argumentos
+int count_arguments(int ac, char **av) {
+    int count = 0;
+    for (int i = 1; i < ac; i++) {
+        count++;
+    }
+    return count;
+}
+/*
+int	main(int ac, char **av)
+{
+
+	t_stack	*stack_a;
+	int		i;
+	int		value;
+	t_node	*new_node;
+
+
+	stack_a->len = 0;
+	stack_a->head = NULL;
+	i = 1;
+	while (i < ac - 1)
+		i++;
+	printf("%d\n", i);
+	//ft_printf("%d\n", i);
+
+	return (0);
+}
+*/
+int	main(int ac, char **av) {
+    t_stack *stack_a;
+    int i;
+    int value;
+    t_node *new_node;
+
+    stack_a = (t_stack *)malloc(sizeof(t_stack));
+    stack_a->len = 0;
+    stack_a->head = NULL;
+
+    // Usar la función count_arguments para obtener la cantidad de argumentos
+    int arg_count = count_arguments(ac, av);
+    printf("Number of arguments: %d\n", arg_count);
+
+    free(stack_a);
+
+    return 0;
+}
+
