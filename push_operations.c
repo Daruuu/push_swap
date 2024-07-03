@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:43:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/03 11:40:06 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/03 12:07:17 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 void	push_move(t_stack *stack_src, t_stack *stack_dest)
 {
 	t_node	*tmp_first_node_src;
-	t_node	*new_head_src;
 
 	if (stack_src == NULL || stack_src->head == NULL)
 		return ;

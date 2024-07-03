@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/11 13:57:29 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/03 13:07:43 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	print_stack(int argc, char **argv)
 	}
 }
 */
-
+/*
 void	print_stack(int argc, char **argv)
 {
-	t_stack	stack_a;
+	t_stack	**stack_a;
 	t_node	*current;
 
 	current = NULL;
@@ -48,10 +48,11 @@ void	print_stack(int argc, char **argv)
 		current = current->next;
 	}
 }
-
+*/
 /*
  * funct to fill stack a with argv
 */
+
 t_stack	fill_linked_list(int argc, char **argv)
 {
 	t_stack	stack_a;

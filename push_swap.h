@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/03 11:44:48 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/03 13:30:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,48 +42,54 @@ typedef struct s_stack
 	t_node	*tail;
 }		t_stack;
 
-/*VALIDATIONS.C*/
+/*	INPUT_VALIDATIONS.C	*/
 void	check_all_inputs(int ac, char **av);
 
-/*CHECK_INPUT.C*/
+/*	INPUT_CHECK.C	*/
 char	**split_arguments(int ac, char **av, int *count_args);
 int		has_duplicated_negative_sign(char **av);
 
-/*AUX LIST.C*/
+/*	STACK_UTILS.C	*/
 int		ft_size_stack(t_stack *stack);
 void	print_stack(t_node *stack);
 void	set_index_stack(t_node **head_ref);
-int		stack_is_sorted(s_stack *stack_a);
+int		stack_is_sorted(t_stack *stack_a);
+
+/*	STACK_HELPER.C	*/
+t_node	*get_before_last_node_stack(t_stack *stack);
 t_node	*get_tail_of_stack(t_stack *stack);
 
-/*AUX LIST 2.C*/
-t_node	*get_before_last_node_stack(t_stack *stack);
-
-/* SWAPS.C */
+/*	SWAPS_OPERATIONS.C	*/
 void	swap_nodes(t_stack *stack);
 void	swap_a(t_stack *stack_a);
 void	swap_b(t_stack *stack_b);
 void	swap_a_b(t_stack *stack_a, t_stack *stack_b);
 
-/* ROTATES.C */
+/*	ROTATES_OPERATIONS.C	*/
 void	rotate_stack(t_stack *stack);
 void	rotate_a(t_stack **stack_a);
 void	rotate_b(t_stack **stack_b);
 void	rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 
-/* REVERSE_ROTATES.C */
+/*	REV_ROTATES_OPERATIONS.C	*/
 void	reverse_rotate_stack(t_stack *stack);
 void	r_rotate_a(t_stack **stack_a);
 void	r_rotate_b(t_stack **stack_b);
 void	rev_rotate_a_b(t_stack **stack_b);
 
-/* MOVES_PUSH.C */
+/*	PUSH_OPERATIONS.C	*/
 void	push_move(t_stack *stack_src, t_stack *stack_dest);
 void	push_a(t_stack *stack_src, t_stack *stack_dest);
 void	push_b(t_stack *stack_src, t_stack *stack_dest);
 
+/*	ERRORS.C???	*/
+
+/*	MOVES_STACK.C???	*/
+void	order_stack_three_numbers(t_stack *stack);
+void	order_stack_five_numbers(t_stack *stack);
+
 t_stack	fill_linked_list(int argc, char **argv);
-void	print_stack(int argc, char **argv);
+//void	print_stack(int argc, char **argv);
 
 int		ft_lst_size(t_node *lst);
 int		ft_atoi(const char *str);
