@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/03 14:11:05 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/03 17:17:04 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,45 +99,32 @@ int count_arguments(int ac, char **av) {
     for (int i = 1; i < ac; i++) {
         count++;
     }
-    return count;
+    return (count);
 }
-/*
-int	main(int ac, char **av)
-{
 
-	t_stack	*stack_a;
-	int		i;
-	int		value;
-	t_node	*new_node;
-
-
-	stack_a->len = 0;
-	stack_a->head = NULL;
-	i = 1;
-	while (i < ac - 1)
-		i++;
-	printf("%d\n", i);
-	//ft_printf("%d\n", i);
-
-	return (0);
-}
-*/
 int	main(int ac, char **av) {
-    t_stack *stack_a;
-    int i;
-    int value;
-    t_node *new_node;
 
+    int     i;
+    int     value;
+    /*
+    t_stack *stack_a;
+    t_node  *new_node;
     stack_a = (t_stack *)malloc(sizeof(t_stack));
     stack_a->len = 0;
     stack_a->head = NULL;
+    */
 
     // Usar la función count_arguments para obtener la cantidad de argumentos
     int arg_count = count_arguments(ac, av);
     printf("Number of arguments: %d\n", arg_count);
-
+    i = 1;
+    while (i < av - 1)
+    {
+        printf("argument: [%d] => %d\n", i, av);
+        i++;
+    }
+    
     free(stack_a);
-
     return 0;
 }
 
