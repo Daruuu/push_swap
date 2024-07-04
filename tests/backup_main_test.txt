@@ -1,17 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_input.c                                      :+:      :+:    :+:   */
+/*   main_testing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/03 17:17:04 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/04 20:32:41 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 #include <stdio.h>
+#include <stdlib.h>
+
+int count_arguments(int ac) {
+
+    int count;
+    int i;
+
+    i = 0;
+    count = 1;
+    while (i < ac)
+    {
+        count++;
+        i++;
+    }
+    return (i);
+}
+
+int main(int ac, char **av) {
+
+    //int     i;
+    int     arg_count;
+
+    arg_count = count_arguments(ac);
+    ft_printf("Number of arguments: %d\n", arg_count);
+    ft_printf("-----------------------------\n");
+    /*
+    i = 0;
+    while (++i < arg_count)
+    {
+        printf("argument: [%d] => %d\n", i, ft_atoi(av[i]));
+    }
+    */
+    /*CALL FUNCTIONS FROM PUSH SWAP*/
+	check_all_inputs(ac, av);
+	//print_stack(ac, av);
+
+
+    return (0);
+}
+
 // TODO: change name of file!
 /*
  * this is function execute after fill the list with the argv
@@ -91,40 +131,3 @@ t_stack	*fill_stack_a(int argc, char **argv)
 	return (stack_a);
 }
 */
-#include <stdio.h>
-
-// Función para contar el número de argumentos
-int count_arguments(int ac, char **av) {
-    int count = 0;
-    for (int i = 1; i < ac; i++) {
-        count++;
-    }
-    return (count);
-}
-
-int	main(int ac, char **av) {
-
-    int     i;
-    int     value;
-    /*
-    t_stack *stack_a;
-    t_node  *new_node;
-    stack_a = (t_stack *)malloc(sizeof(t_stack));
-    stack_a->len = 0;
-    stack_a->head = NULL;
-    */
-
-    // Usar la función count_arguments para obtener la cantidad de argumentos
-    int arg_count = count_arguments(ac, av);
-    printf("Number of arguments: %d\n", arg_count);
-    i = 1;
-    while (i < av - 1)
-    {
-        printf("argument: [%d] => %d\n", i, av);
-        i++;
-    }
-    
-    free(stack_a);
-    return 0;
-}
-

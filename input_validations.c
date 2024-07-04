@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validations.c                                      :+:      :+:    :+:   */
+/*   input_validations.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:02:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/03 13:14:50 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/04 21:09:25 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ void	check_all_inputs(int ac, char **av)
 		ft_printf("error argc\n");
 		exit (EXIT_FAILURE);
 	}
+	ft_printf("check_all_input(): %d\n", ac);
+
 	args = split_arguments(ac, av, &count);
+
 	if (has_invalid_characters(count, args))
 	{
 		ft_printf("invalid character\n");
@@ -106,3 +109,36 @@ void	check_all_inputs(int ac, char **av)
 		ft_printf("valid input\n");
 	free(args);
 }
+
+/*
+void	check_all_inputs(int ac, char **av)
+{
+	char	**args;
+	int		count;
+
+	if (ac < 2)
+	{
+		ft_printf("error argc\n");
+		exit (EXIT_FAILURE);
+	}
+	ft_printf("check_all_input(): %d\n", ac);
+
+	args = split_arguments(ac, av, &count);
+
+	if (has_invalid_characters(count, args))
+	{
+		ft_printf("invalid character\n");
+		exit(EXIT_FAILURE);
+	}
+	else if (has_duplicated_numbers(count, args))
+	{
+		ft_printf("duplicated number\n");
+		exit(EXIT_FAILURE);
+	}
+	else if (if_numbers_are_sorted(count, args))
+		ft_printf("numeros ordenados\n");
+	else
+		ft_printf("valid input\n");
+	free(args);
+}
+*/

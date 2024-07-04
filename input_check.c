@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/03 13:11:00 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/04 21:13:26 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	**split_arguments(int ac, char **av, int *count_args)
 		split = ft_split(av[1], ' ');
 	else
 	{
-		*count_args = ac - 1;
+		//*count_args = ac - 1;
+		*count_args = ac;
 		return (av + 1);
 	}
 	i = 0;
@@ -38,7 +39,7 @@ char	**split_arguments(int ac, char **av, int *count_args)
 		result[j] = split[j];
 		j++;
 	}
-	result[j] = NULL;
+	result[j] = '\0';
 	*count_args = i;
 	free(split);
 	return (result);

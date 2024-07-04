@@ -1,16 +1,21 @@
-NAME = test_
+NAME = push_swap
 HEADER = ../push_swap.h
 
+LDFLAGS = -no-pie
 CFLAGS = -Wall -Wextra -Werror
-CC = 	cc
-RM = 	rm -f
+CC = gcc
+RM = rm -f
 
-LIBFTDIR = 		../incl/libft
-LIBPRINTFDIR = 	../incl/libft/printf
+LIBFTDIR = ../incl/libft
+LIBPRINTFDIR = ../incl/libft/printf
 
-SRCS = $(wildcard *.c)
-
+SRCS = $(wildcard ../*.c)
 OBJS = $(SRCS:.c=.o)
+
+# TESTING VARIABLES
+TEST_NAME = test_push_swap
+TEST_SRCS = main_testing.c
+TEST_OBJS = ${TEST_SRCS:.c=.o}
 
 all: ${NAME}
 
@@ -18,19 +23,23 @@ all: ${NAME}
 	${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}: $(OBJS)
-		make -C ${LIBFTDIR}
-		make -C ${LIBPRINTFDIR}
-		${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME}
+	make -C ${LIBFTDIR}
+	make -C ${LIBPRINTFDIR}
+	${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME} ${LDFLAGS}
 
-test_size:
+test: $(TEST_OBJS) $(OBJS)
+	make -C ${LIBFTDIR}
+	make -C ${LIBPRINTFDIR}
+	${CC} ${CFLAGS} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
+
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(TEST_OBJS)
 	@cd ${LIBFTDIR} && ${MAKE} clean
 	@cd ${LIBPRINTFDIR} && ${MAKE} clean
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(TEST_NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test

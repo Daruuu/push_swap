@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swaps.c                                            :+:      :+:    :+:   */
+/*   swap_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/01 18:00:23 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/04 16:37:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,14 @@ void	swap_nodes(t_stack *stack)
 	int		temp_index;
 	t_node	*first;
 	t_node	*second;
-	
+
 	if (stack == NULL || stack->len < 2)
 		return ;
 	first = stack->head;
 	second = stack->head->next;
-
 	temp_data = first->data;
 	first->data = second->data;
 	second->data = temp_data;
-
 	temp_index = first->index;
 	first->index = second->index;
 	second->index = temp_index;

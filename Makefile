@@ -8,12 +8,6 @@ RM = 	rm -f
 LIBFTDIR = 		incl/libft
 LIBPRINTFDIR = 	incl/libft/printf
 
-#SRCS=	check_input.c validations.c \
-		parse_input.c \
-		swappers.c \
-		ft_split.c \
-		aux_lists.c push_swap.c
-
 SRCS = $(wildcard *.c)
 
 OBJS = $(SRCS:.c=.o)
@@ -27,7 +21,6 @@ ${NAME}: $(OBJS)
 		make -C ${LIBFTDIR}
 		make -C ${LIBPRINTFDIR}
 		${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME}
-
 clean:
 	$(RM) $(OBJS)
 	@cd ${LIBFTDIR} && ${MAKE} clean

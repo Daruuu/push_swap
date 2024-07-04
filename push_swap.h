@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/03 13:30:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/04 16:43:45 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_node
 	int				index;
 	struct s_node	*previous;
 	struct s_node	*next;
-}	t_node;
+}		t_node;
 
 typedef struct s_stack
 {
@@ -83,6 +83,7 @@ void	push_a(t_stack *stack_src, t_stack *stack_dest);
 void	push_b(t_stack *stack_src, t_stack *stack_dest);
 
 /*	ERRORS.C???	*/
+void	ft_free_each_node(t_stack **stack);
 
 /*	MOVES_STACK.C???	*/
 void	order_stack_three_numbers(t_stack *stack);
