@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/05 12:31:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:09:58 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,26 @@ int count_arguments(int ac) {
     return (i);
 }
 
+int	main(int ac, char **av)
+{
+	if (ac < 2)
+		return (0);
+	if (ac == 2)
+		av = ft_split(av[1], ' ');
+	else
+		av++;
+	if (has_invalid_characters(ac - 1, av) || has_duplicated_numbers(ac - 1, av))
+    {
+		ft_printf("Error\n");
+		return (1);
+	}
+	if (if_numbers_are_sorted(ac - 1, av))
+		return (0);
+	// call a push_swap here 
+	return (0);
+}
+
+/*
 int main(int ac, char **av)
 {
     int     count_ac;
@@ -59,12 +79,11 @@ int main(int ac, char **av)
             ft_printf("arr[%d] : %d\n", i, array_input[i]);
             i++;
         }
-        if 
         //call print INPUT 
     }
     return (0);
 }
-
+*/
 /*
 int main(int ac, char **av) {
     //int     i;

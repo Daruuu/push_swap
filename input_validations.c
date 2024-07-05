@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:02:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/04 21:09:25 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:18:03 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 //$> ARG="1 3 6 12 6"; ./push_swap $ARG | wc -lo
 // $> ./push_swap 1 23 45 -11 -1 | wc -lo
 
-int	is_valid_number(int str)
+int	is_valid_number(char *str)
 {
 	int	i;
 
 	i = 0;
+
 	if (str[i] == '-' || str[i] == '+')
-	while (str[i])
+		i++;
+	while (str[i]!= '\0')
 	{
 		if (!ft_isdigit(str[i]))
 			return (FALSE);
@@ -80,36 +82,3 @@ int	if_numbers_are_sorted(int ac, char **av)
 	}
 	return (TRUE);
 }
-
-/*
-void	check_all_inputs(int ac, char **av)
-{
-	char	**args;
-	int		count;
-
-	if (ac < 2)
-	{
-		ft_printf("error argc\n");
-		exit (EXIT_FAILURE);
-	}
-	ft_printf("check_all_input(): %d\n", ac);
-
-	args = split_arguments(ac, av, &count);
-
-	if (has_invalid_characters(count, args))
-	{
-		ft_printf("invalid character\n");
-		exit(EXIT_FAILURE);
-	}
-	else if (has_duplicated_numbers(count, args))
-	{
-		ft_printf("duplicated number\n");
-		exit(EXIT_FAILURE);
-	}
-	else if (if_numbers_are_sorted(count, args))
-		ft_printf("numeros ordenados\n");
-	else
-		ft_printf("valid input\n");
-	free(args);
-}
-*/
