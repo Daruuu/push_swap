@@ -12,40 +12,41 @@
 
 #include "push_swap.h"
 
-static int	is_valid_number(char *str)
+//$> ARG="1 3 6 12 6"; ./push_swap $ARG | wc -lo
+// $> ./push_swap 1 23 45 -11 -1 | wc -lo
+
+int	is_valid_number(int str)
 {
 	int	i;
 
 	i = 0;
-	if ((str[i] == '-' || str[i] == '+') && str[i + 1] != '\0')
-		i++;
+	if (str[i] == '-' || str[i] == '+')
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
 			return (FALSE);
 		i++;
 	}
-	return (1);
+	return (TRUE);
 }
 
-static int	has_invalid_characters(int count, char **av)
+//static int	has_invalid_characters(int count, char **av)
+int	has_invalid_characters(int ac, char **av)
 {
 	int	i;
 
 	i = 0;
-	while (i < count)
+	while (i < ac)
 	{
 		if (!is_valid_number(av[i]))
-			return (TRUE);
+			return (1);
 		i++;
 	}
 	return (FALSE);
 }
-/*
- * 1 4 5 11 -1
-*/
 
-static int	has_duplicated_numbers(int ac, char **av)
+// static int	has_duplicated_numbers(int ac, char **av)
+int	has_duplicated_numbers(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -65,7 +66,8 @@ static int	has_duplicated_numbers(int ac, char **av)
 	return (FALSE);
 }
 
-static int	if_numbers_are_sorted(int ac, char **av)
+// static int	if_numbers_are_sorted(int ac, char **av)
+int	if_numbers_are_sorted(int ac, char **av)
 {
 	int	i;
 
@@ -77,37 +79,6 @@ static int	if_numbers_are_sorted(int ac, char **av)
 		i++;
 	}
 	return (TRUE);
-}
-
-void	check_all_inputs(int ac, char **av)
-{
-	char	**args;
-	int		count;
-
-	if (ac < 2)
-	{
-		ft_printf("error argc\n");
-		exit (EXIT_FAILURE);
-	}
-	ft_printf("check_all_input(): %d\n", ac);
-
-	args = split_arguments(ac, av, &count);
-
-	if (has_invalid_characters(count, args))
-	{
-		ft_printf("invalid character\n");
-		exit(EXIT_FAILURE);
-	}
-	else if (has_duplicated_numbers(count, args))
-	{
-		ft_printf("duplicated number\n");
-		exit(EXIT_FAILURE);
-	}
-	else if (if_numbers_are_sorted(count, args))
-		ft_printf("numeros ordenados\n");
-	else
-		ft_printf("valid input\n");
-	free(args);
 }
 
 /*

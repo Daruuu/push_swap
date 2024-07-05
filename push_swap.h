@@ -43,6 +43,10 @@ typedef struct s_stack
 }		t_stack;
 
 /*	INPUT_VALIDATIONS.C	*/
+int		is_valid_number(char *str);
+int		has_invalid_characters(int count, char **av);
+int		has_duplicated_numbers(int ac, char **av);
+int		if_numbers_are_sorted(int ac, char **av);
 void	check_all_inputs(int ac, char **av);
 
 /*	INPUT_CHECK.C	*/
