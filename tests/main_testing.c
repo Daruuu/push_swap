@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/04 21:48:25 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/05 12:31:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int main(int ac, char **av)
     if (ac == 2)
     {
         ft_printf("call split\n");
-
-        //  call split
     }
     else
     {
@@ -52,14 +50,16 @@ int main(int ac, char **av)
         }
         //  contamos los ac
         //  creamos un *ptr y lo rellenamos con todo el input
-        i = 0;
+        i = 1;
+        ft_printf("count_ac(): %d\n", count_ac);
+        ft_printf("array here\n");
         while (i < count_ac)
         {
-            ft_printf("array here\n");
             array_input[i] = ft_atoi(av[i]);
-            ft_printf("%d\n",array_input[i]);
+            ft_printf("arr[%d] : %d\n", i, array_input[i]);
             i++;
         }
+        if 
         //call print INPUT 
     }
     return (0);
@@ -89,4 +89,3 @@ int main(int ac, char **av) {
 
 }
 */
-
