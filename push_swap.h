@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/04 16:43:45 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:30:59 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	check_all_inputs(int ac, char **av);
 /*	INPUT_CHECK.C	*/
 char	**split_arguments(int ac, char **av, int *count_args);
 int		has_duplicated_negative_sign(char **av);
+void	input_check(int ac, char **av);
 
 /*	STACK_UTILS.C	*/
 int		ft_size_stack(t_stack *stack);

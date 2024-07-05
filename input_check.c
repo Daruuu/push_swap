@@ -6,33 +6,12 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/05 14:16:04 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:32:16 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-int	has_duplicated_negative_sign(char **av)
-{
-	int	i;
-	int	j;
-
-	j = 1;
-	while (av[j])
-	{
-		i = 0;
-		while (av[j][i])
-		{
-			if (((av[j][i] == '-') && (av[j][i + 1] == '-')))
-				return (TRUE);
-			i++;
-		}
-		j++;
-	}
-	return (FALSE);
-}
-*/
 
 int count_argc(int ac) {
 
@@ -46,6 +25,19 @@ int count_argc(int ac) {
     return (i);
 }
 
+void	input_check(int ac, char **av)
+{
+	if (ac < 2)
+		ft_printf("ac incorrect!\n");
+	else
+		av ++;
+	if (has_invalid_characters(ac - 1, av) || has_duplicated_numbers(ac - 1, av))
+		ft_printf("Error invalid char || duplicate number\n");
+	else if (if_numbers_are_sorted(ac - 1, av))
+    {
+		ft_printf("numbers sorted\n");
+	}
+}
 /*
         array_input = malloc(sizeof(*array_input) * count_ac + 1);
         if (!array_input)
@@ -98,3 +90,24 @@ char	**split_arguments(int ac, char **av, int *count_args)
 	free(split);
 	return (result);
 }
+/*
+int	has_duplicated_negative_sign(char **av)
+{
+	int	i;
+	int	j;
+
+	j = 1;
+	while (av[j])
+	{
+		i = 0;
+		while (av[j][i])
+		{
+			if (((av[j][i] == '-') && (av[j][i + 1] == '-')))
+				return (TRUE);
+			i++;
+		}
+		j++;
+	}
+	return (FALSE);
+}
+*/
