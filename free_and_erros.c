@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 20:30:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 21:47:27 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 23:55:28 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	free_split(char **split)
 {
 	int	i;
 
+	i = 0;
 	while (split[i])
 	{
 		free(split[i]);

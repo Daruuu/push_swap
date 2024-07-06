@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 21:51:49 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 23:52:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int	main(int ac, char **av)
 {
     input_check_argc(ac, av);
     //print_stack();
-    
-
 	// call a push_swap here 
 	return (0);
 }
@@ -82,6 +80,5 @@ int main(int ac, char **av) {
 	//print_stack(ac, av);
     /*
     return(0);
-
 }
 */

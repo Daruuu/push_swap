@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 21:56:22 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 23:58:53 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ t_stack	*stack_with_split(char **av)
 	char	**split_av;
 
 	split_av = ft_split(av[1], ' ');
+	i = 0;
 	while (split_av[i] != NULL)
 		i++;
 	new_stack = (t_stack *) malloc(sizeof(t_stack));
@@ -81,4 +82,3 @@ t_stack	*stack_with_split(char **av)
 	new_stack = init_stack(i, split_av);
 	return (new_stack);
 }
-
