@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/05 14:32:16 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 10:43:23 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void	input_check(int ac, char **av)
 		ft_printf("ac incorrect!\n");
 	else
 		av ++;
-	if (has_invalid_characters(ac - 1, av) || has_duplicated_numbers(ac - 1, av))
-		ft_printf("Error invalid char || duplicate number\n");
+	if (has_invalid_characters(ac - 1, av))
+		ft_printf("Error invalid char\n");
+	else if (has_duplicated_numbers(ac - 1, av))
+		ft_printf("Error duplicate number\n");
 	else if (if_numbers_are_sorted(ac - 1, av))
     {
 		ft_printf("numbers sorted\n");
