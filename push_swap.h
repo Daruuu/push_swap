@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 14:44:12 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 19:08:46 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ int		has_duplicated_negative_sign(char **av);
 char	**split_arguments(int ac, char **av);
 
 /*	STACK_UTILS.C	*/
-int		ft_size_stack(t_stack *stack);
+t_stack	*init_stack(int ac, char **av);
 void	print_stack(t_node *stack);
 void	set_index_stack(t_node **head_ref);
+int		ft_size_stack(t_stack *stack);
 int		stack_is_sorted(t_stack *stack_a);
 
 /*	STACK_HELPER.C	*/

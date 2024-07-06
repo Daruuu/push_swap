@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 14:45:21 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 18:30:33 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_node	*create_new_node(char **av, int i)
 	new_node->index = i;
 	new_node->previous = NULL;
 	new_node->next = NULL;
+	return (new_node);
 }
 
 t_stack	*set_stack_null(t_stack *stack)
@@ -63,4 +64,5 @@ t_stack	*set_stack_null(t_stack *stack)
 	stack->len = 0;
 	stack->head = NULL;
 	stack->tail = NULL;
+	return (stack);
 }

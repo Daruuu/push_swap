@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 12:27:11 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 19:05:52 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	input_check_all(int ac, char **av)
 {
+	t_stack		*new_stack;
+
+	new_stack = NULL;
 	if (ac < 2)
 	{
 		ft_printf("ac incorrect!\n");
@@ -29,6 +32,8 @@ void	input_check_all(int ac, char **av)
 		ft_printf("Error duplicate number\n");
 	else if (if_numbers_are_sorted(ac - 1, av))
 		ft_printf("numbers sorted\n");
+	else
+		new_stack = init_stack(ac, **av);
 }
 /*
         array_input = malloc(sizeof(*array_input) * count_ac + 1);

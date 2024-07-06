@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 14:46:22 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 19:04:01 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,4 +162,4 @@ t_stack *init_stack(int ac, char **av)
     }
     return stack;
 }
-*/ 
+*/
