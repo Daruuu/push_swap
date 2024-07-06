@@ -6,29 +6,21 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 10:43:23 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 12:27:11 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int count_argc(int ac) {
-
-    int count;
-    int i;
-
-    i = -1;
-    count = 1;
-    while (++i < ac)
-        count++;
-    return (i);
-}
-
-void	input_check(int ac, char **av)
+void	input_check_all(int ac, char **av)
 {
 	if (ac < 2)
+	{
 		ft_printf("ac incorrect!\n");
+		return ;
+	}
+	if (ac == 2)
+		av = ft_split(av[1], ' ');
 	else
 		av ++;
 	if (has_invalid_characters(ac - 1, av))
@@ -36,9 +28,7 @@ void	input_check(int ac, char **av)
 	else if (has_duplicated_numbers(ac - 1, av))
 		ft_printf("Error duplicate number\n");
 	else if (if_numbers_are_sorted(ac - 1, av))
-    {
 		ft_printf("numbers sorted\n");
-	}
 }
 /*
         array_input = malloc(sizeof(*array_input) * count_ac + 1);
@@ -60,7 +50,7 @@ void	input_check(int ac, char **av)
         }
 */
 
-char	**split_arguments(int ac, char **av, int *count_args)
+char	**split_arguments(int ac, char **av)
 {
 	char	**split;
 	char	**result;
@@ -69,12 +59,6 @@ char	**split_arguments(int ac, char **av, int *count_args)
 
 	if (ac == 2)
 		split = ft_split(av[1], ' ');
-	else
-	{
-		//*count_args = ac - 1;
-		*count_args = ac;
-		return (av + 1);
-	}
 	i = 0;
 	while (split[i])
 		i++;
@@ -88,7 +72,6 @@ char	**split_arguments(int ac, char **av, int *count_args)
 		j++;
 	}
 	result[j] = '\0';
-	*count_args = i;
 	free(split);
 	return (result);
 }

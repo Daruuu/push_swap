@@ -1,36 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aux_list.c                                         :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/03 12:05:13 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 14:46:22 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_size_stack(t_stack *stack)
+t_stack	*init_stack(int ac, char **av)
 {
+	t_stack	*stack;
+	t_node	*new_node;
+	t_node	*current;
 	int		i;
-	t_node	*current_node;
 
-	current_node = stack->head;
+	stack = (t_stack *) malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack = set_stack_null(stack);
 	i = 0;
-	while (current_node != NULL)
+	av++;
+	while (++i < ac)
 	{
-		i++;
-		current_node = current_node->next;
+		new_node = create_new_node(av, i);
+		if (stack->head == NULL)
+			stack->head = new_node;
+		else
+		{
+			current = stack->tail;
+			current->next = new_node;
+			new_node->previous = current;
+			stack->tail = new_node;
+		}
+		stack->len++;
 	}
-	stack->len = i;
-	return (i);
+	return (stack);
 }
 
-/*
- * iterate through stack
-*/
 void	print_stack(t_node *stack)
 {
 	t_node	*current;
@@ -73,6 +84,22 @@ void	set_index_stack(t_node **head_ref)
 	}
 }
 
+int	ft_size_stack(t_stack *stack)
+{
+	int		i;
+	t_node	*current_node;
+
+	current_node = stack->head;
+	i = 0;
+	while (current_node != NULL)
+	{
+		i++;
+		current_node = current_node->next;
+	}
+	stack->len = i;
+	return (i);
+}
+
 /*
  * function if input list are sorted,
  * finish the program 
@@ -93,3 +120,46 @@ int	stack_is_sorted(t_stack *stack_a)
 	}
 	return (TRUE);
 }
+
+/*
+t_stack *init_stack(int ac, char **av)
+{
+    t_stack *stack;
+    t_node *new_node;
+    t_node *current;
+    int i;
+
+    stack = (t_stack *)malloc(sizeof(t_stack));
+    if (!stack)
+        return (NULL);
+    stack->len = 0;
+    stack->head = NULL;
+    stack->tail = NULL;
+
+    for (i = 1; i < ac; i++)
+    {
+        new_node = (t_node *)malloc(sizeof(t_node));
+        if (!new_node)
+            return (NULL); 
+        new_node->data = ft_atoi(av[i]);
+        new_node->index = 0;  // Esto puede ser actualizado después
+        new_node->previous = NULL;
+        new_node->next = NULL;
+
+        if (stack->head == NULL)
+        {
+            stack->head = new_node;
+            stack->tail = new_node;
+        }
+        else
+        {
+            current = stack->tail;
+            current->next = new_node;
+            new_node->previous = current;
+            stack->tail = new_node;
+        }
+        stack->len++;
+    }
+    return stack;
+}
+*/ 

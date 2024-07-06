@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/05 14:30:59 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 14:44:12 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,11 @@ int		is_valid_number(char *str);
 int		has_invalid_characters(int count, char **av);
 int		has_duplicated_numbers(int ac, char **av);
 int		if_numbers_are_sorted(int ac, char **av);
-void	check_all_inputs(int ac, char **av);
 
 /*	INPUT_CHECK.C	*/
-char	**split_arguments(int ac, char **av, int *count_args);
+void	input_check_all(int ac, char **av);
 int		has_duplicated_negative_sign(char **av);
-void	input_check(int ac, char **av);
+char	**split_arguments(int ac, char **av);
 
 /*	STACK_UTILS.C	*/
 int		ft_size_stack(t_stack *stack);
@@ -63,6 +62,8 @@ int		stack_is_sorted(t_stack *stack_a);
 /*	STACK_HELPER.C	*/
 t_node	*get_before_last_node_stack(t_stack *stack);
 t_node	*get_tail_of_stack(t_stack *stack);
+t_node	*create_new_node(char **av, int i);
+t_stack	*set_stack_null(t_stack *stack);
 
 /*	SWAPS_OPERATIONS.C	*/
 void	swap_nodes(t_stack *stack);
@@ -87,8 +88,9 @@ void	push_move(t_stack *stack_src, t_stack *stack_dest);
 void	push_a(t_stack *stack_src, t_stack *stack_dest);
 void	push_b(t_stack *stack_src, t_stack *stack_dest);
 
-/*	ERRORS.C???	*/
-void	ft_free_each_node(t_stack **stack);
+/*	FREE_AND_ERRORS.C???	*/
+void	free_each_node(t_stack **stack);
+void	free_node(t_node *node);
 
 /*	MOVES_STACK.C???	*/
 void	order_stack_three_numbers(t_stack *stack);

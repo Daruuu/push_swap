@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 19:53:30 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 10:36:58 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 12:27:30 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int count_arguments(int ac) {
-
-    int count;
-    int i;
-
-    i = 0;
-    count = 1;
-    while (i < ac)
-    {
-        count++;
-        i++;
-    }
-    return (i);
-}
-
 int	main(int ac, char **av)
 {
-    input_check(ac, av);
+    input_check_all(ac, av);
+    //print_stack();
+    
+
 	// call a push_swap here 
 	return (0);
 }
