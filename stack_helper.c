@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 18:30:33 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 19:31:08 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_node	*create_new_node(char **av, int i)
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 		free_node(new_node);
-	new_node->data = ft_atoi(*av);
+	new_node->data = ft_atoi(av[i]);
 	new_node->index = i;
 	new_node->previous = NULL;
 	new_node->next = NULL;

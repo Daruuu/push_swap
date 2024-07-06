@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 19:04:01 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 19:48:40 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ t_stack	*init_stack(int ac, char **av)
 	if (!stack)
 		return (NULL);
 	stack = set_stack_null(stack);
-	i = 0;
-	av++;
+	i = 0;	//	av++;
 	while (++i < ac)
 	{
 		new_node = create_new_node(av, i);
@@ -59,8 +58,9 @@ void	print_stack(t_node *stack)
 	}
 }
 
-/* Set indexes in STACK*/
-//TODO: redo this functions with others variables names
+/*	Set indexes in STACK
+ *	TODO: redo this functions with others variables names
+*/
 void	set_index_stack(t_node **head_ref)
 {
 	t_node	*current;

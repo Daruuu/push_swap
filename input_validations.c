@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:02:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 10:38:32 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 21:34:38 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	is_valid_number(char *str)
 	return (TRUE);
 }
 
-//static int	has_invalid_characters(int count, char **av)
 int	has_invalid_characters(int ac, char **av)
 {
 	int	i;
@@ -47,7 +46,6 @@ int	has_invalid_characters(int ac, char **av)
 	return (FALSE);
 }
 
-// static int	has_duplicated_numbers(int ac, char **av)
 int	has_duplicated_numbers(int ac, char **av)
 {
 	int	i;
@@ -68,7 +66,6 @@ int	has_duplicated_numbers(int ac, char **av)
 	return (FALSE);
 }
 
-// static int	if_numbers_are_sorted(int ac, char **av)
 int	if_numbers_are_sorted(int ac, char **av)
 {
 	int	i;

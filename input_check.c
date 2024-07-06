@@ -6,35 +6,105 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 19:05:52 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 21:36:59 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	input_check_all(int ac, char **av)
-{
-	t_stack		*new_stack;
+t_stack	*stack_with_split(char **av);
 
-	new_stack = NULL;
-	if (ac < 2)
-	{
-		ft_printf("ac incorrect!\n");
-		return ;
-	}
-	if (ac == 2)
-		av = ft_split(av[1], ' ');
-	else
-		av ++;
-	if (has_invalid_characters(ac - 1, av))
+void	check_all_validations(int ac, char **av)
+{
+	if (has_invalid_characters(ac, av))
 		ft_printf("Error invalid char\n");
-	else if (has_duplicated_numbers(ac - 1, av))
+	else if (has_duplicated_numbers(ac, av))
 		ft_printf("Error duplicate number\n");
-	else if (if_numbers_are_sorted(ac - 1, av))
+	else if (if_numbers_are_sorted(ac, av))
 		ft_printf("numbers sorted\n");
-	else
-		new_stack = init_stack(ac, **av);
 }
+
+void	input_check_argc(int ac, char **av)
+{
+	t_stack	*new_stack;
+
+	if (ac < 2)
+		ft_printf("ac incorrect!\n");
+	if (ac == 2)
+	{
+		check_all_validations(ac, av);
+		new_stack = stack_with_split(av);	
+	}
+	if (ac > 2)
+	{
+		check_all_validations(ac, av);
+		stack_with_split(av);
+	}
+}
+
+t_stack	*stack_with_split(char **av)
+{
+	int		i;
+	t_stack	*new_stack;
+	char	**split_av;
+
+	split_av = ft_split(av[1], ' ');
+	while (split_av[i] != NULL)
+		i++;
+	new_stack = init_stack(i, split_av);
+}
+
+/*
+	else
+	{
+		new_stack = init_stack(ac, av);
+		if (!new_stack)
+			ft_printf("error init stack\n");
+		print_stack(new_stack->head);
+	}
+*/
+
+/*
+t_stack	*stack_with_split(char **av)
+{
+	int		i;
+	t_stack	*new_stack;
+	char	**split_av;
+
+	split_av = ft_split(av[1], ' ');
+	i = 0;
+	while (split_av[i] != NULL)
+		i++;
+	if (has_invalid_characters(i, split_av))
+	{
+		ft_printf("Error invalid char\n");
+		free_split(split_av);
+		return (NULL);
+	}
+	else if (has_duplicated_numbers(i, split_av))
+	{
+		ft_printf("Error duplicate number\n");
+		free_split(split_av);
+		return (NULL);
+	}
+	else if (if_numbers_are_sorted(i, split_av))
+	{
+		ft_printf("numbers sorted\n");
+		free_split(split_av);
+		return (NULL);
+	}
+	else
+	{
+		new_stack = init_stack(i, split_av);
+		if (!new_stack)
+			ft_printf("error init stack\n");
+		print_stack(new_stack->head);
+		free_split(split_av); // Libera el arreglo split_av
+		return (new_stack);
+	}
+}
+*/
+
 /*
         array_input = malloc(sizeof(*array_input) * count_ac + 1);
         if (!array_input)
@@ -54,7 +124,7 @@ void	input_check_all(int ac, char **av)
             i++;
         }
 */
-
+/*
 char	**split_arguments(int ac, char **av)
 {
 	char	**split;
@@ -76,11 +146,10 @@ char	**split_arguments(int ac, char **av)
 		result[j] = split[j];
 		j++;
 	}
-	result[j] = '\0';
+	result[j] = 0;
 	free(split);
 	return (result);
 }
-/*
 int	has_duplicated_negative_sign(char **av)
 {
 	int	i;

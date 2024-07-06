@@ -6,15 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 20:30:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 18:29:18 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 21:37:33 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
- * FREE EACH NODE IN LINKED LIST
-*/
 
 void	free_each_node(t_stack **stack)
 {
@@ -34,12 +30,22 @@ void	free_each_node(t_stack **stack)
 	*stack = NULL;
 }
 
-/*
- * FREE A NODE
-*/
 void	free_node(t_node *node)
 {
 	if (node)
 		free(node);
 	node = NULL;
+}
+
+void	free_split(char **split)
+{
+	int	i;
+
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	split = NULL;
 }
