@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 19:08:46 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 21:56:03 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int		has_duplicated_numbers(int ac, char **av);
 int		if_numbers_are_sorted(int ac, char **av);
 
 /*	INPUT_CHECK.C	*/
-void	input_check_all(int ac, char **av);
+void	check_all_validations(int ac, char **av);
+void	input_check_argc(int ac, char **av);
 int		has_duplicated_negative_sign(char **av);
 char	**split_arguments(int ac, char **av);
 
@@ -65,6 +66,7 @@ t_node	*get_before_last_node_stack(t_stack *stack);
 t_node	*get_tail_of_stack(t_stack *stack);
 t_node	*create_new_node(char **av, int i);
 t_stack	*set_stack_null(t_stack *stack);
+t_stack	*stack_with_split(char **av);
 
 /*	SWAPS_OPERATIONS.C	*/
 void	swap_nodes(t_stack *stack);
@@ -92,6 +94,8 @@ void	push_b(t_stack *stack_src, t_stack *stack_dest);
 /*	FREE_AND_ERRORS.C???	*/
 void	free_each_node(t_stack **stack);
 void	free_node(t_node *node);
+void	free_split(char **split);
+void	free_stack(t_stack *stack);
 
 /*	MOVES_STACK.C???	*/
 void	order_stack_three_numbers(t_stack *stack);

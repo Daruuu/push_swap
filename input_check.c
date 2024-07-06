@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 21:36:59 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 21:55:21 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	input_check_argc(int ac, char **av)
 
 	if (ac < 2)
 		ft_printf("ac incorrect!\n");
+	new_stack = (t_stack *) malloc(sizeof(t_stack));
+	if (!new_stack)
+		free_stack(new_stack);
 	if (ac == 2)
 	{
 		check_all_validations(ac, av);
@@ -38,22 +41,9 @@ void	input_check_argc(int ac, char **av)
 	if (ac > 2)
 	{
 		check_all_validations(ac, av);
-		stack_with_split(av);
+		new_stack = stack_with_split(av);
 	}
 }
-
-t_stack	*stack_with_split(char **av)
-{
-	int		i;
-	t_stack	*new_stack;
-	char	**split_av;
-
-	split_av = ft_split(av[1], ' ');
-	while (split_av[i] != NULL)
-		i++;
-	new_stack = init_stack(i, split_av);
-}
-
 /*
 	else
 	{

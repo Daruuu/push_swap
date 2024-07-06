@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 19:48:40 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/06 21:58:22 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,6 @@ int	ft_size_stack(t_stack *stack)
 	return (i);
 }
 
-/*
- * function if input list are sorted,
- * finish the program 
-*/
-
 int	stack_is_sorted(t_stack *stack_a)
 {
 	t_node	*current;
@@ -120,46 +115,3 @@ int	stack_is_sorted(t_stack *stack_a)
 	}
 	return (TRUE);
 }
-
-/*
-t_stack *init_stack(int ac, char **av)
-{
-    t_stack *stack;
-    t_node *new_node;
-    t_node *current;
-    int i;
-
-    stack = (t_stack *)malloc(sizeof(t_stack));
-    if (!stack)
-        return (NULL);
-    stack->len = 0;
-    stack->head = NULL;
-    stack->tail = NULL;
-
-    for (i = 1; i < ac; i++)
-    {
-        new_node = (t_node *)malloc(sizeof(t_node));
-        if (!new_node)
-            return (NULL); 
-        new_node->data = ft_atoi(av[i]);
-        new_node->index = 0;  // Esto puede ser actualizado después
-        new_node->previous = NULL;
-        new_node->next = NULL;
-
-        if (stack->head == NULL)
-        {
-            stack->head = new_node;
-            stack->tail = new_node;
-        }
-        else
-        {
-            current = stack->tail;
-            current->next = new_node;
-            new_node->previous = current;
-            stack->tail = new_node;
-        }
-        stack->len++;
-    }
-    return stack;
-}
-*/
