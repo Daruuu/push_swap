@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 21:58:22 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/07 00:43:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ t_stack	*init_stack(int ac, char **av)
 {
 	t_stack	*stack;
 	t_node	*new_node;
-	t_node	*current;
 	int		i;
 
 	stack = (t_stack *) malloc(sizeof(t_stack));
@@ -31,11 +30,10 @@ t_stack	*init_stack(int ac, char **av)
 			stack->head = new_node;
 		else
 		{
-			current = stack->tail;
-			current->next = new_node;
-			new_node->previous = current;
-			stack->tail = new_node;
+			stack->head->next = new_node;
+			new_node->previous = stack->tail;
 		}
+		stack->tail = new_node;
 		stack->len++;
 	}
 	return (stack);

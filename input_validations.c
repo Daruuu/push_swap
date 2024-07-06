@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:02:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 21:34:38 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/07 00:48:38 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ int	is_valid_number(char *str)
 	int	i;
 
 	i = 0;
-
 	if (str[i] == '-' || str[i] == '+')
 		i++;
+	if (str[i] == '\0')
+		return (FALSE);
 	while (str[i]!= '\0')
 	{
 		if (!ft_isdigit(str[i]))
