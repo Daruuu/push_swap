@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/06 21:56:03 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/08 21:07:45 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ char	**split_arguments(int ac, char **av);
 
 /*	STACK_UTILS.C	*/
 t_stack	*init_stack(int ac, char **av);
-void	print_stack(t_node *stack);
+/*void	print_stack(t_node *stack);*/
+void	print_stack(t_stack *stack);
 void	set_index_stack(t_node **head_ref);
 int		ft_size_stack(t_stack *stack);
 int		stack_is_sorted(t_stack *stack_a);
@@ -104,6 +105,7 @@ void	order_stack_five_numbers(t_stack *stack);
 t_stack	fill_linked_list(int argc, char **argv);
 //void	print_stack(int argc, char **argv);
 
+/*	NO_USE.C???	*/
 int		ft_lst_size(t_node *lst);
 int		ft_atoi(const char *str);
 void	set_index_in_stack(t_node **head_ref);

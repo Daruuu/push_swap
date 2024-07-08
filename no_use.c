@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_functions.c                                  :+:      :+:    :+:   */
+/*   no_use.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:56:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/01/15 19:15:43 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/08 19:36:34 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	number_out_of_range(long long *result)
 {
 	if (*result > INT_MAX || *result < INT_MIN)
 	{
-		write(1, "number out of range", 20);
+		ft_printf("number out of range");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -45,7 +45,12 @@ int	ft_atoi(const char *str)
 	}
 	result *= signo;
 	number_out_of_range(&result);
-	return (result);
+	return ((int)result);
+}
+
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
 }
 
 int	ft_lst_size(t_node *lst)
