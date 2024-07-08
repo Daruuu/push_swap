@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/08 21:07:45 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/09 01:51:03 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
  * @attribute previous : puntero al anterior nodo
  * @attribute next : pointer to next node
 */
+
 typedef struct s_node
 {
 	int				data;
@@ -97,6 +98,7 @@ void	free_each_node(t_stack **stack);
 void	free_node(t_node *node);
 void	free_split(char **split);
 void	free_stack(t_stack *stack);
+int		is_stack_null(t_stack *stack);
 
 /*	MOVES_STACK.C???	*/
 void	order_stack_three_numbers(t_stack *stack);

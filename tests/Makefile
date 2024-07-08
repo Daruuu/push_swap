@@ -20,22 +20,22 @@ TEST_OBJS = ${TEST_SRCS:.c=.o}
 all: ${NAME}
 
 %.o: %.c ${HEADER} Makefile
-	${CC} ${CFLAGS} -c $< -o $@
+	@${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}: $(OBJS)
-	make -C ${LIBFTDIR}
-	make -C ${LIBPRINTFDIR}
+	@make -C ${LIBFTDIR}
+	@make -C ${LIBPRINTFDIR}
 	${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME} ${LDFLAGS}
 
 test: $(TEST_OBJS) $(OBJS)
-	make -C ${LIBFTDIR}
-	make -C ${LIBPRINTFDIR}
+	@make -C ${LIBFTDIR}
+	@make -C ${LIBPRINTFDIR}
 	${CC} ${CFLAGS} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
 
 clean:
-	$(RM) $(OBJS) $(TEST_OBJS)
 	@cd ${LIBFTDIR} && ${MAKE} clean
 	@cd ${LIBPRINTFDIR} && ${MAKE} clean
+	$(RM) $(OBJS) $(TEST_OBJS)
 
 fclean: clean
 	$(RM) $(NAME) $(TEST_NAME)

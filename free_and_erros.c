@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 20:30:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/07 00:19:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/09 01:27:34 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,11 @@ void	free_stack(t_stack *stack)
 		current = next;
 	}
 	free(stack);
+}
+
+int	is_stack_null(t_stack *stack)
+{
+	if (!stack)
+		return (1);
+	return (0);
 }

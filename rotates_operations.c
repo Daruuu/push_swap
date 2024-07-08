@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotates.c                                          :+:      :+:    :+:   */
+/*   rotates_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:35:34 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/02 11:34:14 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/09 01:13:58 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
  * [1]	[10] [5] [1]
  * ra
 */
+
 void	rotate_stack(t_stack *stack)
 {
 	t_node	*first;
@@ -34,7 +35,7 @@ void	rotate_stack(t_stack *stack)
 	first = stack->head;
 	last = stack->tail;
 	/* desvincular el primer NODO al FINAL de la pila*/
-	stack->head = first->next; 
+	stack->head = first->next;
 	stack->head->previous = NULL;
 	/*	recolorcar el primer nodo al funal de stack*/
 	last->next = first;

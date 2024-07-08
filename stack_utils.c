@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/08 21:22:35 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/09 01:50:44 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,25 @@ t_stack	*init_stack(int ac, char **av)
 	int		i;
 
 	stack = (t_stack *) malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
+	is_stack_null(stack);
 	stack = set_stack_null(stack);
-	i = -1;	//	av++;
+	i = 0;
 	while (++i < ac)
 	{
 		new_node = create_new_node(av, i);
 		if (stack->head == NULL)
+		{
 			stack->head = new_node;
+			stack->tail = new_node;
+		}
 		else
 		{
-			stack->head->next = new_node;
+			stack->tail->next = new_node;
 			new_node->previous = stack->tail;
+			stack->tail = new_node;
 		}
-		stack->tail = new_node;
 		stack->len++;
-		//i++;
 	}
-	ft_printf("%i\n", i);
 	return (stack);
 }
 
@@ -49,7 +49,7 @@ void	print_stack(t_stack *stack)
 	if (!stack)
 		return ;
 	current = stack->head;
-	i = 0;
+	i = 1;
 	while (current != NULL)
 	{
 		printf("[%d]->%d\n", i, current->data);
@@ -57,24 +57,7 @@ void	print_stack(t_stack *stack)
 		current = current->next;
 	}
 }
-/*
-void	print_stack(t_node *stack)
-{
-	t_node	*current;
-	int		i;
 
-	if (!stack)
-		return ;
-	current = stack;
-	i = 0;
-	while (current != NULL)
-	{
-		printf("[%d]->%d\n", i, current->data);
-		i++;
-		current = current->next;
-	}
-}
-*/
 /*	Set indexes in STACK
  *	TODO: redo this functions with others variables names
 */

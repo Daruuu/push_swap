@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_push.c                                       :+:      :+:    :+:   */
+/*   push_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:43:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/03 12:07:17 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/09 01:21:24 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 /*
- *	enviar el primer node de STACK_SRC al STACK_DEST 
- *	en la 1ra posicion del stack
+ * send FIRST NODE
+ * of STACK_SRC to
+ * STACK_DEST in the
+ * 1rst POS of STACK
 */
 
 void	push_move(t_stack *stack_src, t_stack *stack_dest)
@@ -28,9 +31,9 @@ void	push_move(t_stack *stack_src, t_stack *stack_dest)
 	stack_src->head = stack_src->head->next;
 	if (stack_src->head != NULL)
 		stack_src->head->previous = NULL;
-	else// si el stack se vacio , update tambien el tail
+	else/* si el stack se vacio , update tambien el tail*/
 		stack_src->tail = NULL;
-	// inserta el nodo tmp en STACK_DEST
+	/* inserta el nodo tmp en STACK_DEST*/
 	tmp_first_node_src->next = stack_dest->head;
 	tmp_first_node_src->previous = NULL;
 	if (stack_dest->head != NULL)

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:56:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/08 19:36:34 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/09 00:21:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	number_out_of_range(long long *result)
 {
 	if (*result > INT_MAX || *result < INT_MIN)
 	{
-		ft_printf("number out of range");
+		ft_printf("number out of range\n");
 		exit(EXIT_FAILURE);
 	}
 }

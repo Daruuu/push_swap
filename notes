@@ -3,3 +3,4 @@ cc main.c check_input.c parse_input.c push_swap.h utils_functions.c divide_stack
 // TESTING WITH VALGRIND
 
 valgrind --leak-check=full ./a.out
+valgrind -s --leak-check=full --show-leak-kinds=all ./test_push_swap 1 2 | cat -e

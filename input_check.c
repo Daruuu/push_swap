@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/08 23:36:58 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/09 01:55:09 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_stack	*stack_with_split(char **av);
 
 void	check_all_validations(int ac, char **av)
 {
+	if (av[1] == NULL || av[2] == NULL)
+		exit(EXIT_FAILURE);
 	if (has_invalid_characters(ac, av))
 	{
 		ft_printf("Error invalid char\n");
@@ -39,21 +41,16 @@ void	input_check_argc(int ac, char **av)
 	char	**split_av;
 	int		count_split;
 
-	if (ac < 2)
-	{
-		ft_printf("ac incorrect!\n");
-		return ;
-	}
 	new_stack = (t_stack *) malloc(sizeof(t_stack));
 	if (!new_stack)
 		free_stack(new_stack);
 	if (ac == 2)
 	{
-		count_split = 0;
-		split_av = ft_split(av[1], ' ');	//TODO: error with SPLIT
+		count_split = 1;	//count_split = 0;
+		split_av = ft_split(av[1], ' ');//TODO: error with SPLIT
 		while (split_av[count_split])
 			count_split++;
-		ft_printf("%d\n", count_split);	//LOGGGGGGGGGGGGG
+		ft_printf("%d\n", count_split);
 		check_all_validations(count_split, split_av);
 		new_stack = init_stack(count_split, split_av);
 		free_split(split_av);
@@ -61,7 +58,7 @@ void	input_check_argc(int ac, char **av)
 	else
 	{
 		check_all_validations(ac - 1, av + 1);
-		//new_stack = init_stack(ac, av);
+		new_stack = init_stack(ac, av);
 	}
 	if (new_stack)
 	{
@@ -69,3 +66,4 @@ void	input_check_argc(int ac, char **av)
 		free_stack(new_stack);
 	}
 }
+
