@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/09 19:29:35 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/10 00:52:31 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ typedef struct s_stack
 	t_node	*tail;
 }		t_stack;
 
+/*	MAIN.C???	*/
+void	input_check_argc(int ac, char **av);
+
 /*	INPUT_VALIDATIONS.C	*/
 int		is_valid_number(char *str);
 int		has_invalid_characters(int count, char **av);
@@ -69,21 +72,21 @@ t_stack	*stack_with_split(char **av);
 
 /*	SWAPS_OPERATIONS.C	*/
 void	swap_nodes(t_stack *stack);
-void	swap_a(t_stack *stack_a);
-void	swap_b(t_stack *stack_b);
-void	swap_a_b(t_stack *stack_a, t_stack *stack_b);
+void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_b);
+void	ss(t_stack *stack_a, t_stack *stack_b);
 
 /*	ROTATES_OPERATIONS.C	*/
 void	rotate_stack(t_stack *stack);
-void	rotate_a(t_stack **stack_a);
-void	rotate_b(t_stack **stack_b);
-void	rotate_rotate(t_stack **stack_a, t_stack **stack_b);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
 
 /*	REV_ROTATES_OPERATIONS.C	*/
 void	reverse_rotate_stack(t_stack *stack);
-void	r_rotate_a(t_stack **stack_a);
-void	r_rotate_b(t_stack **stack_b);
-void	rev_rotate_a_b(t_stack **stack_b);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 /*	PUSH_OPERATIONS.C	*/
 void	push_move(t_stack *stack_src, t_stack *stack_dest);
@@ -101,12 +104,6 @@ int		is_stack_null(t_stack *stack);
 void	sort_stack_three_numbers(t_stack **stack);
 void	sort_stack_five_numbers(t_stack **stack);
 t_stack	*handle_sort_options_stack(t_stack *stack, int length_stack);
-
-/*	MOVES_STACK.C???	
-void	order_stack_three_numbers(t_stack *stack);
-void	order_stack_five_numbers(t_stack *stack);
-*/
-t_stack	fill_linked_list(int argc, char **argv);
 
 /*	NO_USE.C???	*/
 int		ft_lst_size(t_node *lst);

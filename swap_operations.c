@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 21:01:03 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/09 16:12:53 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/10 00:13:52 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@ void	swap_nodes(t_stack *stack)
 	second->index = temp_index;
 }
 
-void	swap_a(t_stack *stack_a)
+void	sa(t_stack *stack_a)
 {
 	swap_nodes(stack_a);
 	ft_printf("sa\n");
 }
 
-void	swap_b(t_stack *stack_b)
+void	sb(t_stack *stack_b)
 {
 	swap_nodes(stack_b);
 	ft_printf("sb\n");
 }
 
-void	swap_a_b(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	swap_a(stack_a);
-	swap_b(stack_b);
+	sa(stack_a);
+	sb(stack_b);
 }

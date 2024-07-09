@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:35:34 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/09 01:13:58 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/10 00:07:37 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,21 @@ void	rotate_stack(t_stack *stack)
 	stack->tail = first;
 }
 
-void	rotate_a(t_stack **stack_a)
+void	ra(t_stack **stack_a)
 {
 	rotate_stack(*stack_a);
 	ft_printf("ra\n");
 }
 
-void	rotate_b(t_stack **stack_b)
+void	rb(t_stack **stack_b)
 {
 	rotate_stack(*stack_b);
 	ft_printf("rb\n");
 }
 
-void	rotate_rotate(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b)
 {
-	rotate_a(stack_a);
-	rotate_b(stack_b);
+	ra(stack_a);
+	rb(stack_b);
 	ft_printf("rr\n");
 }

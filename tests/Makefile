@@ -15,7 +15,7 @@ OBJS = $(SRCS:.c=.o)
 
 # TESTING VARIABLES
 TEST_NAME = test_push_swap
-TEST_SRCS = main_testing.c
+TEST_SRCS = main.c
 TEST_OBJS = ${TEST_SRCS:.c=.o}
 
 all: ${NAME}
@@ -31,20 +31,20 @@ ${NAME}: $(OBJS)
 test: $(TEST_OBJS) $(OBJS)
 	@make -C ${LIBFTDIR}
 	@make -C ${LIBPRINTFDIR}
-	${CC} ${CFLAGS} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
+	@${CC} ${CFLAGS} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
 
 test_gdb: $(TEST_OBJS) $(OBJS)
 	@make -C ${LIBFTDIR}
 	@make -C ${LIBPRINTFDIR}
-	${CC} ${CFLAGS} ${DEBUG} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
+	@${CC} ${CFLAGS} ${DEBUG} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
 
 clean:
 	@cd ${LIBFTDIR} && ${MAKE} clean
 	@cd ${LIBPRINTFDIR} && ${MAKE} clean
-	$(RM) $(OBJS) $(TEST_OBJS)
+	@$(RM) $(OBJS) $(TEST_OBJS)
 
 fclean: clean
-	$(RM) $(NAME) $(TEST_NAME)
+	@$(RM) $(NAME) $(TEST_NAME)
 
 re: fclean all
 

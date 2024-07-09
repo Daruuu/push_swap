@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotates.c                                  :+:      :+:    :+:   */
+/*   rev_rotates_operations.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 11:15:08 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/02 18:05:58 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/10 00:24:45 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,21 @@ void	reverse_rotate_stack(t_stack *stack)
 	new_last->next = NULL;
 }
 
-void	rev_rotate_a(t_stack **stack_a)
+void	rra(t_stack **stack_a)
 {
 	reverse_rotate_stack(*stack_a);
 	ft_printf("rra\n");
 }
 
-void	rev_rotate_b(t_stack **stack_b)
+void	rrb(t_stack **stack_b)
 {
 	reverse_rotate_stack(*stack_b);
 	ft_printf("rrb\n");
 }
 
-void	rr_a_b(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	rev_rotate_a(stack_a);
-	rev_rotate_b(stack_b);
+	rra(stack_a);
+	rrb(stack_b);
 	ft_printf("rrr\n");
 }
