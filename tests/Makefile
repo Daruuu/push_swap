@@ -5,6 +5,7 @@ LDFLAGS = -no-pie
 CFLAGS = -Wall -Wextra -Werror
 CC = gcc
 RM = rm -f
+DEBUG = -g
 
 LIBFTDIR = ../incl/libft
 LIBPRINTFDIR = ../incl/libft/printf
@@ -25,12 +26,17 @@ all: ${NAME}
 ${NAME}: $(OBJS)
 	@make -C ${LIBFTDIR}
 	@make -C ${LIBPRINTFDIR}
-	${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME} ${LDFLAGS}
+	@${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME} ${LDFLAGS}
 
 test: $(TEST_OBJS) $(OBJS)
 	@make -C ${LIBFTDIR}
 	@make -C ${LIBPRINTFDIR}
 	${CC} ${CFLAGS} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
+
+test_gdb: $(TEST_OBJS) $(OBJS)
+	@make -C ${LIBFTDIR}
+	@make -C ${LIBPRINTFDIR}
+	${CC} ${CFLAGS} ${DEBUG} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
 
 clean:
 	@cd ${LIBFTDIR} && ${MAKE} clean
