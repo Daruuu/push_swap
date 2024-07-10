@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/10 00:52:31 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/10 21:28:22 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,8 @@ int		is_stack_null(t_stack *stack);
 /*	DIFF_SORT_OPTIONS.C	*/
 void	sort_stack_three_numbers(t_stack **stack);
 void	sort_stack_five_numbers(t_stack **stack);
-t_stack	*handle_sort_options_stack(t_stack *stack, int length_stack);
+t_stack	*handle_sort_options(t_stack **stack, int len_stack);
+/*t_stack	*handle_sort_options(t_stack *stack, int len_stack, t_stack *stack_b);*/
 
 /*	NO_USE.C???	*/
 int		ft_lst_size(t_node *lst);
