@@ -6,13 +6,21 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/10 21:30:13 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/10 22:50:25 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //	Case: 2 1 3 => 1 2 3	swap first two
+/*
+ * 3 2 1: sa(*stack_a); rra(stack_a);	ERROR	
+ * 3 1 2: ra(stack_a);					OK
+ * 2 3 1: rra(stack_a);					ERROR
+ * 2 1 3: sa(*stack_a);					OK
+ * 1 3 2: sa(*stack_a); ra(stack_a);	OK
+ * 1 2 3; sorted
+*/
 void	sort_stack_three_numbers(t_stack **stack_a)
 {
 	t_node	*f;
@@ -22,22 +30,22 @@ void	sort_stack_three_numbers(t_stack **stack_a)
 	f = (*stack_a)->head;
 	s = f->next;
 	t = s->next;
-	if (f->data > s->data && f->data < t->data)
+	if (f->data > s->data && f->data > t->data && s->data > t->data)
+	{
+        sa(*stack_a);
+        rra(stack_a);
+    }
+	else if (f->data > s->data && f->data > t->data && s->data < t->data)
+		ra(stack_a);
+	else if (f->data > s->data && f->data < t->data)
 		sa(*stack_a);
-	else if (f->data > s->data && s->data > t->data)
+    else if (f->data < s->data && f->data > t->data)
+		rra(stack_a);
+    else if (f->data < s->data && s->data > t->data)
 	{
 		sa(*stack_a);
-		rra(stack_a);
-	}
-	else if (f->data > s->data && s->data < t->data && f->data > t->data)
 		ra(stack_a);
-	else if (f->data < s->data && s->data < t->data && f->data < t->data)
-	{
-		sa(*stack_a);
-		ra(stack_a);
-	}
-	else if (f->data < s->data && s->data > t->data && f->data > t->data)
-		rra(stack_a);
+    }
 }
 
 /*

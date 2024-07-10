@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/09 03:00:50 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/10 22:13:02 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ void	input_check_argc(int ac, char **av)
 	if (!new_stack)
 		free_stack(new_stack);
 	if (ac == 2)
+	{
+		check_all_validations(ac - 1, av + 1);
 		new_stack = stack_with_split(av);
+	}
 	else
 	{
 		check_all_validations(ac - 1, av + 1);
@@ -51,7 +54,7 @@ void	input_check_argc(int ac, char **av)
 	}
 	if (new_stack)
 	{
-		print_stack(new_stack);
+		//print_stack(new_stack);
 		free_stack(new_stack);
 	}
 }
