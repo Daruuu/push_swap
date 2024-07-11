@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/11 13:02:51 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/11 19:26:16 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,19 +82,11 @@ void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
 
-
-
-
-
 /*	REV_ROTATES_OPERATIONS.C	*/
 void	reverse_rotate_stack(t_stack *stack);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
-
-
-
-
 
 /*	PUSH_OPERATIONS.C	*/
 void	push_move(t_stack *stack_src, t_stack *stack_dest);
