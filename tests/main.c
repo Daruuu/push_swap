@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 23:05:13 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/10 22:00:00 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/11 13:34:10 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int main(int ac, char **av)
     input_check_argc(ac, av);
     stack_a = init_stack(ac, av);
     //handle_sort_options(stack_a, stack_a->len, stack_b);
-    ft_printf("initial stack lenght: %d\n", stack_a->len);
+    //ft_printf("initial stack lenght: %d\n", stack_a->len);
     handle_sort_options(&stack_a, stack_a->len);
-    print_stack(stack_a);
+    //print_stack(stack_a);
     //free(stack_a);
     return (0);
 }

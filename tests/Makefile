@@ -33,7 +33,7 @@ test: $(TEST_OBJS) $(OBJS)
 	@make -C ${LIBPRINTFDIR}
 	@${CC} ${CFLAGS} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
 
-test_gdb: $(TEST_OBJS) $(OBJS)
+testgdb: $(TEST_OBJS) $(OBJS)
 	@make -C ${LIBFTDIR}
 	@make -C ${LIBPRINTFDIR}
 	@${CC} ${CFLAGS} ${DEBUG} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}

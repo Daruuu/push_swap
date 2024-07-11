@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 11:15:08 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/10 00:24:45 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/11 13:31:46 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
  *  V
  * [1]	[10] [4] [5]
 */
+
 void	reverse_rotate_stack(t_stack *stack)
 {
 	t_node	*new_first;
@@ -31,11 +32,16 @@ void	reverse_rotate_stack(t_stack *stack)
 	if (stack == NULL || stack->len < 2)
 		return ;
 	new_first = get_tail_of_stack(stack);
-	new_first->next = stack->head;
 	new_last = get_before_last_node_stack(stack);
-	new_last->next = NULL;
-}
 
+	new_first->next = stack->head;
+	stack->head->previous = new_first;
+	stack->head = new_first;
+
+	new_last->next = NULL;
+	new_first->previous = NULL;
+	stack->tail = new_last;
+}
 void	rra(t_stack **stack_a)
 {
 	reverse_rotate_stack(*stack_a);
