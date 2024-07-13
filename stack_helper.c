@@ -6,15 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/09 03:03:42 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/13 15:43:11 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
- * get the last before node in stack
-*/
 
 t_node	*get_before_last_node_stack(t_stack *stack)
 {
@@ -28,9 +24,30 @@ t_node	*get_before_last_node_stack(t_stack *stack)
 	return (current);
 }
 
-/*
- * get last NODE of stack
-*/
+int	find_min_node_position(t_stack *stack)
+{
+	t_node	*current;
+	t_node	*min_node;
+	int		i;
+	int		min_position;
+
+	if (stack == NULL || stack->len == 0)
+		return(0);
+	i = 0;
+	current = stack->head;
+	min_node = stack->head;
+	while (current != NULL)
+	{
+		if (current->data < min_node->data)
+		{
+			min_node = current;
+			min_position = i;
+		}
+		i++;
+		current = current->next;
+	}
+	return (min_position);
+}
 
 t_node	*get_tail_of_stack(t_stack *stack)
 {
@@ -39,7 +56,7 @@ t_node	*get_tail_of_stack(t_stack *stack)
 	current = stack->head;
 	if (current == NULL)
 		return (NULL);
-	while (current->next != NULL)
+while (current->next != NULL)
 		current= current->next;
 	return (current);
 }

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/10 22:21:31 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/13 15:29:44 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ t_stack	*init_stack(int ac, char **av)
 		}
 		stack->len++;
 	}
+	return (stack);
+}
+
+t_stack	*init_stack_empty(void)
+{
+	t_stack	*stack;
+
+	stack = (t_stack *) malloc(sizeof(t_stack));
+	stack = set_stack_null(stack);
 	return (stack);
 }
 
