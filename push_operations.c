@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:43:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/13 11:06:46 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/16 01:20:32 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	push_move(t_stack **stack_src, t_stack **stack_dest)
 	tmp_first_node_src->previous = NULL;
 	if ((*stack_dest)->head != NULL)
 		(*stack_dest)->head->previous = tmp_first_node_src;
-	(*stack_dest)->head = tmp_first_node_src;
-	if ((*stack_dest)->tail == NULL)
+	else
 		(*stack_dest)->tail = tmp_first_node_src;
+	(*stack_dest)->head = tmp_first_node_src;
 	(*stack_src)->len--;
 	(*stack_dest)->len++;
 }

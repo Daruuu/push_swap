@@ -6,11 +6,12 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/15 20:55:15 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/16 01:02:33 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+void	aux_sort_five_numbers(t_stack *stack_a);
 
 //	Case: 2 1 3 => 1 2 3	swap first two
 /*
@@ -58,41 +59,49 @@ void	sort_stack_three_numbers(t_stack *stack_a)
 */
 void	sort_stack_five_numbers(t_stack **stack_a, t_stack **stack_b)
 {
-	int		max_node;
-	int		i;
-	t_node	*current;
-
-	i = 0;
 	while ((*stack_a)->len > 3)
 	{
-		max_node = max_num_in_stack(*stack_a);
-		ft_printf("max num: %d\n", max_node);
-		current = (*stack_a)->head;
-		while (current != NULL)
-		{
-			if (current->data == max_node)
-				break ;
-			current = current->next;
-			i++;
-		}
-		ft_printf("i : %d\n", i);
-		if (i <= ((*stack_a)->len / 2))
-		{
-			while (i-- > 0)
-				ra(stack_a);
-		}
-		else
-		{
-			ft_printf("i : %d\n", i);
-			i = (*stack_a)->len - i;
-			while (i-- > 0)
-				rra(stack_a);
-		}
+		aux_sort_five_numbers(*stack_a);
 		push_b(stack_a, stack_b);
 	}
 	sort_stack_three_numbers(*stack_a);
-	while (*stack_b)
-		push_a(stack_a, stack_b);
+	while ((*stack_b)->head != NULL)
+		push_a(stack_b, stack_a);
+}
+
+void	aux_sort_five_numbers(t_stack *stack_a)
+{
+	t_node	*current;
+	int		max_node;
+	int		i;
+
+	current = stack_a->head;
+	max_node = max_num_in_stack(stack_a);
+	i = 0;
+	while (current != NULL)
+	{
+		if (current->data == max_node)
+			break ;
+		current = current->next;
+		i++;
+	}
+	if (i <= (stack_a->len / 2))
+	{
+		while (i > 0)
+		{
+			ra(&stack_a);
+			i--;
+		}
+	}
+	else
+	{
+		i = stack_a->len - i;
+		while (i > 0)
+		{
+			rra(&stack_a);
+			i--;
+		}
+	}
 }
 
 t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
@@ -102,7 +111,7 @@ t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
 	if (len_stack == 3)
 		sort_stack_three_numbers(*sa);
 	else if (len_stack == 5)
-		sort_stack_five_numbers(&*sa, &*sb);
+		sort_stack_five_numbers(sa, sb);
 	return (*sa);
 }
 /*
