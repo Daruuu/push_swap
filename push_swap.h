@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/13 15:00:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/15 20:45:09 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ t_node	*create_new_node(char **av, int i);
 t_stack	*set_stack_null(t_stack *stack);
 t_stack	*stack_with_split(char **av);
 int		find_min_node_position(t_stack *stack);
+int		max_num_in_stack(t_stack *stack);
 
 /*	SWAPS_OPERATIONS.C	*/
 void	swap_nodes(t_stack *stack);
@@ -103,7 +104,7 @@ void	free_stack(t_stack *stack);
 int		is_stack_null(t_stack *stack);
 
 /*	DIFF_SORT_OPTIONS.C	*/
-void	sort_stack_three_numbers(t_stack **stack);
+void	sort_stack_three_numbers(t_stack *stack);
 void	sort_stack_five_numbers(t_stack **stack_a, t_stack **stack_b);
 t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack);
 /*t_stack	*handle_sort_options(t_stack *stack, int len_stack, t_stack *stack_b);*/

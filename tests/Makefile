@@ -38,12 +38,12 @@ testgdb: $(TEST_OBJS) $(OBJS)
 	@make -C ${LIBPRINTFDIR}
 	@${CC} ${CFLAGS} ${DEBUG} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
 
-clean:
+c:
 	@cd ${LIBFTDIR} && ${MAKE} clean
 	@cd ${LIBPRINTFDIR} && ${MAKE} clean
 	@$(RM) $(OBJS) $(TEST_OBJS)
 
-fclean: clean
+fc: clean
 	@$(RM) $(NAME) $(TEST_NAME)
 
 re: fclean all

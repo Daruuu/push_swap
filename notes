@@ -4,3 +4,119 @@ cc main.c check_input.c parse_input.c push_swap.h utils_functions.c divide_stack
 
 valgrind --leak-check=full ./a.out
 valgrind -s --leak-check=full --show-leak-kinds=all ./test_push_swap 1 2 | cat -e
+
+void sort_stack_five_numbers(t_stack **stack_a, t_stack **stack_b) {
+    int min_position;
+
+    if (*stack_a == NULL || (*stack_a)->len <= 3)
+        return;
+
+    while ((*stack_a)->len > 3) {
+        min_position = find_min_node_position(*stack_a);
+        if (min_position <= ((*stack_a)->len / 2)) {
+            while (min_position--) {
+                ra(stack_a);
+            }
+        } else {
+            min_position = (*stack_a)->len - min_position;
+            while (min_position--) {
+                rra(stack_a);
+            }
+        }
+        push_b(stack_a, stack_b);
+    }
+
+    sort_stack_three_numbers(stack_a);
+
+    while (*stack_b) {
+        push_a(stack_a, stack_b);
+    }
+
+    if ((*stack_a)->head->data > (*stack_a)->head->next->data) {
+        sa(*stack_a);
+    }
+}
+
+t_stack *handle_sort_options(t_stack **sa, t_stack **sb, int len_stack) {
+    if (!sa || !*sa) {
+        return NULL;
+    }
+
+    if (len_stack == 3) {
+        sort_stack_three_numbers(sa);
+    } else if (len_stack > 3) {
+        sort_stack_five_numbers(sa, sb);
+    }
+
+    return *sa;
+}
+
+//fiveeee
+
+void    handle_five(t_stack_node **a, t_stack_node **b)
+{
+    while (stack_len(*a) > 3)
+    {
+        t_stack_node *max_node = find_value_max(*a);
+        if (*a == max_node)
+        {
+            ra(a);
+            pb(a, b);
+        }
+        else if ((*a)->next == max_node)
+        {
+            rra(a);
+            pb(a, b);
+        }
+        else
+        {
+            pb(a, b);
+        }
+    }
+    // Ahora 'a' tiene 3 elementos que necesitan ser ordenados
+    tiny_sort(a);
+    // Mueve los elementos ordenados de 'a' de vuelta a 'b'
+    while (*a)
+    {
+        pa(a, b);
+    }
+}
+-----------------------------------=
+void	sort_stack_five_numbers(t_stack **stack_a, t_stack **stack_b)
+{
+	int		max_node;
+	int		i;
+	t_node	*current;
+
+	while ((*stack_a)->len > 3)
+	{
+		max_node = max_num_in_stack(*stack_a);
+		current = (*stack_a)->head;
+		i = 0;
+		// Encuentra la posición del nodo con el valor máximo
+		while (current != NULL)
+		{
+			if (current->data == max_node)
+				break ;
+			current = current->next;
+			i++;
+		}
+		// Mueve el nodo con el valor máximo a stack_b
+		if (i <= (*stack_a)->len / 2)
+			while (i-- > 0)
+				ra(stack_a);
+		else
+		{
+			i = (*stack_a)->len - i;
+			while (i-- > 0)
+				rra(stack_a);
+		}
+		push_b(stack_a, stack_b);
+	}
+	// Ordena los tres nodos restantes en stack_a
+	sort_stack_three_numbers(stack_a);
+	// Mueve los nodos de vuelta de stack_b a stack_a
+	while (*stack_b)
+		push_a(stack_a, stack_b);
+}
+
