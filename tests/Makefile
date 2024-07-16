@@ -24,8 +24,8 @@ all: ${NAME}
 	@${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}: $(OBJS)
-	@make -C ${LIBFTDIR}
-	@make -C ${LIBPRINTFDIR}
+	make -C ${LIBFTDIR}
+	make -C ${LIBPRINTFDIR}
 	@${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME} ${LDFLAGS}
 
 test: $(TEST_OBJS) $(OBJS)

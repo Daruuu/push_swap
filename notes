@@ -181,4 +181,147 @@ void sort_stack_five_numbers(t_stack **stack_a, t_stack **stack_b)
         push_a(stack_b, stack_a);
 }
 
-V
+=====================================
+void sort_stack_four_numbers(t_stack *stack_a, t_stack *stack_b)
+{
+    int max_pos;
+    int i;
+    t_node *current;
+
+    // Encuentra la posición del número máximo en stack_a
+    max_pos = find_max_node_position(stack_a);
+    current = stack_a->head;
+
+    // Mueve el número máximo a stack_b
+    for (i = 0; i < max_pos; i++)
+        current = current->next;
+
+    if (max_pos <= stack_a->len / 2)
+    {
+        while (max_pos-- > 0)
+            ra(&stack_a);
+    }
+    else
+    {
+        max_pos = stack_a->len - max_pos;
+        while (max_pos-- > 0)
+            rra(&stack_a);
+    }
+    push_b(&stack_a, &stack_b);
+
+    // Ordena los tres números restantes en stack_a
+    sort_stack_three_numbers(stack_a);
+
+    // Mueve el número de stack_b de vuelta a stack_a
+    push_a(&stack_b, &stack_a);
+
+    // Si el número movido de vuelta a stack_a no está en su posición correcta, rota
+    if (stack_a->head->data > stack_a->head->next->data)
+        ra(&stack_a);
+}
+
+int find_max_node_position(t_stack *stack)
+{
+    int max;
+    int position = 0;
+    int max_position = 0;
+    t_node *current;
+
+    if (stack == NULL || stack->head == NULL)
+        return 0;  // Manejar casos de error de manera apropiada
+
+    current = stack->head;
+    max = current->data;
+
+    while (current != NULL)
+    {
+        if (current->data > max)
+        {
+            max = current->data;
+            max_position = position;
+        }
+        position++;
+        current = current->next;
+    }
+
+    return max_position;
+}
+
+
+
+
+
+=///=/=////////////////////////////////
+void	sort_stack_three_numbers(t_stack *stack_a)
+{
+	t_node	*f;
+	t_node	*s;
+	t_node	*t;
+
+	f = stack_a->head;
+	s = f->next;
+	t = s->next;
+	if (f->data > s->data && s->data > t->data) // 3 2 1
+	{
+		sa(stack_a);
+		rra(&stack_a);
+	}
+	else if (f->data > s->data && f->data > t->data && s->data < t->data) // 3 1 2
+		ra(&stack_a);
+	else if (f->data > s->data && f->data < t->data) // 2 1 3
+		sa(stack_a);
+	else if (f->data < s->data && f->data < t->data && s->data > t->data) // 1 3 2
+	{
+		sa(stack_a);
+		ra(&stack_a);
+	}
+	else if (f->data < s->data && f->data > t->data) // 2 3 1
+		rra(&stack_a);
+}
+
+void	sort_stack_four_numbers(t_stack *stack_a, t_stack *stack_b)
+{
+	int		min_pos;
+
+	min_pos = find_min_node_position(stack_a);
+	if (min_pos <= stack_a->len / 2)
+	{
+		while (min_pos-- > 0)
+			ra(&stack_a);
+	}
+	else
+	{
+		min_pos = stack_a->len - min_pos;
+		while (min_pos-- > 0)
+			rra(&stack_a);
+	}
+	push_b(&stack_a, &stack_b);
+	sort_stack_three_numbers(stack_a);
+	push_a(&stack_b, &stack_a);
+}
+
+void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b)
+{
+	int	min_pos;
+
+	while (stack_a->len > 3)
+	{
+		min_pos = find_min_node_position(stack_a);
+		if (min_pos <= stack_a->len / 2)
+		{
+			while (min_pos-- > 0)
+				ra(&stack_a);
+		}
+		else
+		{
+			min_pos = stack_a->len - min_pos;
+			while (min_pos-- > 0)
+				rra(&stack_a);
+		}
+		push_b(&stack_a, &stack_b);
+	}
+	sort_stack_three_numbers(stack_a);
+	while (stack_b->len > 0)
+		push_a(&stack_b, &stack_a);
+}
+

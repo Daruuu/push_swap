@@ -6,13 +6,13 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/16 14:13:32 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/16 20:27:46 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	aux_sort_five_numbers(t_stack *stack_a);
+//void	aux_sort_five_numbers(t_stack *stack_a);
 
 //	Case: 2 1 3 => 1 2 3	swap first two
 /*
@@ -33,6 +33,7 @@ void	sort_stack_three_numbers(t_stack *stack_a)
 	f = stack_a->head;
 	s = f->next;
 	t = s->next;
+
 	if (f->data > s->data && f->data > t->data && s->data > t->data)
 	{
 		sa(stack_a);
@@ -52,6 +53,24 @@ void	sort_stack_three_numbers(t_stack *stack_a)
 }
 
 /*
+	if (f->data > s->data && f->data > t->data)
+	{
+		sa(stack_a);
+		rra(&stack_a);
+	}
+	else if (f->data > s->data && f->data > t->data && s->data < t->data)
+		ra(&stack_a);
+	else if (f->data > s->data && f->data < t->data)
+		sa(stack_a);
+	else if (f->data < s->data && f->data < t->data && s->data > t->data)
+	{
+		sa(stack_a);
+		ra(&stack_a);
+	}
+	else if (f->data < s->data && f->data > t->data)
+		ra(&stack_a);
+*/
+/*
  *	Step 1: Push 3 to stack B (Max 3 moves)
  *	Step 2: Sort stack A (Max 2 moves)
  *	Step 3: Push 3 to stack A (1 move)
@@ -59,18 +78,13 @@ void	sort_stack_three_numbers(t_stack *stack_a)
  *	Maximum number of moves = 7 moves
  *	
 */
+
 void	sort_stack_four_numbers(t_stack *stack_a, t_stack *stack_b)
 {
 	int		max_pos;
-	t_node	*current;
-	int		i;
 
-	i = 0;
-	current = stack_a->head;
 	max_pos = max_num_in_stack(stack_a);
-	ft_printf("%d\n", max_pos);
-	while (i++ < max_pos)
-		current = current->next;
+	ft_printf("max posi :%d\n", max_pos);
 	if (max_pos <= stack_a->len / 2)
 	{
 		while (max_pos-- > 0)
@@ -79,14 +93,14 @@ void	sort_stack_four_numbers(t_stack *stack_a, t_stack *stack_b)
 	else
 	{
 		max_pos = stack_a->len - max_pos;
-		while (max_pos-- > 0 )
+		while (max_pos-- > 0)
 			rra(&stack_a);
 	}
 	push_b(&stack_a, &stack_b);
 	sort_stack_three_numbers(stack_a);
 	push_a(&stack_b, &stack_a);
-	if(stack_a->head->next > stack_a->head->next->data)
-		ra(&stack_a);
+	if (stack_a->head->data > stack_a->head->next->data)
+		rra(&stack_a);
 }
 
 /*
@@ -133,63 +147,3 @@ t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
 		sort_stack_five_numbers(*sa, *sb);
 	return (*sa);
 }
-/*
-void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b)
-{
-	while (stack_a->len > 3)
-	{
-		aux_sort_five_numbers(stack_a);
-		push_b(&stack_a, &stack_b);
-	}
-	sort_stack_three_numbers(stack_a);
-	while (stack_b->head != NULL)
-		push_a(&stack_b, &stack_a);
-}
-void	aux_sort_five_numbers(t_stack *stack_a)
-{
-	t_node	*current;
-	int		max_node;
-	int		i;
-
-	current = stack_a->head;
-	max_node = max_num_in_stack(stack_a);
-	i = 0;
-	while (current != NULL)
-	{
-		if (current->data == max_node)
-			break ;
-		current = current->next;
-		i++;
-	}
-	if (i <= (stack_a->len / 2))
-	{
-		while (i > 0)
-		{
-			ra(&stack_a);
-			i--;
-		}
-	}
-	else
-	{
-		i = stack_a->len - i;
-		while (i > 0)
-		{
-			rra(&stack_a);
-			i--;
-		}
-	}
-}
-*/
-/*
-	ft_printf("stack A: ");
-	print_stack(*stack_a);
-	ft_printf("stack B: ");
-	print_stack(*stack_b);
-
-	sort_stack_three_numbers(&(*stack_b));
-
-	push A
-	push_a(&*stack_b, &*stack_a);
-	ft_printf("stack A with push_a: ");
-	print_stack(*stack_a);
-*/
