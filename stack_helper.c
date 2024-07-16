@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/15 20:48:25 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/16 13:30:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	find_min_node_position(t_stack *stack)
 	}
 	return (min_position);
 }
-
+// new 
 int	max_num_in_stack(t_stack *stack)
 {
 	int		max;
@@ -66,28 +66,26 @@ int	max_num_in_stack(t_stack *stack)
 	}
 	return (max);
 }
+
 /*
-int max_num_in_stack(t_stack **stack) {
-    int max;
-    t_node *current;
+int	max_num_in_stack(t_stack *stack)
+{
+	int		max;
+	t_node	*current;
 
-    if ((*stack) == NULL || (*stack)->head == NULL)
-        return (0); // o algún valor que indique error
-
-    current = (*stack)->head;
-    max = current->data; // Inicializar max con el primer valor del stack
-
-    while (current != NULL) {
-        if (current->data > max) {
-            max = current->data;
-        }
-        current = current->next;
-    }
-    return (max);
+	if (stack == NULL || stack->head == NULL)
+		return (0);
+	current = stack->head;
+	max = current->data;
+	while (current != NULL)
+	{
+		if(current->data > max)
+			max = current->data;
+		current = current->next;
+	}
+	return (max);
 }
-
 */
-
 t_node	*get_tail_of_stack(t_stack *stack)
 {
 	t_node	*current;

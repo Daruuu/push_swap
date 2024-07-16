@@ -120,3 +120,65 @@ void	sort_stack_five_numbers(t_stack **stack_a, t_stack **stack_b)
 		push_a(stack_a, stack_b);
 }
 
+//////////////////////////////////
+void handle_five(t_stack_node **a, t_stack_node **b)
+{
+    while (stack_len(*a) > 3)
+    {
+        t_stack_node *max_node = find_value_max(*a);
+        if (*a == max_node)
+        {
+            ra(a);
+            pb(a, b);
+        }
+        else if ((*a)->next == max_node)
+        {
+            rra(a);
+            pb(a, b);
+        }
+        else
+        {
+            pb(a, b);
+        }
+    }
+    // Ahora 'a' tiene 3 elementos que necesitan ser ordenados
+    tiny_sort(a);
+    // Mueve los elementos ordenados de 'a' de vuelta a 'b'
+    while (*a)
+    {
+        pa(a, b);
+    }
+}
+*************************************
+void sort_stack_five_numbers(t_stack **stack_a, t_stack **stack_b)
+{
+    int i = 0;
+    int min_pos;
+
+    // Move two smallest elements from stack A to stack B
+    while ((*stack_a)->len > 3)
+    {
+        min_pos = find_min_node_position(*stack_a);
+        if (min_pos <= (*stack_a)->len / 2)
+        {
+            while (min_pos-- > 0)
+                ra(stack_a);
+        }
+        else
+        {
+            min_pos = (*stack_a)->len - min_pos;
+            while (min_pos-- > 0)
+                rra(stack_a);
+        }
+        push_b(stack_a, stack_b);
+    }
+
+    // Sort remaining three elements in stack A
+    sort_stack_three_numbers(*stack_a);
+
+    // Push elements back from stack B to stack A
+    while ((*stack_b)->len > 0)
+        push_a(stack_b, stack_a);
+}
+
+V

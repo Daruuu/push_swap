@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 23:05:13 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/15 18:27:30 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/16 12:48:10 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@ int main(int ac, char **av)
     t_stack *stack_b;
 
     stack_a = NULL; 
-    //stack_b = init_stack_empty(); 
     stack_b = NULL; 
     if (ac < 2)
         return(0);
     input_check_argc(ac, av);
+
     stack_a = init_stack(ac, av);
+    stack_b = init_stack_empty();
+
     ft_printf("initial stack lenght: %d\n", stack_a->len);
-    handle_sort_options(&stack_a, &stack_b, (stack_a)->len);
+
+    handle_sort_options(&stack_a, &stack_b, stack_a->len);
+    //ft_printf("stack A:\n");
     //print_stack(stack_a);
     //free(stack_a);
     return (0);

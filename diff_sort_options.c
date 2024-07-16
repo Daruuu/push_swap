@@ -6,18 +6,19 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/16 01:02:33 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:13:32 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void	aux_sort_five_numbers(t_stack *stack_a);
 
 //	Case: 2 1 3 => 1 2 3	swap first two
 /*
- * 3 2 1: sa(*stack_a); rra(stack_a);	ERROR	
+ * 3 2 1: sa(*stack_a); rra(stack_a);	OK	
  * 3 1 2: ra(stack_a);					OK
- * 2 3 1: rra(stack_a);					ERROR
+ * 2 3 1: rra(stack_a);					OK
  * 2 1 3: sa(*stack_a);					OK
  * 1 3 2: sa(*stack_a); ra(stack_a);	OK
  * 1 2 3; sorted
@@ -50,25 +51,100 @@ void	sort_stack_three_numbers(t_stack *stack_a)
 	}
 }
 
-//void	sort_stack_five_numbers(t_stack **stack_a)
 /*
- *	move the 2 first number from STACK A to STACK B
- *	use logic from 3 random numbers to sort in STACK A
- *	Mover los 2 números de B de vuelta a A y colocarlos en la posición correcta.
- *	MAX MOVEMENTS Is 12
+ *	Step 1: Push 3 to stack B (Max 3 moves)
+ *	Step 2: Sort stack A (Max 2 moves)
+ *	Step 3: Push 3 to stack A (1 move)
+ *	Step 4: Rotate stack A (1 move)
+ *	Maximum number of moves = 7 moves
+ *	
 */
-void	sort_stack_five_numbers(t_stack **stack_a, t_stack **stack_b)
+void	sort_stack_four_numbers(t_stack *stack_a, t_stack *stack_b)
 {
-	while ((*stack_a)->len > 3)
+	int		max_pos;
+	t_node	*current;
+	int		i;
+
+	i = 0;
+	current = stack_a->head;
+	max_pos = max_num_in_stack(stack_a);
+	ft_printf("%d\n", max_pos);
+	while (i++ < max_pos)
+		current = current->next;
+	if (max_pos <= stack_a->len / 2)
 	{
-		aux_sort_five_numbers(*stack_a);
-		push_b(stack_a, stack_b);
+		while (max_pos-- > 0)
+			ra(&stack_a);
 	}
-	sort_stack_three_numbers(*stack_a);
-	while ((*stack_b)->head != NULL)
-		push_a(stack_b, stack_a);
+	else
+	{
+		max_pos = stack_a->len - max_pos;
+		while (max_pos-- > 0 )
+			rra(&stack_a);
+	}
+	push_b(&stack_a, &stack_b);
+	sort_stack_three_numbers(stack_a);
+	push_a(&stack_b, &stack_a);
+	if(stack_a->head->next > stack_a->head->next->data)
+		ra(&stack_a);
 }
 
+/*
+ *	move the 2 min number from STACK A to STACK B
+ *	use logic from 3 random numbers to sort in STACK A
+ *	Move 2 numbers to B and return A and set in correct position
+ *	MAX MOVEMENTS Is 12
+*/
+
+void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b)
+{
+	int	min_pos;
+
+	while (stack_a->len > 3)
+	{
+		min_pos = find_min_node_position(stack_a);
+		if (min_pos <= stack_a->len / 2)
+		{
+			while (min_pos-- > 0)
+				ra(&stack_a);
+		}
+		else
+		{
+			min_pos = stack_a->len - min_pos;
+			while (min_pos-- > 0)
+				rra(&stack_a);
+		}
+		push_b(&stack_a, &stack_b);
+	}
+	sort_stack_three_numbers(stack_a);
+	while (stack_b->len > 0)
+		push_a(&stack_b, &stack_a);
+}
+
+t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
+{
+	if (!sa)
+		return (NULL);
+	if (len_stack == 3)
+		sort_stack_three_numbers(*sa);
+	else if (len_stack == 4)
+		sort_stack_four_numbers(*sa, *sb);
+	else if (len_stack == 5)
+		sort_stack_five_numbers(*sa, *sb);
+	return (*sa);
+}
+/*
+void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b)
+{
+	while (stack_a->len > 3)
+	{
+		aux_sort_five_numbers(stack_a);
+		push_b(&stack_a, &stack_b);
+	}
+	sort_stack_three_numbers(stack_a);
+	while (stack_b->head != NULL)
+		push_a(&stack_b, &stack_a);
+}
 void	aux_sort_five_numbers(t_stack *stack_a)
 {
 	t_node	*current;
@@ -103,17 +179,7 @@ void	aux_sort_five_numbers(t_stack *stack_a)
 		}
 	}
 }
-
-t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
-{
-	if (!sa)
-		return (NULL);
-	if (len_stack == 3)
-		sort_stack_three_numbers(*sa);
-	else if (len_stack == 5)
-		sort_stack_five_numbers(sa, sb);
-	return (*sa);
-}
+*/
 /*
 	ft_printf("stack A: ");
 	print_stack(*stack_a);
@@ -122,8 +188,8 @@ t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
 
 	sort_stack_three_numbers(&(*stack_b));
 
-	//	push A
-	//	push_a(&*stack_b, &*stack_a);
-	//	ft_printf("stack A with push_a: ");
-	//	print_stack(*stack_a);
+	push A
+	push_a(&*stack_b, &*stack_a);
+	ft_printf("stack A with push_a: ");
+	print_stack(*stack_a);
 */
