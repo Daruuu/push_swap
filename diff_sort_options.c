@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/17 15:53:40 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:23:01 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	sort_stack_three_numbers(t_stack *stack_a)
 	f = stack_a->head;
 	s = f->next;
 	t = s->next;
-
 	if (f->data > s->data && f->data > t->data && s->data > t->data)
 	{
 		sa(stack_a);
@@ -52,9 +51,8 @@ void	sort_stack_three_numbers(t_stack *stack_a)
 	}
 }
 
-
-//	flota el max number de un stack de 4 numbers
-void	float_min_number_four_stack(t_stack *stack_a)
+/*	flota el max number de un stack de 4 numbers*/
+static void	float_min_number_four_stack(t_stack *stack_a)
 {
 	int		min_pos;
 
@@ -67,6 +65,27 @@ void	float_min_number_four_stack(t_stack *stack_a)
 		rra(&stack_a);
 	}
 	else if (min_pos == 3)
+		rra(&stack_a);
+}
+
+void	float_min_number_five_stack(t_stack *stack_a)
+{
+	int		min_pos;
+
+	min_pos = min_index_stack(stack_a);
+	if (min_pos == 1)
+		sa(stack_a);
+	else if (min_pos == 2)
+	{
+		ra(&stack_a);
+		ra(&stack_a);
+	}
+	else if (min_pos == 3)
+	{
+		rra(&stack_a);
+		rra(&stack_a);
+	}
+	else if (min_pos == 4)
 		rra(&stack_a);
 }
 
@@ -85,27 +104,6 @@ void	sort_stack_four_numbers(t_stack *stack_a, t_stack *stack_b)
  *	MAX MOVEMENTS Is 12
 */
 
-void	float_min_number_five_stack(t_stack *stack_a)
-{
-	int		min_pos;
-
-	min_pos = min_index_stack(stack_a);
-	if (min_pos == 1)
-		sa(stack_a);
-	else if (min_pos ==  2)
-	{
-		ra(&stack_a);
-		ra(&stack_a);
-	}
-	else if (min_pos ==  3)
-	{
-		rra(&stack_a);
-		rra(&stack_a);
-	}
-	else if (min_pos == 4)
-		rra(&stack_a);
-}
-
 void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b)
 {
 	float_min_number_five_stack(stack_a);
@@ -113,33 +111,6 @@ void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b)
 	sort_stack_four_numbers(stack_a, stack_b);
 	push_a(&stack_b, &stack_a);
 }
-
-/*
-	if (f->data > s->data && f->data > t->data)
-	{
-		sa(stack_a);
-		rra(&stack_a);
-	}
-	else if (f->data > s->data && f->data > t->data && s->data < t->data)
-		ra(&stack_a);
-	else if (f->data > s->data && f->data < t->data)
-		sa(stack_a);
-	else if (f->data < s->data && f->data < t->data && s->data > t->data)
-	{
-		sa(stack_a);
-		ra(&stack_a);
-	}
-	else if (f->data < s->data && f->data > t->data)
-		ra(&stack_a);
-*/
-/*
- *	Step 1: Push 3 to stack B (Max 3 moves)
- *	Step 2: Sort stack A (Max 2 moves)
- *	Step 3: Push 3 to stack A (1 move)
- *	Step 4: Rotate stack A (1 move)
- *	Maximum number of moves = 7 moves
- *	
-*/
 
 t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
 {

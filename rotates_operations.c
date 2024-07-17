@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 14:35:34 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/11 14:14:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:31:31 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 /*
  * ROTATE FIRST ELEMENT OF STACK TO LAST POSITION 
- * |HEAD|-> |1|next| --> |prev|2|next|--> |prev|3|next| --> |prev|4|next| --> NULL
+ * |HEAD|-> |1|next| --> |prev|2|next|--> |prev|3|next|
+ * --> |prev|4|next| --> NULL
  *
  * |prev|2|next|--> |prev|3|next| --> |prev|4|next| --> |prev|1|next| --> NULL 
  * [10]	[4] [5] [1]

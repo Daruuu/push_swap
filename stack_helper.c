@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/17 15:51:44 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:32:41 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	find_min_node_position(t_stack *stack)
 	int		min_position;
 
 	if (stack == NULL || stack->len == 0)
-		return(0);
+		return (0);
 	i = 0;
 	current = stack->head;
 	min_node = stack->head;
@@ -123,8 +123,8 @@ t_node	*get_tail_of_stack(t_stack *stack)
 	current = stack->head;
 	if (current == NULL)
 		return (NULL);
-while (current->next != NULL)
-		current= current->next;
+	while (current->next != NULL)
+		current = current->next;
 	return (current);
 }
 
