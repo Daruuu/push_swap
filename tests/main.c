@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 23:05:13 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/16 16:28:25 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/17 19:38:41 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int main(int ac, char **av)
     //free(stack_a);
     return (0);
 }
-
 /*
 #include "../push_swap.h"
 #include "./Unity/src/unity.h"
