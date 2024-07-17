@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/16 13:30:36 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:51:44 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,36 @@ int	find_min_node_position(t_stack *stack)
 	}
 	return (min_position);
 }
-// new 
+
+//	return la posicion del nodo con el numero minimo
+//	los indices empiezan en 0 y terminan en stack->len - 1
+
+int	min_index_stack(t_stack *stack)
+{
+	int		min;
+	int		index;
+	int		min_index;
+	t_node	*current;
+
+	if (stack == NULL || stack->head == NULL)
+		return (0);
+	current = stack->head;
+	min = current->data;
+	index = 0;
+	min_index = index;
+	while (current != NULL)
+	{
+		if (current->data < min)
+		{
+			min = current->data;
+			min_index = index;
+		}
+		index++;
+		current = current->next;
+	}
+	return (min_index);
+}
+/*
 int	max_num_in_stack(t_stack *stack)
 {
 	int		max;
@@ -66,6 +95,7 @@ int	max_num_in_stack(t_stack *stack)
 	}
 	return (max);
 }
+*/
 
 /*
 int	max_num_in_stack(t_stack *stack)
