@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/17 18:00:53 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:59:18 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ t_node	*get_tail_of_stack(t_stack *stack)
 	current = stack->head;
 	if (current == NULL)
 		return (NULL);
-while (current->next != NULL)
-		current= current->next;
+	while (current->next != NULL)
+		current = current->next;
 	return (current);
 }
 

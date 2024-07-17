@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/17 18:38:23 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:58:28 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ void	float_min_number_five_stack(t_stack *stack_a)
 	min_pos = min_index_stack(stack_a);
 	if (min_pos == 1)
 		sa(stack_a);
-	else if (min_pos ==  2)
+	else if (min_pos == 2)
 	{
 		ra(&stack_a);
 		ra(&stack_a);
 	}
-	else if (min_pos ==  3)
+	else if (min_pos == 3)
 	{
 		rra(&stack_a);
 		rra(&stack_a);

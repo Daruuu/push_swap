@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/16 11:10:42 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/17 19:00:19 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,32 +67,6 @@ void	print_stack(t_stack *stack)
 		current = current->next;
 	}
 	ft_printf("\n");
-}
-
-/*	Set indexes in STACK
- *	TODO: redo this functions with others variables names
-*/
-void	set_index_stack(t_node **head_ref)
-{
-	t_node	*current;
-	t_node	*others;
-	int		new_index;
-
-	current = *head_ref;
-	others = current;
-	while (current)
-	{
-		new_index = 0;
-		while (others)
-		{
-			if (others->data < current->data)
-				new_index ++;
-			others = others->next;
-		}
-		current->index = new_index;
-		others = *head_ref;
-		current = current->next;
-	}
 }
 
 int	ft_size_stack(t_stack *stack)
