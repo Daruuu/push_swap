@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/17 18:59:18 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:41:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,32 @@ int	min_index_stack(t_stack *stack)
 		current = current->next;
 	}
 	return (min_index);
+}
+
+int	max_index_stack(t_stack *stack)
+{
+	int		max;
+	int		index;
+	int		max_index;
+	t_node	*current;
+
+	if (stack == NULL || stack->head == NULL)
+		return (0);
+	current = stack->head;
+	max = current->data;
+	index = 0;
+	max_index = index;
+	while (current != NULL)
+	{
+		if (current->data > max)
+		{
+			max = current->data;
+			max_index = index;
+		}
+		index++;
+		current = current->next;
+	}
+	return (max_index);
 }
 
 t_node	*get_tail_of_stack(t_stack *stack)

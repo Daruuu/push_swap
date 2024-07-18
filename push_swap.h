@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/17 19:02:16 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:45:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,11 @@ t_node	*get_before_last_node_stack(t_stack *stack);
 t_node	*get_tail_of_stack(t_stack *stack);
 t_node	*create_new_node(char **av, int i);
 t_stack	*set_stack_null(t_stack *stack);
-t_stack	*stack_with_split(char **av);
-int		find_min_node_position(t_stack *stack);
 int		max_num_in_stack(t_stack *stack);
 int		min_index_stack(t_stack *stack);
+int		max_index_stack(t_stack *stack);
+/*t_stack	*stack_with_split(char **av);
+int		find_min_node_position(t_stack *stack);*/
 
 /*	SWAPS_OPERATIONS.C	*/
 void	swap_nodes(t_stack *stack);
