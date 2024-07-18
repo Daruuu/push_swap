@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/18 13:45:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/18 19:03:04 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,8 @@ int		ft_atoi(const char *str);
 void	set_index_in_stack(t_node **head_ref);
 void	float_min_number_four_stack(t_stack *stack_a);
 void	float_min_number_five_stack(t_stack *stack_a);
+
+/*	CHUNKS_ALGORITHM.C	*/
+void	sort_stack_chunks(t_stack *stack_a, t_stack *stack_b, int chunk_len);
 
 #endif

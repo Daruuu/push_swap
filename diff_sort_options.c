@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/18 13:16:59 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/18 22:04:07 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,11 @@ t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
 		sort_stack_four_numbers(*sa, *sb);
 	else if (len_stack == 5)
 		sort_stack_five_numbers(*sa, *sb);
+	/*
+	else if (len_stack <= 100)
+		sort_stack_chunks(*sa, *sb, len_stack / 4);
+	else if (len_stack <= 500)
+		sort_stack_chunks(*sa, *sb, len_stack / 7);
+	*/
 	return (*sa);
 }
