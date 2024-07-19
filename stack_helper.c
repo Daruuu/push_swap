@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/18 13:41:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:53:43 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ t_node	*create_new_node(char **av, int i)
 	if (!new_node)
 		free_node(new_node);
 	new_node->data = ft_atoi(av[i]);
-	new_node->index = i;
+	new_node->index = 0;
 	new_node->previous = NULL;
 	new_node->next = NULL;
 	return (new_node);

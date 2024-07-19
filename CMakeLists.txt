@@ -15,7 +15,6 @@ add_executable(push_swap_clion
         incl/libft/printf/ft_putstr.c
         swap_operations.c
         stack_utils.c
-        stack_helper.c
         rotates_operations.c
         rev_rotates_operations.c
         push_swap.c
@@ -25,7 +24,9 @@ add_executable(push_swap_clion
         input_check.c
         ft_split.c
         free_and_erros.c
-        diff_sort_options.c
         incl/libft/ft_strlen.c
         incl/libft/ft_strchr.c
-        incl/libft/ft_substr.c)
+        incl/libft/ft_substr.c
+        chunks_algorithm.c
+        stack_helper.c
+        stack_aux.c)

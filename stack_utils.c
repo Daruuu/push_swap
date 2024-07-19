@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/17 19:00:19 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:45:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	print_stack(t_stack *stack)
 	i = 1;
 	while (current != NULL)
 	{
-		//printf("[%d]->%d\n", i, current->data);
-		ft_printf("%d ", current->data);
+		ft_printf("[%d]->%d\n", current->index, current->data);
+//		ft_printf("%d ", current->data);
 		i++;
 		current = current->next;
 	}

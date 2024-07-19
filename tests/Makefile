@@ -28,7 +28,7 @@ ${NAME}: $(OBJS)
 	make -C ${LIBPRINTFDIR}
 	@${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME} ${LDFLAGS}
 
-t: $(TEST_OBJS) $(OBJS)
+test: $(TEST_OBJS) $(OBJS)
 	@make -C ${LIBFTDIR}
 	@make -C ${LIBPRINTFDIR}
 	@${CC} ${CFLAGS} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}

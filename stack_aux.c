@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/18 23:06:13 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/19 13:04:07 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,74 @@
  *	TODO: redo this functions with others variables names
 */
 
-void	set_index_stack(t_node **head_ref)
+void	set_index_stack(t_stack *stack)
 {
-	t_node	*current;
-	t_node	*others;
-	int		new_index;
+	t_node	*min_node;
+	int		index;
+	int		i;
+	int 	current_threshold;
 
-	current = *head_ref;
-	others = current;
-	while (current)
+	min_node = find_min_node(stack, INT_MIN);
+	min_node->index = 0;
+	current_threshold = min_node->data;
+	i = 1;
+	index = 1;
+	while (i < stack->len)
 	{
-		new_index = 0;
-		while (others)
-		{
-			if (others->data < current->data)
-				new_index ++;
-			others = others->next;
-		}
-		current->index = new_index;
-		others = *head_ref;
-		current = current->next;
+		min_node = find_min_node(stack, current_threshold);
+		min_node->index = index;
+		current_threshold = min_node->data;
+		index++;
+		i++;
 	}
 }
+
+t_node	*find_min_node(t_stack *stack,  int threshold)
+{
+	t_node	*current;
+	t_node	*min_node;
+	int 	min;
+
+	if (stack == NULL || stack->head == NULL)
+		return (0);
+	current = stack->head;
+	min = INT_MAX;
+	min_node = current;
+	while (current != NULL)
+	{
+		if (current->data < min && current->data > threshold)
+		{
+			min = current->data;
+			min_node = current;
+		}
+		current = current->next;
+	}
+	return (min_node);
+}
+
+/*
+t_node	*find_min_node(t_stack *stack, int threshold)
+{
+	t_node	*current;
+	t_node	*min_node;
+	int 	min;
+
+	current = stack->head;
+	min_node = NULL;
+	min = INT_MAX;
+
+	while (current != NULL)
+	{
+		if (current->data < min && current->data > threshold )
+		{
+			min = current->data;
+			min_node = current;
+		}
+		current = current->next;
+	}
+	return min_node;
+}
+*/
 
 /*	flota el max number de un stack de 4 numbers	*/
 

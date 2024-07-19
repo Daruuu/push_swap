@@ -49,6 +49,7 @@ int	min_index_chunk(t_stack *stack, int len_chunk)
  * chunk 4:	18 7 17 6 5
 */
 
+/*
 void	sort_stack_with_chunks(t_stack *stack_a, t_stack *stack_b, int chunk_size)
 {
 	int	i;
@@ -64,7 +65,7 @@ void	sort_stack_with_chunks(t_stack *stack_a, t_stack *stack_b, int chunk_size)
 		{
 			//	chunk 1:	2 4 20 19 15 
 			min_value_chunk = min_index_chunk(stack_a, chunk_size);	//	2
-			max_value_chunk = max_index_stack(stack_a);	//	20	
+			max_value_chunk = max_index_stack(stack_a);	//	20
 			ft_printf("%d\n", min_value_chunk);
 			ft_printf("%d\n", max_index_stack);
 			if (stack_a->head->data >= min_value_chunk
@@ -77,6 +78,7 @@ void	sort_stack_with_chunks(t_stack *stack_a, t_stack *stack_b, int chunk_size)
 		i++;
 	}
 }
+*/
 
 int	max_index_chunk(t_stack *stack, int chunk_size)
 {
