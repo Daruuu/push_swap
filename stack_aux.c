@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/19 13:04:07 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:14:20 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	set_index_stack(t_stack *stack)
 	t_node	*min_node;
 	int		index;
 	int		i;
-	int 	current_threshold;
+	int		current_threshold;
 
 	min_node = find_min_node(stack, INT_MIN);
 	min_node->index = 0;
@@ -38,11 +38,11 @@ void	set_index_stack(t_stack *stack)
 	}
 }
 
-t_node	*find_min_node(t_stack *stack,  int threshold)
+t_node	*find_min_node(t_stack *stack, int threshold)
 {
 	t_node	*current;
 	t_node	*min_node;
-	int 	min;
+	int		min;
 
 	if (stack == NULL || stack->head == NULL)
 		return (0);

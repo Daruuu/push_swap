@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 15:56:44 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:26:28 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,16 @@ void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b)
 	sort_stack_four_numbers(stack_a, stack_b);
 	push_a(&stack_b, &stack_a);
 }
+
+/*
+ * function to order each chunk
+ * redondear cada chunk hacia arriba
+ * 2 4 20 19 15 1 9 13 10 11 16 3 8 14 12 18 7 17 6 5
+ * chunk 1:	2 4 20 19 15
+ * chunk 2:	1 9 13 10 11
+ * chunk 3:	16 3 8 14 12
+ * chunk 4:	18 7 17 6 5
+*/
 
 void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 {

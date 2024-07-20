@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 23:05:13 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 14:17:30 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:20:08 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,32 @@ int main(int ac, char **av)
     t_stack *stack_b;
 
     stack_a = NULL; 
+    stack_b = NULL;
+    if (ac < 2)
+        return(0);
+    input_check_argc(ac, av);
+    stack_a = init_stack(ac, av);
+    stack_b = init_stack_empty();
+//    ft_printf("initial stack lenght: %d\n", stack_a->len);
+//	ft_printf("initial stack lenght: %d\n", stack_b->len);
+	set_index_stack(stack_a);
+//	ft_printf("INDEX:\n");
+//    print_stack(stack_a);
+    handle_sort_options(&stack_a, &stack_b, stack_a->len);
+//	ft_printf("STACK A ORDENADO:\n");
+//	print_stack(stack_a);
+	free_stack(stack_a);
+	free_stack(stack_b);
+	return (0);
+}
+
+/*
+int main(int ac, char **av)
+{
+    t_stack *stack_a;
+    t_stack *stack_b;
+
+    stack_a = NULL;
     stack_b = NULL;
     if (ac < 2)
         return(0);
@@ -37,9 +63,11 @@ int main(int ac, char **av)
 
 	ft_printf("STACK A ORDENADO:\n");
 	print_stack(stack_a);
-    //free(stack_a);
-    return (0);
+	free_stack(stack_a);
+	free_stack(stack_b);
+	return (0);
 }
+ */
 /*
 	ft_printf("stack A:\n");
 	print_stack(stack_a);

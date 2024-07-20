@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 15:55:27 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:29:28 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /*
  *	return the position NUMBER in STACK usign INDEX
  */
-int	max_index_stack(t_stack *stack) {
+int	max_index_stack(t_stack *stack)
+{
 	int		index;
 	t_node	*current;
 
@@ -57,7 +58,6 @@ int	find_better_move(t_stack *stack, int max_index)
 	t_node	*last_node;
 	t_node	*current;
 
-//	last_node = stack->tail;
 	last_node = get_tail_of_stack(stack);
 	current = stack->head;
 	while (current && last_node)
@@ -78,23 +78,17 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 {
 	int	chunk_multiplier;
 
-	// 5 6 1 10 4 3 9 7 2 0
 	chunk_multiplier = 1;
-	//	sorted by index	??
 	while (stack_is_sorted_by_index(stk_a) == 0)
 	{
-//		if ((stk_a->head->index < chunk_size * chunk_multiplier) && (stk_a->head->index <= stk_a->len - 1))
 		if (stk_a->head->index < chunk_size * chunk_multiplier && stk_a->head->index < max_index_stack(stk_a) - 1)
 		{
 			push_b(&stk_a, &stk_b);
-			// 20 * 1 - 20 / 2 ->  20 - 10
 			if (stk_b && stk_b->head->next && stk_b->head->index < (chunk_size * chunk_multiplier - chunk_size / 2))
 				rb(&stk_b);
 		} else if (find_better_move(stk_a, chunk_size * chunk_multiplier)) {
-//			rra(&stk_a);
 			ra(&stk_a);
 		} else {
-//			ra(&stk_a);
 			rra(&stk_a);
 		}
 		//	comparo que el 1er chunk haya terminado ; para avanzar al siguiente chunk
@@ -148,9 +142,11 @@ static void print_stack_new(t_stack *stack_a, t_stack *stack_b)
 	printf("a\tb\n"); // Indicadores de pila
 	printf("\n");
 }
+
 /*
  * return the STACK in correct ORDER
  */
+
 void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 {
 	int max_index_stk_b;
@@ -158,13 +154,11 @@ void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 	while (stk_b->head)
 	{
 		max_index_stk_b = max_index_stack(stk_b);
-//		max_index_stk_b = stk_b->len - 1;	// max_index = find_max_index_stack_b();
 		// si el indice del head B es MAYOR IGUAL que lenght STACK B - 2
 		if (stk_b->head != NULL && stk_b->head->index >= max_index_stk_b - 2)
 		{
 			push_a(&stk_b, &stk_a);
 			print_stack_new(stk_a, stk_b);
-			// si el indice del head es igual que lenght- 2 de STACK B
 			if (stk_a->head->index == max_index_stk_b - 2)
 				ra(&stk_a);
 			else if (stk_a->head->index - stk_a->head->next->index == 1)
@@ -197,96 +191,3 @@ int	stack_is_sorted_by_index(t_stack *stack_a)
 	}
 	return (TRUE);
 }
-/*
- * function to order each chunk
- * redondear cada chunk hacia arriba
- * 2 4 20 19 15 1 9 13 10 11 16 3 8 14 12 18 7 17 6 5
- * chunk 1:	2 4 20 19 15 
- * chunk 2:	1 9 13 10 11 
- * chunk 3:	16 3 8 14 12
- * chunk 4:	18 7 17 6 5
-*/
-/*
-void	sort_stack_with_chunks(t_stack *stack_a, t_stack *stack_b, int chunk_size)
-{
-	int	i;
-	int	j;
-	int	min_value_chunk;
-	int	max_value_chunk;
-
-	i = 0;
-	while (i < stack_a->len)
-	{
-		j = 0;
-		while (j < chunk_size)
-		{
-			//	chunk 1:	2 4 20 19 15 
-			min_value_chunk = min_index_chunk(stack_a, chunk_size);	//	2
-			max_value_chunk = max_index_stack(stack_a);	//	20
-			ft_printf("%d\n", min_value_chunk);
-			ft_printf("%d\n", max_index_stack);
-			if (stack_a->head->data >= min_value_chunk
-					&& stack_a->head->data <= max_value_chunk)
-				push_b(&stack_a, &stack_b);
-			else
-				ra(&stack_a);
-			j++;
-		}
-		i++;
-	}
-}
-*/
-
-/*
-int	min_index_chunk(t_stack *stack, int len_chunk)
-{
-	int		min;
-	int		index;
-	int		min_index;
-	t_node	*current;
-
-	if (stack == NULL || stack->head == NULL)
-		return (0);
-	current = stack->head;
-	min = current->data;
-	index = 0;
-	min_index = index;
-	while (current != NULL && stack->len != len_chunk - 1)
-	{
-		if (current->data < min)
-		{
-			min = current->data;
-			min_index = index;
-		}
-		index++;
-		current = current->next;
-		len_chunk++;
-	}
-	return (min_index);
-}
-int	max_index_chunk(t_stack *stack, int chunk_size)
-{
-	int		max;
-	int		index;
-	int		max_index;
-	t_node	*current;
-
-	if (stack == NULL || stack->head == NULL)
-		return (0);
-	current = stack->head;
-	max = current->data;
-	index = 0;
-	max_index = index;
-	while (current != NULL && stack->len != chunk_size)
-	{
-		if (current->data > max)
-		{
-			max = current->data;
-			max_index = index;
-		}
-		index++;
-		current = current->next;
-	}
-	return (max_index);
-}
-*/
