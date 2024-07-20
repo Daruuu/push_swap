@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 17:26:28 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:37:40 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,10 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 	int	size_sb;
 	int	max_case;
 
-	max_case = 100;
-//	size_sa = stack_a->len;
+	max_case = 500;
 	size_sa = ft_size_stack(stack_a);
-	ft_printf("SIZE STACK A: %d \n", size_sa);
-	ft_printf("SIZE STACK B: %d \n", size_sb);
+	//ft_printf("SIZE STACK A: %d \n", size_sa);
+	//ft_printf("SIZE STACK B: %d \n", size_sb);
 	if (size_sa >= max_case)
 		move_nodes_from_a_to_b(stack_a, stack_b, size_sa / 8);
 	else

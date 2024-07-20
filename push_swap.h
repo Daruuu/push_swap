@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 02:01:01 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:32:49 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,19 @@ void	input_check_argc(int ac, char **av);
 /*	STACK_UTILS.C	*/
 t_stack	*init_stack(int ac, char **av);
 t_stack	*init_stack_empty(void);
-void	print_stack(t_stack *stack);
+//void	print_stack(t_stack *stack);
 int		ft_size_stack(t_stack *stack);
-int		stack_is_sorted(t_stack *stack_a);
+//int		stack_is_sorted(t_stack *stack_a);
 
 /*	STACK_HELPER.C	*/
-t_node	*get_before_last_node_stack(t_stack *stack);
+//t_node	*get_before_last_node_stack(t_stack *stack);
 int		min_index_stack(t_stack *stack);
 int		max_index_stack(t_stack *stack);
 t_node	*get_tail_of_stack(t_stack *stack);
 t_node	*create_new_node(char **av, int i);
 t_stack	*set_stack_null(t_stack *stack);
 
-t_stack	*stack_with_split(char **av);
+//t_stack	*stack_with_split(char **av);
 
 /*	SWAPS_OPERATIONS.C	*/
 void	swap_nodes(t_stack *stack);
@@ -94,9 +94,9 @@ void	push_a(t_stack **stack_src, t_stack **stack_dest);
 void	push_b(t_stack **stack_src, t_stack **stack_dest);
 
 /*	FREE_AND_ERRORS.C	*/
-void	free_each_node(t_stack **stack);
+//void	free_each_node(t_stack **stack);
 void	free_node(t_node *node);
-void	free_split(char **split);
+//void	free_split(char **split);
 void	free_stack(t_stack *stack);
 int		is_stack_null(t_stack *stack);
 

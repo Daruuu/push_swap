@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 23:05:13 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 17:20:08 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:47:07 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int main(int ac, char **av)
     handle_sort_options(&stack_a, &stack_b, stack_a->len);
 //	ft_printf("STACK A ORDENADO:\n");
 //	print_stack(stack_a);
-	free_stack(stack_a);
-	free_stack(stack_b);
+//	free_stack(stack_a);
+//	free_stack(stack_b);
 	return (0);
 }
 

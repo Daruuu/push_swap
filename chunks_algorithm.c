@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 17:29:28 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 17:59:37 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ int	find_better_move(t_stack *stack, int max_index)
 	return (0);
 }
 
-static void	print_stack_new(t_stack *stack_a, t_stack *stack_b);
-
 void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 {
 	int	chunk_multiplier;
@@ -81,23 +79,27 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 	chunk_multiplier = 1;
 	while (stack_is_sorted_by_index(stk_a) == 0)
 	{
-		if (stk_a->head->index < chunk_size * chunk_multiplier && stk_a->head->index < max_index_stack(stk_a) - 1)
+		if (stk_a->head->index < chunk_size * chunk_multiplier
+			&& stk_a->head->index < max_index_stack(stk_a) - 1)
 		{
 			push_b(&stk_a, &stk_b);
-			if (stk_b && stk_b->head->next && stk_b->head->index < (chunk_size * chunk_multiplier - chunk_size / 2))
+			if (stk_b && stk_b->head->next && stk_b->head->index
+				< (chunk_size * chunk_multiplier - chunk_size / 2))
 				rb(&stk_b);
-		} else if (find_better_move(stk_a, chunk_size * chunk_multiplier)) {
-			ra(&stk_a);
-		} else {
-			rra(&stk_a);
 		}
-		//	comparo que el 1er chunk haya terminado ; para avanzar al siguiente chunk
+		else if (find_better_move(stk_a, chunk_size * chunk_multiplier))
+			ra(&stk_a);
+		else
+			rra(&stk_a);
+		//	comparo que el 1er chunk haya terminado ;
+		//	para avanzar al siguiente chunk
 		if (stk_b->len == chunk_size * chunk_multiplier)
 			chunk_multiplier++;
-		print_stack_new(stk_a, stk_b);
+//		print_stack_new(stk_a, stk_b);
 	}
 }
 
+/*
 static void print_stack_new(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node *current_a;
@@ -142,6 +144,7 @@ static void print_stack_new(t_stack *stack_a, t_stack *stack_b)
 	printf("a\tb\n"); // Indicadores de pila
 	printf("\n");
 }
+*/
 
 /*
  * return the STACK in correct ORDER
@@ -149,7 +152,7 @@ static void print_stack_new(t_stack *stack_a, t_stack *stack_b)
 
 void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 {
-	int max_index_stk_b;
+	int	max_index_stk_b;
 
 	while (stk_b->head)
 	{
@@ -158,13 +161,13 @@ void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 		if (stk_b->head != NULL && stk_b->head->index >= max_index_stk_b - 2)
 		{
 			push_a(&stk_b, &stk_a);
-			print_stack_new(stk_a, stk_b);
+//			print_stack_new(stk_a, stk_b);
 			if (stk_a->head->index == max_index_stk_b - 2)
 				ra(&stk_a);
 			else if (stk_a->head->index - stk_a->head->next->index == 1)
 				sa(stk_a);
-			if (stk_a->head->next->index - get_tail_of_stack(stk_a)->index == 2 ||
-				stk_a->head->index - get_tail_of_stack(stk_a)->index == 2)
+			if (stk_a->head->next->index - get_tail_of_stack(stk_a)->index == 2
+				|| stk_a->head->index - get_tail_of_stack(stk_a)->index == 2)
 				rra(&stk_a);
 		}
 		else if (find_node_position_id(stk_b, max_index_stk_b)
@@ -172,7 +175,7 @@ void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 			rrb(&stk_b);
 		else if (stk_b->head != NULL)
 			rb(&stk_b);
-		print_stack_new(stk_a, stk_b);
+//		print_stack_new(stk_a, stk_b);
 	}
 }
 

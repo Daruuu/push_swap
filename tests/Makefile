@@ -28,7 +28,7 @@ ${NAME}: $(OBJS)
 	make -C ${LIBPRINTFDIR}
 	@${CC} ${CFLAGS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${NAME} ${LDFLAGS}
 
-test: $(TEST_OBJS) $(OBJS)
+t:	$(TEST_OBJS) $(OBJS)
 	@make -C ${LIBFTDIR}
 	@make -C ${LIBPRINTFDIR}
 	@${CC} ${CFLAGS} ${TEST_OBJS} ${OBJS} ${LIBFTDIR}/libft.a ${LIBPRINTFDIR}/libftprintf.a -o ${TEST_NAME} ${LDFLAGS}
@@ -43,7 +43,7 @@ c:
 	@cd ${LIBPRINTFDIR} && ${MAKE} clean
 	@$(RM) $(OBJS) $(TEST_OBJS)
 
-fc: clean
+fc: c
 	@$(RM) $(NAME) $(TEST_NAME)
 
 re: fclean all
