@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/19 11:53:43 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 02:23:56 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	min_index_stack(t_stack *stack)
 	}
 	return (min_index);
 }
+/*
 
 int	max_index_stack(t_stack *stack)
 {
@@ -79,6 +80,7 @@ int	max_index_stack(t_stack *stack)
 	}
 	return (max_index);
 }
+*/
 
 t_node	*get_tail_of_stack(t_stack *stack)
 {

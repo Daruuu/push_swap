@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/18 22:04:07 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 03:22:24 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,28 @@ void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b)
 	push_a(&stack_b, &stack_a);
 }
 
+void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
+{
+	int size_sa;
+	int size_sb;
+	int max_case;
+
+	max_case = 500;
+//	size_sa = stack_a->len;
+	size_sa = ft_size_stack(stack_a);
+	size_sb = ft_size_stack(stack_b);
+	if (size_sa >= max_case)
+		move_nodes_from_a_to_b(stack_a, stack_b, size_sa / 8);
+	else
+		move_nodes_from_a_to_b(stack_a, stack_b, size_sa / 4);
+	if (size_sb >= max_case)
+		move_nodes_from_b_to_a(stack_a, stack_b);
+	else
+		move_nodes_from_b_to_a(stack_a, stack_b);
+	if (!stack_is_sorted(stack_a))
+		sa(stack_a);
+}
+
 t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
 {
 	if (!sa)
@@ -73,6 +95,8 @@ t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
 		sort_stack_four_numbers(*sa, *sb);
 	else if (len_stack == 5)
 		sort_stack_five_numbers(*sa, *sb);
+	else
+		sort_with_chunks(*sa, *sb);
 	/*
 	else if (len_stack <= 100)
 		sort_stack_chunks(*sa, *sb, len_stack / 4);

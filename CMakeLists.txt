@@ -29,4 +29,5 @@ add_executable(push_swap_clion
         incl/libft/ft_substr.c
         chunks_algorithm.c
         stack_helper.c
-        stack_aux.c)
+        stack_aux.c
+        diff_sort_options.c)
