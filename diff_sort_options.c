@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 03:22:24 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 15:56:44 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,23 +65,25 @@ void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 {
-	int size_sa;
-	int size_sb;
-	int max_case;
+	int	size_sa;
+	int	size_sb;
+	int	max_case;
 
-	max_case = 500;
+	max_case = 100;
 //	size_sa = stack_a->len;
 	size_sa = ft_size_stack(stack_a);
-	size_sb = ft_size_stack(stack_b);
+	ft_printf("SIZE STACK A: %d \n", size_sa);
+	ft_printf("SIZE STACK B: %d \n", size_sb);
 	if (size_sa >= max_case)
 		move_nodes_from_a_to_b(stack_a, stack_b, size_sa / 8);
 	else
 		move_nodes_from_a_to_b(stack_a, stack_b, size_sa / 4);
+	size_sb = ft_size_stack(stack_b);
 	if (size_sb >= max_case)
 		move_nodes_from_b_to_a(stack_a, stack_b);
 	else
 		move_nodes_from_b_to_a(stack_a, stack_b);
-	if (!stack_is_sorted(stack_a))
+	if (stack_is_sorted_by_index(stack_a) == 0)
 		sa(stack_a);
 }
 
@@ -97,11 +99,11 @@ t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
 		sort_stack_five_numbers(*sa, *sb);
 	else
 		sort_with_chunks(*sa, *sb);
-	/*
-	else if (len_stack <= 100)
-		sort_stack_chunks(*sa, *sb, len_stack / 4);
-	else if (len_stack <= 500)
-		sort_stack_chunks(*sa, *sb, len_stack / 7);
-	*/
 	return (*sa);
 }
+/*
+else if (len_stack <= 100)
+	sort_stack_chunks(*sa, *sb, len_stack / 4);
+else if (len_stack <= 500)
+	sort_stack_chunks(*sa, *sb, len_stack / 7);
+*/
