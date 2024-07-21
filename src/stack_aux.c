@@ -6,15 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 17:14:20 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:03:28 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-/*	Set indexes in STACK
- *	TODO: redo this functions with others variables names
-*/
+#include "../push_swap.h"
 
 void	set_index_stack(t_stack *stack)
 {
@@ -23,7 +19,7 @@ void	set_index_stack(t_stack *stack)
 	int		i;
 	int		current_threshold;
 
-	min_node = find_min_node(stack, INT_MIN);
+	min_node = find_min_node(stack, -INT_MIN);
 	min_node->index = 0;
 	current_threshold = min_node->data;
 	i = 1;
@@ -36,6 +32,25 @@ void	set_index_stack(t_stack *stack)
 		index++;
 		i++;
 	}
+}
+
+/*
+ *	return the position NUMBER in STACK usign INDEX
+ */
+int	max_index_stack(t_stack *stack)
+{
+	int		index;
+	t_node	*current;
+
+	current = stack->head;
+	index = -1;
+	while (current)
+	{
+		if (current->index > index)
+			index = current->index;
+		current = current->next;
+	}
+	return (index);
 }
 
 t_node	*find_min_node(t_stack *stack, int threshold)
@@ -60,32 +75,6 @@ t_node	*find_min_node(t_stack *stack, int threshold)
 	}
 	return (min_node);
 }
-
-/*
-t_node	*find_min_node(t_stack *stack, int threshold)
-{
-	t_node	*current;
-	t_node	*min_node;
-	int 	min;
-
-	current = stack->head;
-	min_node = NULL;
-	min = INT_MAX;
-
-	while (current != NULL)
-	{
-		if (current->data < min && current->data > threshold )
-		{
-			min = current->data;
-			min_node = current;
-		}
-		current = current->next;
-	}
-	return min_node;
-}
-*/
-
-/*	flota el max number de un stack de 4 numbers	*/
 
 void	float_min_number_four_stack(t_stack *stack_a)
 {

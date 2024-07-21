@@ -6,11 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 21:27:19 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/06/17 22:55:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/21 20:34:05 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "incl/libft/libft.h"
+#include "libft.h"
 
 static int	ft_count_words(char const *s, char c)
 {
@@ -42,6 +42,7 @@ static char	**free_table(char **table, int i)
 	return (0);
 }
 */
+
 char	**ft_split(char const *s, char c)
 {
 	char	**table;

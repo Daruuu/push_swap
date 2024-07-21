@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_allocs(int ac, t_stack *sa, t_stack *sb, char **new_argv)
 {

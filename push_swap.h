@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/21 18:56:04 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/21 21:02:56 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 # define TRUE 1
 # define FALSE 0
 # define MAX_CASE 500
+# define INT_MAX 2147483647
+# define INT_MIN 2147483648
+
 # include "lib/libft/libft.h"
 # include "lib/libft/printf/ft_printf.h"
 
-/*# include <limits.h>*/
-# include <stdlib.h>
 # include <unistd.h>
 
 /*
