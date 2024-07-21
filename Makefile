@@ -5,11 +5,10 @@ CFLAGS = -Wall -Wextra -Werror
 CC = 	cc
 RM = 	rm -f
 
-LIBFTDIR = 		incl/libft
-LIBPRINTFDIR = 	incl/libft/printf
+LIBFTDIR = 		lib/libft
+LIBPRINTFDIR = 	lib/libft/printf
 
-SRCS = $(wildcard *.c)
-
+SRCS = $(wildcard src/*.c)
 OBJS = $(SRCS:.c=.o)
 
 all: ${NAME}
@@ -28,6 +27,8 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	@cd ${LIBFTDIR} && ${MAKE} fclean
+	@cd ${LIBPRINTFDIR} && ${MAKE} fclean
 
 re: fclean all
 

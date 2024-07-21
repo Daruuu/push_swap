@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/21 16:38:13 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/21 18:56:04 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 # define PUSH_SWAP_H
 # define TRUE 1
 # define FALSE 0
-# include "incl/libft/libft.h"
-# include "incl/libft/printf/ft_printf.h"
+# define MAX_CASE 500
+# include "lib/libft/libft.h"
+# include "lib/libft/printf/ft_printf.h"
 
-# include <limits.h>
+/*# include <limits.h>*/
 # include <stdlib.h>
 # include <unistd.h>
 
 /*
- * @attribute data: is data of node
- * @attribute index : indice del nodo
- * @attribute previous : puntero al anterior nodo
+ * @attribute data: data of node
+ * @attribute index : index nodo
+ * @attribute previous : pointer of before node
  * @attribute next : pointer to next node
 */
 
