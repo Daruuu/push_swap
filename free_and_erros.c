@@ -6,28 +6,18 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 20:30:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/09 01:27:34 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/21 16:37:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_each_node(t_stack **stack)
+void	free_allocs(int ac, t_stack *sa, t_stack *sb, char **new_argv)
 {
-	t_node	*current;
-	t_node	*next;
-
-	if (stack == NULL || *stack == NULL)
-		return ;
-	current = (*stack)->head;
-	while (current != NULL)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	free(*stack);
-	*stack = NULL;
+	free_stack(sb);
+	free_stack(sa);
+	if (ac == 2)
+		free_split(new_argv);
 }
 
 void	free_node(t_node *node)
@@ -48,6 +38,7 @@ void	free_split(char **split)
 		i++;
 	}
 	free(split);
+	split = NULL;
 }
 
 void	free_stack(t_stack *stack)

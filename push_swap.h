@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 17:32:49 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/21 16:38:13 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	input_check_argc(int ac, char **av);
 /*	STACK_UTILS.C	*/
 t_stack	*init_stack(int ac, char **av);
 t_stack	*init_stack_empty(void);
-//void	print_stack(t_stack *stack);
+void	print_stack(t_stack *stack);
 int		ft_size_stack(t_stack *stack);
 //int		stack_is_sorted(t_stack *stack_a);
 
@@ -94,9 +94,9 @@ void	push_a(t_stack **stack_src, t_stack **stack_dest);
 void	push_b(t_stack **stack_src, t_stack **stack_dest);
 
 /*	FREE_AND_ERRORS.C	*/
-//void	free_each_node(t_stack **stack);
+void	free_allocs(int ac, t_stack *sa, t_stack *sb, char **new_argv);
 void	free_node(t_node *node);
-//void	free_split(char **split);
+void	free_split(char **split);
 void	free_stack(t_stack *stack);
 int		is_stack_null(t_stack *stack);
 

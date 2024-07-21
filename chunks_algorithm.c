@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/20 17:59:37 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/20 19:17:29 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,7 @@ void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 				rra(&stk_a);
 		}
 		else if (find_node_position_id(stk_b, max_index_stk_b)
-				> ft_size_stack(stk_b) / 2)
+			> ft_size_stack(stk_b) / 2)
 			rrb(&stk_b);
 		else if (stk_b->head != NULL)
 			rb(&stk_b);
