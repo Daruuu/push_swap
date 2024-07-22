@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/21 21:03:28 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:58:47 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	set_index_stack(t_stack *stack)
 	int		i;
 	int		current_threshold;
 
-	min_node = find_min_node(stack, -INT_MIN);
+	min_node = find_min_node(stack, INT_MIN);
+	if (min_node == NULL)
+		return;
 	min_node->index = 0;
 	current_threshold = min_node->data;
 	i = 1;
@@ -43,7 +45,7 @@ int	max_index_stack(t_stack *stack)
 	t_node	*current;
 
 	current = stack->head;
-	index = -1;
+	index = 0;
 	while (current)
 	{
 		if (current->index > index)
@@ -66,7 +68,7 @@ t_node	*find_min_node(t_stack *stack, int threshold)
 	min_node = current;
 	while (current != NULL)
 	{
-		if (current->data < min && current->data > threshold)
+		if (current->data <= min && current->data > threshold)
 		{
 			min = current->data;
 			min_node = current;
