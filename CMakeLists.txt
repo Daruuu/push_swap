@@ -4,7 +4,7 @@ project(push_swap_clion C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(push_swap_clion
-        tests/main.c
+#        tests/main.c
         push_swap.h
         incl/libft/printf/ft_printf.c
         incl/libft/printf/ft_put_ptr.c
