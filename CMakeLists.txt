@@ -6,13 +6,13 @@ set(CMAKE_C_STANDARD 11)
 add_executable(push_swap_clion
 #        tests/main.c
         push_swap.h
-        incl/libft/printf/ft_printf.c
-        incl/libft/printf/ft_put_ptr.c
-        incl/libft/printf/ft_put_uint_nbr.c
-        incl/libft/printf/ft_putchar_n.c
-        incl/libft/printf/ft_puthexa_nbr.c
-        incl/libft/printf/ft_putnbr_n.c
-        incl/libft/printf/ft_putstr.c
+        lib/libft/printf/ft_printf.c
+        lib/libft/printf/ft_put_ptr.c
+        lib/libft/printf/ft_put_uint_nbr.c
+        lib/libft/printf/ft_putchar_n.c
+        lib/libft/printf/ft_puthexa_nbr.c
+        lib/libft/printf/ft_putnbr_n.c
+        lib/libft/printf/ft_putstr.c
         swap_operations.c
         stack_utils.c
         rotates_operations.c
