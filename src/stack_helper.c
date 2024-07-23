@@ -69,7 +69,7 @@ t_node	*create_new_node(char **av, int i)
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 		free_node(new_node);
-	new_node->data = ft_atoi(av[i]);
+	new_node->data = ft_atoll(av[i]);
 	new_node->index = 0;
 	new_node->previous = NULL;
 	new_node->next = NULL;

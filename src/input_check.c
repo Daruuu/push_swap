@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/22 18:11:32 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/23 23:12:39 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ void	check_all_validations(int ac, char **av)
 	}
 	else if (if_numbers_are_sorted(ac, av))
 		exit(EXIT_SUCCESS);
+	else if (number_out_of_range(ac, av))
+	{
+		ft_printf("number out of range\n");
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	input_check_argc(int ac, char **av)
