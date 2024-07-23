@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:37 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/24 00:18:03 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/24 01:32:22 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		new_arg = ft_split(av[1], ' ');
+		if (!new_arg)
+			return (1);
 		len_new_ac = 0;
 		while (new_arg[len_new_ac])
 			len_new_ac ++;
