@@ -6,30 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/22 12:05:56 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/22 18:16:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-/*
- *	return the position NUMBER in STACK usign INDEX
- */
-int	max_index_stack(t_stack *stack)
-{
-	int		index;
-	t_node	*current;
-
-	current = stack->head;
-	index = -1;
-	while (current)
-	{
-		if (current->index > index)
-			index = current->index;
-		current = current->next;
-	}
-	return (index);
-}
 
 int	find_node_position_id(t_stack *stack, int target_index)
 {
@@ -47,11 +28,6 @@ int	find_node_position_id(t_stack *stack, int target_index)
 	}
 	return (-1);
 }
-
-/*
- * determinar si es mas eficiente mover un NUMERO desde el principio
- * o desde el final del stack
- */
 
 int	find_better_move(t_stack *stack, int max_index)
 {

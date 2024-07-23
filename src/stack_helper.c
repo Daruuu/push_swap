@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/22 12:07:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/22 18:13:55 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ t_node	*get_before_last_node_stack(t_stack *stack)
 		current = current->next;
 	return (current);
 }
-
-/*	return la posicion del nodo con el numero minimo
- * los indices empiezan en 0 y terminan en stack->len - 1
-*/
 
 int	min_index_stack(t_stack *stack)
 {
@@ -53,34 +49,6 @@ int	min_index_stack(t_stack *stack)
 	}
 	return (min_index);
 }
-/*
-
-int	max_index_stack(t_stack *stack)
-{
-	int		max;
-	int		index;
-	int		max_index;
-	t_node	*current;
-
-	if (stack == NULL || stack->head == NULL)
-		return (0);
-	current = stack->head;
-	max = current->data;
-	index = 0;
-	max_index = index;
-	while (current != NULL)
-	{
-		if (current->data > max)
-		{
-			max = current->data;
-			max_index = index;
-		}
-		index++;
-		current = current->next;
-	}
-	return (max_index);
-}
-*/
 
 t_node	*get_tail_of_stack(t_stack *stack)
 {
@@ -115,46 +83,3 @@ t_stack	*set_stack_null(t_stack *stack)
 	stack->tail = NULL;
 	return (stack);
 }
-
-/*
-t_stack	*stack_with_split(char **av)
-{
-	int		i;
-	t_stack	*new_stack;
-	char	**split_av;
-
-	split_av = ft_split(av[1], ' ');
-	i = 0;
-	while (split_av[i] != NULL)
-		i++;
-	check_all_validations(i, split_av);
-	new_stack = init_stack(i, split_av);
-	free_split(split_av);
-	return (new_stack);
-}
-
-int	find_min_node_position(t_stack *stack)
-{
-	t_node	*current;
-	t_node	*min_node;
-	int		i;
-	int		min_position;
-
-	if (stack == NULL || stack->len == 0)
-		return(0);
-	i = 0;
-	current = stack->head;
-	min_node = stack->head;
-	while (current != NULL)
-	{
-		if (current->data < min_node->data)
-		{
-			min_node = current;
-			min_position = i;
-		}
-		i++;
-		current = current->next;
-	}
-	return (min_position);
-}
-*/

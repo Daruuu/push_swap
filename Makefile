@@ -8,7 +8,7 @@ RM = 	rm -f
 LIBFTDIR = 		lib/libft
 LIBPRINTFDIR = 	lib/libft/printf
 
-SRCS = $(wildcard src/*.c)
+SRCS = $(wildcard src/*.c) $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
 
 all: ${NAME}

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:37 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/21 18:17:35 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/22 17:50:52 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,3 @@ int	main(int ac, char **av)
 	free_allocs(ac, stack_a, stack_b, new_arg);
 	return (0);
 }
-//	print_stack(stack_a);

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/22 12:07:47 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/22 18:32:18 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	print_stack(t_stack *stack)
 		i++;
 		current = current->next;
 	}
-	ft_printf("\n");
 }
 
 int	ft_size_stack(t_stack *stack)
