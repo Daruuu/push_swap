@@ -3,23 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
+/*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 15:56:14 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/23 15:59:49 by dasalaza         ###   ########.fr       */
+/*   Created: 2024/07/23 22:29:24 by dasalaza          #+#    #+#             */
+/*   Updated: 2024/07/24 00:25:14 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-#include "printf/ft_printf.h"
-
-int	ft_atoi(const char *str)
+long long int	ft_atoll(const char *str)
 {
-	int			i;
-	int			sign;
-	int			result;
+	int				i;
+	int				sign;
+	long long int	result;
 
 	i = 0;
 	sign = 1;
@@ -35,16 +32,13 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = (result * 10) + (str[i] - '0');
-		if (result * sign > INT_MAX || result * sign > INT_MIN)
-			ft_printf()
-			return (2);
 		i++;
 	}
-	return ((int)(result * sign));
+	return ((long long int)(result * sign));
 }
 
 /*
-int	ft_atoi(const char *str)
+int	ft_atoll(const char *str)
 {
 	unsigned int	i;
 	int				signo;

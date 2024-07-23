@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/22 18:25:10 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/24 00:16:11 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		if_numbers_are_sorted(int ac, char **av);
 /*	INPUT_CHECK.C	*/
 void	check_all_validations(int ac, char **av);
 void	input_check_argc(int ac, char **av);
+int		number_out_of_range(int ac, char **av);
 
 /*	STACK_UTILS.C	*/
 t_stack	*init_stack(int ac, char **av);
@@ -96,6 +97,7 @@ void	free_split(char **split);
 void	free_node(t_node *node);
 void	free_stack(t_stack *stack);
 int		is_stack_null(t_stack *stack);
+//12342 -888 99999 -11111111 -2147483648
 
 /*	DIFF_SORT_OPTIONS.C	*/
 void	sort_stack_three_numbers(t_stack *stack);
@@ -104,8 +106,8 @@ void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b);
 t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack);
 
 /*	STACK_AUX.C???	*/
-int		ft_atoi(const char *str);
-t_node	*find_min_node(t_stack *stack, int threshold);
+//t_node	*find_min_node(t_stack *stack, int threshold);
+t_node	*find_min_node(t_stack *stack, long int threshold);
 void	set_index_stack(t_stack *stack);
 int		stack_is_sorted_by_index(t_stack *stack_a);
 

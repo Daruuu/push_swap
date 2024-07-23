@@ -25,7 +25,7 @@ add_executable(push_swap_clion
         src/stack_helper.c
         src/stack_utils.c
         src/swap_operations.c
-        lib/libft/ft_atoi.c
+        lib/libft/ft_atoll.c
         lib/libft/ft_isdigit.c
         lib/libft/ft_split.c
         lib/libft/ft_strlen.c
