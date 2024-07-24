@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/24 00:31:08 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:58:40 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,6 @@ void	set_index_stack(t_stack *stack)
 	min_node = find_min_node(stack, min_number);
 	min_node->index = 0;
 	current_threshold = min_node->data;
-/*
-	if (min_node->data < 0)
-		current_threshold = min_node->data + 1;
-	else
-		current_threshold = min_node->data - 1;
-*/
 	i = 1;
 	index = 1;
 	while (i < stack->len)
@@ -37,12 +31,6 @@ void	set_index_stack(t_stack *stack)
 		min_node = find_min_node(stack, current_threshold);
 		min_node->index = index;
 		current_threshold = min_node->data;
-/*
-		if (min_node->data < 0)
-			current_threshold = min_node->data + 1;
-		else
-			current_threshold = min_node->data - 1;
-*/
 		index++;
 		i++;
 	}
@@ -123,3 +111,41 @@ void	float_min_number_five_stack(t_stack *stack_a)
 	else if (min_pos == 4)
 		rra(&stack_a);
 }
+
+/*
+void	set_index_stack(t_stack *stack)
+{
+	t_node	*min_node;
+	int		index;
+	int		i;
+	int		current_threshold;
+	long	min_number;
+
+	min_number = -2147483649;
+	min_node = find_min_node(stack, min_number);
+	min_node->index = 0;
+	current_threshold = min_node->data;
+/*
+	if (min_node->data < 0)
+		current_threshold = min_node->data + 1;
+	else
+		current_threshold = min_node->data - 1;
+#1#
+	i = 1;
+	index = 1;
+	while (i < stack->len)
+	{
+		min_node = find_min_node(stack, current_threshold);
+		min_node->index = index;
+		current_threshold = min_node->data;
+/*
+		if (min_node->data < 0)
+			current_threshold = min_node->data + 1;
+		else
+			current_threshold = min_node->data - 1;
+#1#
+		index++;
+		i++;
+	}
+}
+*/

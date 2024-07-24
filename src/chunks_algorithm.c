@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/24 01:17:14 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:44:45 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 			chunk_multiplier++;
 	}
 }
+/*
 void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 {
 	int	max_index_stk_b;
@@ -99,8 +100,36 @@ void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 			rb(&stk_b);
 	}
 }
+*/
+
+void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
+{
+	int	max_index_stk_b;
+
+	while (stk_b->head)
+	{
+		max_index_stk_b = max_index_stack(stk_b);
+		if (stk_b->head != NULL && stk_b->head->index >= max_index_stk_b - 2)
+		{
+			push_a(&stk_b, &stk_a);
+			if (stk_a->head->index == max_index_stk_b - 2)
+				ra(&stk_a);
+			else if (stk_a->head->index - stk_a->head->next->index == 1)
+				sa(stk_a);
+			if (stk_a->head->next->index - get_tail_of_stack(stk_a)->index == 2
+				|| stk_a->head->index - get_tail_of_stack(stk_a)->index == 2)
+				rra(&stk_a);
+		}
+		else if (find_node_position_id(stk_b, max_index_stk_b)
+			> ft_size_stack(stk_b) / 2)
+			rrb(&stk_b);
+		else if (stk_b->head != NULL)
+			rb(&stk_b);
+	}
+}
 
 /*
+ * BACKUP FILE
 void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 {
 	int	max_index_stk_b;
