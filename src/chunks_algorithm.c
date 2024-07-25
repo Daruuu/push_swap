@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/24 12:44:45 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:42:53 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	find_better_move(t_stack *stack, int max_index)
 	current = stack->head;
 	while (current && last_node)
 	{
-		if (current->index < max_index)
+		if (current->index <= max_index)
 			return (1);
 		else if (last_node->index < max_index)
 			return (0);
@@ -53,8 +53,16 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 	int	chunk_multiplier;
 
 	chunk_multiplier = 1;
-	while (stack_is_sorted_by_index(stk_a) == 0)
+	int i = 0;
+	// while (stack_is_sorted_by_index(stk_a) == 0 && i <= 256)
+		while (stack_is_sorted_by_index(stk_a) == 0 )
 	{
+		if (i == 54) {
+			i = 54 -0;
+		}
+		//	X < 4 * 1 && x < 20 - 1
+		//	0 1 2 3 < 4
+		//	 < 4
 		if (stk_a->head->index < chunk_size * chunk_multiplier
 			&& stk_a->head->index < max_index_stack(stk_a) - 1)
 		{
@@ -69,6 +77,10 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 			rra(&stk_a);
 		if (stk_b->len == chunk_size * chunk_multiplier)
 			chunk_multiplier++;
+		i++;
+		ft_printf("ITERACION %d\n", i);
+		ft_printf("CHUNK MULTIPLIER %d\n", chunk_multiplier);
+		print_stacks(stk_a, stk_b);
 	}
 }
 /*

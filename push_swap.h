@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/25 18:28:19 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/25 23:38:25 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_stack	*init_stack(int ac, char **av);
 t_stack	*init_stack_empty(void);
 void	print_stack(t_stack *stack);
 int		ft_size_stack(t_stack *stack);
+void	print_stacks(t_stack *stack_a, t_stack *stack_b);
 //int		stack_is_sorted(t_stack *stack_a);
 
 /*	STACK_HELPER.C	*/

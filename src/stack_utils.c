@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/25 19:25:19 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:17:58 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,47 @@ int	stack_is_sorted(t_stack *stack_a)
 		current = current->next;
 	}
 	return (TRUE);
+}
+
+void	print_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*current_a;
+	t_node	*current_b;
+	int		i;
+
+	current_a = stack_a ? stack_a->head : NULL;
+	current_b = stack_b ? stack_b->head : NULL;
+
+	ft_printf("%s\t\t\t%s\n", "Stack A", "Stack B");
+	ft_printf("%s\t\t\t%s\n", "-------", "-------");
+
+	i = 1;
+	while (current_a != NULL || current_b != NULL)
+	{
+		if (current_a != NULL)
+		{
+			ft_printf("[%d]-> %d", current_a->index, current_a->data);
+			current_a = current_a->next;
+		}
+		else
+			ft_printf("[xx]-> xxxx");
+
+		ft_printf("\t\t");
+
+		if (current_b != NULL)
+		{
+			ft_printf("[%d]-> %d", current_b->index, current_b->data);
+			current_b = current_b->next;
+		}
+		else
+			ft_printf("[xx]-> xxxx");
+
+		ft_printf("\n");
+		i++;
+	}
+
+	if (stack_a == NULL)
+		ft_printf("Stack A empty!\n");
+	if (stack_b == NULL)
+		ft_printf("Stack B empty!\n");
 }
