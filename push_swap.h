@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/25 14:51:57 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:28:19 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # define TRUE 1
 # define FALSE 0
+# define CASE_HUNDRED 100
 # define MAX_CASE 500
 
 # include "lib/libft/libft.h"

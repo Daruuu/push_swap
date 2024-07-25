@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/23 23:12:39 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:53:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	check_all_validations(int ac, char **av)
 		exit(EXIT_SUCCESS);
 	else if (number_out_of_range(ac, av))
 	{
-		ft_printf("number out of range\n");
+		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
 }
