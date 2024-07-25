@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:02:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/24 00:26:38 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/25 11:17:03 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,16 @@ int	if_numbers_are_sorted(int ac, char **av)
 
 int	number_out_of_range(int ac, char **av)
 {
-	int				i;
-	long long int	num;
+	int			i;
+	long long	num;
 
 	i = 0;
 	while (i < ac)
 	{
 		num = ft_atoll(av[i]);
-		if (num > INT_MAX || num < INT_MIN)
+		if (num > 2147483647) 
+			return (1);
+		if (num < (-2147483648))
 			return (1);
 		i++;
 	}

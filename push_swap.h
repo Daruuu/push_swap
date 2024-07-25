@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/24 00:16:11 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/25 14:51:57 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack);
 
 /*	STACK_AUX.C???	*/
 //t_node	*find_min_node(t_stack *stack, int threshold);
+//t_node	*find_min_node(t_stack *stack, long int threshold);
 t_node	*find_min_node(t_stack *stack, long int threshold);
 void	set_index_stack(t_stack *stack);
 int		stack_is_sorted_by_index(t_stack *stack_a);
