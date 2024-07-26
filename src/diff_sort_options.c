@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/26 17:42:24 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:17:32 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 		chunk_size = size_sa / 4;
 	else
 		chunk_size = size_sa / 8;
-//	ft_printf("CHUNK SIZE: %d\n", chunk_size);
+	ft_printf("CHUNK SIZE: %d\n", chunk_size);
 	move_nodes_from_a_to_b(stack_a, stack_b, chunk_size);
 //	exit(EXIT_FAILURE);
 	move_nodes_from_b_to_a(stack_a, stack_b);
@@ -76,7 +76,23 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 	*/
 }
 
+t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
+{
+	if (!sa)
+		return (NULL);
+	if (len_stack == 3)
+		sort_stack_three_numbers(*sa);
+	else if (len_stack == 4)
+		sort_stack_four_numbers(*sa, *sb);
+	else if (len_stack == 5)
+		sort_stack_five_numbers(*sa, *sb);
+	else
+		sort_with_chunks(*sa, *sb);
+	return (*sa);
+}
+
 /*
+ * BACKUP
 void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 {
 	int	size_sa;
@@ -98,18 +114,3 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 		sa(stack_a);
 }
 */
-
-t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
-{
-	if (!sa)
-		return (NULL);
-	if (len_stack == 3)
-		sort_stack_three_numbers(*sa);
-	else if (len_stack == 4)
-		sort_stack_four_numbers(*sa, *sb);
-	else if (len_stack == 5)
-		sort_stack_five_numbers(*sa, *sb);
-	else
-		sort_with_chunks(*sa, *sb);
-	return (*sa);
-}

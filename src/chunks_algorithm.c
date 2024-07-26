@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/26 17:42:15 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:12:10 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,12 @@ int	find_better_move(t_stack *stack, int max_index)
 	current = stack->head;
 	while (current && last_node)
 	{
-		if (current->index < max_index)	// <=
+		if (current->index < max_index)
 			return (1);
-		else if (last_node->index < max_index)
+		else if (last_node->index < max_index - 1)
 			return (0);
 		current = current->next;
-		last_node = last_node->next;
-//		last_node = last_node->previous;
+		last_node = last_node->previous;
 	}
 	return (0);
 }
@@ -55,17 +54,14 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 
 	chunk_multiplier = 1;
 	int i = 0;
-	 while (stack_is_sorted_by_index(stk_a) == 0 && i <= 256)
-//	while (stack_is_sorted_by_index(stk_a) == 0 )
+//	 while (stack_is_sorted_by_index(stk_a) == 0 && i <= 256)
+	while (stack_is_sorted_by_index(stk_a) == 0)
 	{
 /*
-		if (i == 54) {
-			i = 54 -0;
-		}
+		 if (i == 16) {
+			 i = 16 + 0;
+		 }
 */
-		//	X < 4 * 1 && x < 20 - 1
-		//	0 1 2 3 < 4
-		//	 < 4
 		if (stk_a->head->index < chunk_size * chunk_multiplier
 			&& stk_a->head->index < max_index_stack(stk_a) - 1)
 		{
@@ -80,43 +76,13 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 			rra(&stk_a);
 		if (stk_b->len == chunk_size * chunk_multiplier)
 			chunk_multiplier++;
-//		i++;
+		i++;
 		ft_printf("ITERACION %d\n", i);
 		ft_printf("CHUNK MULTIPLIER %d\n", chunk_multiplier);
 		print_stacks(stk_a, stk_b);
 	}
 }
 
-/*
-void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
-{
-	int	max_index_stk_b;
-	int	stack_size_b;
-
-	while (stk_b->head)
-	{
-		max_index_stk_b = max_index_stack(stk_b);
-		stack_size_b = ft_size_stack(stk_b); // Calculate size once per loop
-
-		while (stk_b->head && stk_b->head->index >= max_index_stk_b - 2)
-		{
-			push_a(&stk_b, &stk_a);
-			if (stk_a->head->index == max_index_stk_b - 2)
-				ra(&stk_a);
-			else if (stk_a->head->index - stk_a->head->next->index == 1)
-				sa(stk_a);
-			int tail_index = get_tail_of_stack(stk_a)->index;
-			if (stk_a->head->next->index - tail_index == 2 || stk_a->head->index - tail_index == 2)
-				rra(&stk_a);
-		}
-
-		if (find_node_position_id(stk_b, max_index_stk_b) > stack_size_b / 2)
-			rrb(&stk_b);
-		else if (stk_b->head)
-			rb(&stk_b);
-	}
-}
-*/
 
 void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 {
@@ -142,6 +108,22 @@ void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 		else if (stk_b->head != NULL)
 			rb(&stk_b);
 	}
+}
+
+int	stack_is_sorted_by_index(t_stack *stack_a)
+{
+	t_node	*current;
+
+	if (stack_a == NULL || stack_a->head == NULL)
+		return (EXIT_FAILURE);
+	current = stack_a->head;
+	while (current != NULL)
+	{
+		if (current->next != NULL && current->index > current->next->index)
+			return (FALSE);
+		current = current->next;
+	}
+	return (TRUE);
 }
 
 /*
@@ -173,18 +155,33 @@ void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 }
 */
 
-int	stack_is_sorted_by_index(t_stack *stack_a)
+/*
+void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 {
-	t_node	*current;
+	int	max_index_stk_b;
+	int	stack_size_b;
 
-	if (stack_a == NULL || stack_a->head == NULL)
-		return (EXIT_FAILURE);
-	current = stack_a->head;
-	while (current != NULL)
+	while (stk_b->head)
 	{
-		if (current->next != NULL && current->index > current->next->index)
-			return (FALSE);
-		current = current->next;
+		max_index_stk_b = max_index_stack(stk_b);
+		stack_size_b = ft_size_stack(stk_b); // Calculate size once per loop
+
+		while (stk_b->head && stk_b->head->index >= max_index_stk_b - 2)
+		{
+			push_a(&stk_b, &stk_a);
+			if (stk_a->head->index == max_index_stk_b - 2)
+				ra(&stk_a);
+			else if (stk_a->head->index - stk_a->head->next->index == 1)
+				sa(stk_a);
+			int tail_index = get_tail_of_stack(stk_a)->index;
+			if (stk_a->head->next->index - tail_index == 2 || stk_a->head->index - tail_index == 2)
+				rra(&stk_a);
+		}
+
+		if (find_node_position_id(stk_b, max_index_stk_b) > stack_size_b / 2)
+			rrb(&stk_b);
+		else if (stk_b->head)
+			rb(&stk_b);
 	}
-	return (TRUE);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/25 16:59:47 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:27:09 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,3 @@ void	float_min_number_five_stack(t_stack *stack_a)
 	else if (min_pos == 4)
 		rra(&stack_a);
 }
-

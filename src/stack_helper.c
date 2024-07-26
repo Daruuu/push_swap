@@ -12,18 +12,6 @@
 
 #include "../push_swap.h"
 
-t_node	*get_before_last_node_stack(t_stack *stack)
-{
-	t_node	*current;
-
-	if (stack == NULL || stack->len < 2)
-		return (NULL);
-	current = stack->head;
-	while (current->next->next != NULL)
-		current = current->next;
-	return (current);
-}
-
 int	min_index_stack(t_stack *stack)
 {
 	int		min;
@@ -58,6 +46,19 @@ t_node	*get_tail_of_stack(t_stack *stack)
 	if (current == NULL)
 		return (NULL);
 	while (current->next != NULL)
+		current = current->next;
+	return (current);
+}
+
+
+t_node	*get_before_last_node_stack(t_stack *stack)
+{
+	t_node	*current;
+
+	if (stack == NULL || stack->len < 2)
+		return (NULL);
+	current = stack->head;
+	while (current->next->next != NULL)
 		current = current->next;
 	return (current);
 }

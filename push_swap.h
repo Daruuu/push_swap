@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/25 23:38:25 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:29:27 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,14 @@ t_stack	*init_stack(int ac, char **av);
 t_stack	*init_stack_empty(void);
 void	print_stack(t_stack *stack);
 int		ft_size_stack(t_stack *stack);
+int		stack_is_sorted(t_stack *stack_a);
 void	print_stacks(t_stack *stack_a, t_stack *stack_b);
-//int		stack_is_sorted(t_stack *stack_a);
 
 /*	STACK_HELPER.C	*/
 int		min_index_stack(t_stack *stack);
 int		max_index_stack(t_stack *stack);
 t_node	*get_tail_of_stack(t_stack *stack);
+t_node	*get_before_last_node_stack(t_stack *stack);
 t_node	*create_new_node(char **av, int i);
 t_stack	*set_stack_null(t_stack *stack);
 
@@ -99,26 +100,24 @@ void	free_split(char **split);
 void	free_node(t_node *node);
 void	free_stack(t_stack *stack);
 int		is_stack_null(t_stack *stack);
-//12342 -888 99999 -11111111 -2147483648
 
 /*	DIFF_SORT_OPTIONS.C	*/
 void	sort_stack_three_numbers(t_stack *stack);
 void	sort_stack_four_numbers(t_stack *stack_a, t_stack *stack_b);
 void	sort_stack_five_numbers(t_stack *stack_a, t_stack *stack_b);
+void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b);
 t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack);
 
 /*	STACK_AUX.C???	*/
-//t_node	*find_min_node(t_stack *stack, int threshold);
-//t_node	*find_min_node(t_stack *stack, long int threshold);
-t_node	*find_min_node(t_stack *stack, long int threshold);
 void	set_index_stack(t_stack *stack);
-int		stack_is_sorted_by_index(t_stack *stack_a);
-
+t_node	*find_min_node(t_stack *stack, long int threshold);
 void	float_min_number_four_stack(t_stack *stack_a);
 void	float_min_number_five_stack(t_stack *stack_a);
 
-/*	CHUNK_ALGORITHM.C	*/
+/*	CHUNKS_ALGORITHM.C	*/
+int		find_node_position_id(t_stack *stack, int target_index);
+int		find_better_move(t_stack *stack, int max_index);
 void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size);
 void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b);
-
+int		stack_is_sorted_by_index(t_stack *stack_a);
 #endif
