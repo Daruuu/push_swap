@@ -57,8 +57,8 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 //	 while (stack_is_sorted_by_index(stk_a) == 0 && i <= 256)
 	while (stack_is_sorted_by_index(stk_a) == 0)
 	{
-		if (stk_a->head->index < chunk_size * chunk_multiplier
-			&& stk_a->head->index < max_index_stack(stk_a) - 1)
+		if (stk_a->head->index < chunk_size * chunk_multiplier)
+			// && stk_a->head->index < max_index_stack(stk_a) - 1)
 		{
 			push_b(&stk_a, &stk_b);
 			if (stk_b && stk_b->head->next && stk_b->head->index

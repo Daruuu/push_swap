@@ -38,7 +38,7 @@ int	main(int ac, char **av)
 
 	stack_a = init_stack(ac, av);
 	stack_b = init_stack_empty();
-	ft_printf("LENGTH OF STACK A: %d \n", ft_size_stack(stack_a));
+	// ft_printf("LENGTH OF STACK A: %d \n", ft_size_stack(stack_a));
 	set_index_stack(stack_a);
 
 	//ft_printf("STACK WITH INDEX:\n");
