@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/27 19:32:06 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/27 20:30:06 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 		if (stk_b->len == chunk_size * chunk_multiplier)
 			chunk_multiplier++;
 		i++;
-		ft_printf("ITERACION: %d\n", i);
-		ft_printf("CHUNK MULTIPLIER %d\n", chunk_multiplier);
-		print_stacks(stk_a, stk_b);
+		//ft_printf("ITERACION: %d\n", i);
+		//ft_printf("CHUNK MULTIPLIER %d\n", chunk_multiplier);
+		//print_stacks(stk_a, stk_b);
 	}
 }
 
@@ -112,7 +112,7 @@ int	best_move_in_node_actual(t_stack *stack_a)
 			if (i < len_stack / 2)
 				first_half_count++;
 			else
-				second_half_count;
+				second_half_count++;
 		}
 		i++;
 		current = current->next;
