@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:37 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/27 01:19:35 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/07/27 21:07:48 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	main(int ac, char **av)
 
 	stack_a = init_stack(ac, av);
 	stack_b = init_stack_empty();
-	// ft_printf("LENGTH OF STACK A: %d \n", ft_size_stack(stack_a));
+	ft_printf("LENGTH OF STACK A: %d \n", ft_size_stack(stack_a));
+
 	set_index_stack(stack_a);
 
 	//ft_printf("STACK WITH INDEX:\n");

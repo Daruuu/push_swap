@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:13:56 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/22 18:13:55 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/27 21:33:36 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ t_node	*get_tail_of_stack(t_stack *stack)
 		current = current->next;
 	return (current);
 }
-
 
 t_node	*get_before_last_node_stack(t_stack *stack)
 {

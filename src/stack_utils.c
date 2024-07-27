@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/27 15:02:03 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/27 21:26:11 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 		else
 			ft_printf("[xx]-> xxxx");
 
-		ft_printf("\t\t");
+		ft_printf("\t\t\t");
 
 		if (current_b != NULL)
 		{
