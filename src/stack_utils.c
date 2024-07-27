@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/26 00:17:58 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/07/27 15:02:03 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,8 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 	current_a = stack_a ? stack_a->head : NULL;
 	current_b = stack_b ? stack_b->head : NULL;
 
-	ft_printf("%s\t\t\t%s\n", "Stack A", "Stack B");
-	ft_printf("%s\t\t\t%s\n", "-------", "-------");
+	ft_printf("%s\t\t\t\t%s\n", "Stack A", "Stack B");
+	ft_printf("%s\t\t\t\t%s\n", "-------", "-------");
 
 	i = 1;
 	while (current_a != NULL || current_b != NULL)

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/27 01:12:10 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/07/27 19:32:06 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,6 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 //	 while (stack_is_sorted_by_index(stk_a) == 0 && i <= 256)
 	while (stack_is_sorted_by_index(stk_a) == 0)
 	{
-/*
-		 if (i == 16) {
-			 i = 16 + 0;
-		 }
-*/
 		if (stk_a->head->index < chunk_size * chunk_multiplier
 			&& stk_a->head->index < max_index_stack(stk_a) - 1)
 		{
@@ -70,6 +65,7 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 				< (chunk_size * chunk_multiplier - chunk_size / 2))
 				rb(&stk_b);
 		}
+/* PROBLEM HEREE !!!!!!!!!!!!!*/
 		else if (find_better_move(stk_a, chunk_size * chunk_multiplier))
 			ra(&stk_a);
 		else
@@ -77,13 +73,85 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 		if (stk_b->len == chunk_size * chunk_multiplier)
 			chunk_multiplier++;
 		i++;
-		ft_printf("ITERACION %d\n", i);
+		ft_printf("ITERACION: %d\n", i);
 		ft_printf("CHUNK MULTIPLIER %d\n", chunk_multiplier);
 		print_stacks(stk_a, stk_b);
 	}
 }
 
+/*
+ * funcion la cual encuentre:
+ * cual es el mejor moviemiento para el indice actual:
+ * basarnos en:
+ *		stack_a->index esta dentro del rango del CHUNK ACTUAL
+ *		si el siguiente nodo esta dentro del stack actual
+ *		si la 1ra MITAD del chunk hay INDICES que pertenecen al CHUNK ACTUAL
+ *		
+ *		si la 2da MITAD del chunk hay INDICES que pertenecen al CHUNK ACTUAL
+ *
+ *		que movimientos ES MAS EFICIENTE realizar si RRA o RA
+*/
+//int	best_move_in_node_actual(t_stack *stack_a, int chunk_size)
+int	best_move_in_node_actual(t_stack *stack_a)
+{
+	t_node	*current;
+	int		len_stack;
+	int		first_half_count;
+	int		second_half_count;
+	int		i;
 
+	current = stack_a->head;
+	len_stack = ft_size_stack(stack_a);
+	first_half_count = 0;
+	second_half_count = 0;
+	i = 0;
+	while (current != NULL)
+	{
+		if (current->index < len_stack / 2)
+		{
+			if (i < len_stack / 2)
+				first_half_count++;
+			else
+				second_half_count;
+		}
+		i++;
+		current = current->next;
+	}
+	if (first_half_count >= second_half_count)
+		return (1);	//	ra
+	else
+		return (0);	//	rra
+}
+
+/*
+int	best_move_in_node_actual(t_stack *stack_a, int chunk_size)
+{
+	t_node	*current;
+	int		len_stack;
+	int		first_half_count;
+	int		second_half_count;
+	int		i;
+
+	current = stack_a->head;
+	len_stack = ft_size_stack(stack_a);
+	first_half_count = 0;
+	second_half_count = 0;
+	i = 0;
+	while (current != NULL && i < len_stack)
+	{
+		if (current->index < chunk_size)
+			first_half_count++;
+		else
+			current->next;
+		i++;
+	}
+	current = current->next;
+	if (first_half_count >= second_half_count)
+		return (1);	//	ra
+	else
+		return (0);	//	rra
+}
+*/
 void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 {
 	int	max_index_stk_b;

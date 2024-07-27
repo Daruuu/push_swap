@@ -1,0 +1,271 @@
+LENGTH OF STACK A: 10 
+CHUNK SIZE: 2
+rra
+ITERACION 1
+CHUNK MULTIPLIER 1
+Stack A			Stack B
+-------			-------
+[0]-> -2323		[xx]-> xxxx
+[2]-> -849		[xx]-> xxxx
+[7]-> 918		[xx]-> xxxx
+[8]-> 2601		[xx]-> xxxx
+[1]-> -2273		[xx]-> xxxx
+[4]-> -22		[xx]-> xxxx
+[9]-> 52704		[xx]-> xxxx
+[3]-> -786		[xx]-> xxxx
+[6]-> 777		[xx]-> xxxx
+[5]-> 90		[xx]-> xxxx
+pb
+ITERACION 2
+CHUNK MULTIPLIER 1
+Stack A			Stack B
+-------			-------
+[2]-> -849		[0]-> -2323
+[7]-> 918		[xx]-> xxxx
+[8]-> 2601		[xx]-> xxxx
+[1]-> -2273		[xx]-> xxxx
+[4]-> -22		[xx]-> xxxx
+[9]-> 52704		[xx]-> xxxx
+[3]-> -786		[xx]-> xxxx
+[6]-> 777		[xx]-> xxxx
+[5]-> 90		[xx]-> xxxx
+ra
+ITERACION 3
+CHUNK MULTIPLIER 1n ==
+Stack A			Stack B
+-------			-------
+[7]-> 918		[0]-> -2323
+[8]-> 2601		[xx]-> xxxx
+[1]-> -2273		[xx]-> xxxx
+[4]-> -22		[xx]-> xxxx
+[9]-> 52704		[xx]-> xxxx
+[3]-> -786		[xx]-> xxxx
+[6]-> 777		[xx]-> xxxx
+[5]-> 90		[xx]-> xxxx
+[2]-> -849		[xx]-> xxxx
+ra
+ITERACION 4
+CHUNK MULTIPLIER 1
+Stack A			Stack B
+-------			-------
+[8]-> 2601		[0]-> -2323
+[1]-> -2273		[xx]-> xxxx
+[4]-> -22		[xx]-> xxxx
+[9]-> 52704		[xx]-> xxxx
+[3]-> -786		[xx]-> xxxx
+[6]-> 777		[xx]-> xxxx
+[5]-> 90		[xx]-> xxxx
+[2]-> -849		[xx]-> xxxx
+[7]-> 918		[xx]-> xxxx
+ra
+ITERACION 5
+CHUNK MULTIPLIER 1
+Stack A			Stack B
+-------			-------
+[1]-> -2273		[0]-> -2323
+[4]-> -22		[xx]-> xxxx
+[9]-> 52704		[xx]-> xxxx
+[3]-> -786		[xx]-> xxxx
+[6]-> 777		[xx]-> xxxx
+[5]-> 90		[xx]-> xxxx
+[2]-> -849		[xx]-> xxxx
+[7]-> 918		[xx]-> xxxx
+[8]-> 2601		[xx]-> xxxx
+pb
+ITERACION 6
+CHUNK MULTIPLIER 2
+Stack A			Stack B
+-------			-------
+[4]-> -22		[1]-> -2273
+[9]-> 52704		[0]-> -2323
+[3]-> -786		[xx]-> xxxx
+[6]-> 777		[xx]-> xxxx
+[5]-> 90		[xx]-> xxxx
+[2]-> -849		[xx]-> xxxx
+[7]-> 918		[xx]-> xxxx
+[8]-> 2601		[xx]-> xxxx
+ra
+ITERACION 7
+CHUNK MULTIPLIER 2
+Stack A			Stack B
+-------			-------
+[9]-> 52704		[1]-> -2273
+[3]-> -786		[0]-> -2323
+[6]-> 777		[xx]-> xxxx
+[5]-> 90		[xx]-> xxxx
+[2]-> -849		[xx]-> xxxx
+[7]-> 918		[xx]-> xxxx
+[8]-> 2601		[xx]-> xxxx
+[4]-> -22		[xx]-> xxxx
+ra
+ITERACION 8
+CHUNK MULTIPLIER 2
+Stack A			Stack B
+-------			-------
+[3]-> -786		[1]-> -2273
+[6]-> 777		[0]-> -2323
+[5]-> 90		[xx]-> xxxx
+[2]-> -849		[xx]-> xxxx
+[7]-> 918		[xx]-> xxxx
+[8]-> 2601		[xx]-> xxxx
+[4]-> -22		[xx]-> xxxx
+[9]-> 52704		[xx]-> xxxx
+pb
+ITERACION 9
+CHUNK MULTIPLIER 2
+Stack A			Stack B
+-------			-------
+[6]-> 777		[3]-> -786
+[5]-> 90		[1]-> -2273
+[2]-> -849		[0]-> -2323
+[7]-> 918		[xx]-> xxxx
+[8]-> 2601		[xx]-> xxxx
+[4]-> -22		[xx]-> xxxx
+[9]-> 52704		[xx]-> xxxx
+ra
+ITERACION 10
+CHUNK MULTIPLIER 2
+Stack A			Stack B
+-------			-------
+[5]-> 90		[3]-> -786
+[2]-> -849		[1]-> -2273
+[7]-> 918		[0]-> -2323
+[8]-> 2601		[xx]-> xxxx
+[4]-> -22		[xx]-> xxxx
+[9]-> 52704		[xx]-> xxxx
+[6]-> 777		[xx]-> xxxx
+ra
+ITERACION 11
+CHUNK MULTIPLIER 2
+Stack A			Stack B
+-------			-------
+[2]-> -849		[3]-> -786
+[7]-> 918		[1]-> -2273
+[8]-> 2601		[0]-> -2323
+[4]-> -22		[xx]-> xxxx
+[9]-> 52704		[xx]-> xxxx
+[6]-> 777		[xx]-> xxxx
+[5]-> 90		[xx]-> xxxx
+pb
+rb
+ITERACION 12
+CHUNK MULTIPLIER 3
+Stack A			Stack B
+-------			-------
+[7]-> 918		[3]-> -786
+[8]-> 2601		[1]-> -2273
+[4]-> -22		[0]-> -2323
+[9]-> 52704		[2]-> -849
+[6]-> 777		[xx]-> xxxx
+[5]-> 90		[xx]-> xxxx
+ra
+ITERACION 13
+CHUNK MULTIPLIER 3
+Stack A			Stack B
+-------			-------
+[8]-> 2601		[3]-> -786
+[4]-> -22		[1]-> -2273
+[9]-> 52704		[0]-> -2323
+[6]-> 777		[2]-> -849
+[5]-> 90		[xx]-> xxxx
+[7]-> 918		[xx]-> xxxx
+ra
+ITERACION 14
+CHUNK MULTIPLIER 3
+Stack A			Stack B
+-------			-------
+[4]-> -22		[3]-> -786
+[9]-> 52704		[1]-> -2273
+[6]-> 777		[0]-> -2323
+[5]-> 90		[2]-> -849
+[7]-> 918		[xx]-> xxxx
+[8]-> 2601		[xx]-> xxxx
+pb
+rb
+ITERACION 15
+CHUNK MULTIPLIER 3
+Stack A			Stack B
+-------			-------
+[9]-> 52704		[3]-> -786
+[6]-> 777		[1]-> -2273
+[5]-> 90		[0]-> -2323
+[7]-> 918		[2]-> -849
+[8]-> 2601		[4]-> -22
+ra
+ITERACION 16
+CHUNK MULTIPLIER 3
+Stack A			Stack B
+-------			-------
+[6]-> 777		[3]-> -786
+[5]-> 90		[1]-> -2273
+[7]-> 918		[0]-> -2323
+[8]-> 2601		[2]-> -849
+[9]-> 52704		[4]-> -22
+ra
+ITERACION 17
+CHUNK MULTIPLIER 3
+Stack A			Stack B
+-------			-------
+[5]-> 90		[3]-> -786
+[7]-> 918		[1]-> -2273
+[8]-> 2601		[0]-> -2323
+[9]-> 52704		[2]-> -849
+[6]-> 777		[4]-> -22
+pb
+ITERACION 18
+CHUNK MULTIPLIER 4
+Stack A			Stack B
+-------			-------
+[7]-> 918		[5]-> 90
+[8]-> 2601		[3]-> -786
+[9]-> 52704		[1]-> -2273
+[6]-> 777		[0]-> -2323
+[xx]-> xxxx		[2]-> -849
+[xx]-> xxxx		[4]-> -22
+pb
+ITERACION 19
+CHUNK MULTIPLIER 4
+Stack A			Stack B
+-------			-------
+[8]-> 2601		[7]-> 918
+[9]-> 52704		[5]-> 90
+[6]-> 777		[3]-> -786
+[xx]-> xxxx		[1]-> -2273
+[xx]-> xxxx		[0]-> -2323
+[xx]-> xxxx		[2]-> -849
+[xx]-> xxxx		[4]-> -22
+rra
+ITERACION 20
+CHUNK MULTIPLIER 4
+Stack A			Stack B
+-------			-------
+[6]-> 777		[7]-> 918
+[8]-> 2601		[5]-> 90
+[9]-> 52704		[3]-> -786
+[xx]-> xxxx		[1]-> -2273
+[xx]-> xxxx		[0]-> -2323
+[xx]-> xxxx		[2]-> -849
+[xx]-> xxxx		[4]-> -22
+pa
+sa
+pa
+pa
+rrb
+pa
+sa
+pa
+pa
+ra
+pa
+sa
+rra
+[0]-> -2323
+[1]-> -2273
+[2]-> -849
+[3]-> -786
+[4]-> -22
+[5]-> 90
+[6]-> 777
+[7]-> 918
+[8]-> 2601
+[9]-> 52704
