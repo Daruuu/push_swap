@@ -113,8 +113,8 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 	current_a = stack_a ? stack_a->head : NULL;
 	current_b = stack_b ? stack_b->head : NULL;
 
-	ft_printf("%s\t\t\t\t%s\n", "Stack A", "Stack B");
-	ft_printf("%s\t\t\t\t%s\n", "-------", "-------");
+	ft_printf("%s\t\t\t%s\n", "Stack A", "Stack B");
+	ft_printf("%s\t\t\t%s\n", "-------", "-------");
 
 	i = 1;
 	while (current_a != NULL || current_b != NULL)

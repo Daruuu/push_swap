@@ -66,7 +66,7 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 		chunk_size = size_sa / 4;
 	else
 		chunk_size = size_sa / 8;
-	ft_printf("CHUNK SIZE: %d\n", chunk_size);
+//	ft_printf("CHUNK SIZE: %d\n", chunk_size);
 	move_nodes_from_a_to_b(stack_a, stack_b, chunk_size);
 //	exit(EXIT_FAILURE);
 	move_nodes_from_b_to_a(stack_a, stack_b);

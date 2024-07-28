@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:37 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/27 21:07:48 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:08:24 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,16 @@ int	main(int ac, char **av)
 	input_check_argc(ac, av);
 
 	stack_a = init_stack(ac, av);
+//	set_index_stack(stack_a);
+//
+//	int chunk_size = stack_a->len / 4;
+//	int chunk_multiplier = 1;
+//	best_move_in_node_actual(stack_a, chunk_size * chunk_multiplier);
+//	chunk_multiplier = 2;
+//	best_move_in_node_actual(stack_a, chunk_size * chunk_multiplier);
+
 	stack_b = init_stack_empty();
-	ft_printf("LENGTH OF STACK A: %d \n", ft_size_stack(stack_a));
+//	ft_printf("LENGTH OF STACK A: %d \n", ft_size_stack(stack_a));
 
 	set_index_stack(stack_a);
 
@@ -47,7 +55,7 @@ int	main(int ac, char **av)
 
 	handle_sort_options(&stack_a, &stack_b, stack_a->len);
 
-	print_stack(stack_a);
+//	print_stack(stack_a);
 	free_allocs(ac, stack_a, stack_b, new_arg);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/28 10:22:45 by anamedin         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:16:36 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 
 	chunk_multiplier = 1;
 	int i = 0;
+//	ft_printf("ITERACION: %d\n", i);
+//	ft_printf("CHUNK MULTIPLIER %d\n", chunk_multiplier);
+//	print_stacks(stk_a, stk_b);
+//	ft_printf("\n");
 //	 while (stack_is_sorted_by_index(stk_a) == 0 && i <= 256)
 	while (ft_size_stack(stk_a) != 1)
 	{
@@ -68,20 +72,22 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 				rb(&stk_b);
 		}
 /* PROBLEM HEREE !!!!!!!!!!!!!*/
-		else if (find_better_move(stk_a, chunk_size * chunk_multiplier))
+		// else if (find_better_move(stk_a, chunk_size * chunk_multiplier))
+		// else if (best_move_in_node_actual(stk_a, chunk_size * chunk_multiplier) == 1)
+		else if (best_move_in_node_actual(stk_a, stk_b->len + 1) == 1)
 			ra(&stk_a);
 		else
 			rra(&stk_a);
 		if (stk_b->len == chunk_size * chunk_multiplier)
 			chunk_multiplier++;
 		i++;
-		ft_printf("ITERACION: %d\n", i);
-		ft_printf("CHUNK MULTIPLIER %d\n", chunk_multiplier);
-		print_stacks(stk_a, stk_b);
+//		ft_printf("ITERACION: %d\n", i);
+//		ft_printf("CHUNK MULTIPLIER %d\n", chunk_multiplier);
+//		print_stacks(stk_a, stk_b);
 	}
 	while(ft_size_stack(stk_a) != 0)
 		push_b(&stk_a, &stk_b);
-	printf("stack a is now empty i moved in chunks well\n");
+//	printf("stack a is now empty i moved in chunks well\n");
 }
 
 /*
@@ -97,7 +103,7 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
  *		que movimientos ES MAS EFICIENTE realizar si RRA o RA
 */
 //int	best_move_in_node_actual(t_stack *stack_a, int chunk_size)
-int	best_move_in_node_actual(t_stack *stack_a, int current_chunk)
+int	best_move_in_node_actual(t_stack *stack_a, int current_index)
 {
 	t_node	*current;
 	int		len_stack;
@@ -109,7 +115,7 @@ int	best_move_in_node_actual(t_stack *stack_a, int current_chunk)
 	current = stack_a->head;
 	while (current != NULL && n_ra_moves < len_stack/2)
 	{
-		if (current->index > current_chunk) {
+		if (current->index >= current_index) {
 			n_ra_moves++;
 		}
 		else {
@@ -117,20 +123,22 @@ int	best_move_in_node_actual(t_stack *stack_a, int current_chunk)
 		}
 		current = current->next;
 	}
+
 	current = get_tail_of_stack(stack_a);
 	n_rra_moves = 0;
 	while (current != NULL && n_rra_moves < len_stack/2)
 	{
-		if (current->index > current_chunk) {
+		if (current->index > current_index) {
 			n_rra_moves++;
 		}
 		else {
-			// Salimos del bucle porque hemos encontrado un indice menor al del current_chunk
+			n_rra_moves++;
+			// Salimos del bucle porque hemos encontrado un indice menor al del current_index
 			break;
 		}
 		current = current->previous;
 	}
-	if (n_ra_moves >= n_rra_moves)
+	if (n_ra_moves <= n_rra_moves)
 		return (1);	//	ra
 	else
 		return (0);	//	rra
@@ -165,6 +173,7 @@ int	best_move_in_node_actual(t_stack *stack_a, int chunk_size)
 		return (0);	//	rra
 }
 */
+
 void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 {
 	int	index_to_move;
@@ -172,44 +181,45 @@ void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b)
 	while (stk_b->head)
 	{
 		index_to_move = ft_size_stack(stk_b) - 1;
-		printf("Buscanbdo %d\n", index_to_move);
+//		printf("Buscanbdo %d\n", index_to_move);
 		if(stk_b->head->index == index_to_move){
-			printf("muevo to a\n");
+//			printf("muevo to a\n");
 			push_a(&stk_b, &stk_a);
 		}
 		else{
 			rb(&stk_b);
 		}
-		//printf("Ahora en top hay index %d\n", stk_b->head->index);
-		//printf("while 1\n");
-		/*
-		if (stk_b->head != NULL && stk_b->head->index >= max_index_stk_b - 2)
-		{
-			printf("enter first if\n");
-			push_a(&stk_b, &stk_a);
-			if (stk_a && stk_a->head && (stk_a->head->index == max_index_stk_b - 2)){
-				printf("case 1\n");
-				ra(&stk_a);
-			}
-			else if (stk_a && stk_a->head && stk_a->head->next && (stk_a->head->index - stk_a->head->next->index == 1))
-			{
-				printf("case 2\n");
-				sa(stk_a);
-			}
-			if (stk_a && stk_a->head && stk_a->head->index && (stk_a->head->next->index - get_tail_of_stack(stk_a)->index == 2
-				|| stk_a->head->index - get_tail_of_stack(stk_a)->index == 2)){
-				printf("case 2\n");
-				rra(&stk_a);
-			}
-			printf("getting out of first if\n");
-		}
-		else if (find_node_position_id(stk_b, max_index_stk_b)
-			> ft_size_stack(stk_b) / 2)
-			rrb(&stk_b);
-		else if (stk_b->head != NULL)
-			rb(&stk_b);*/
 	}
 }
+
+//printf("Ahora en top hay index %d\n", stk_b->head->index);
+//printf("while 1\n");
+/*
+if (stk_b->head != NULL && stk_b->head->index >= max_index_stk_b - 2)
+{
+	printf("enter first if\n");
+	push_a(&stk_b, &stk_a);
+	if (stk_a && stk_a->head && (stk_a->head->index == max_index_stk_b - 2)){
+		printf("case 1\n");
+		ra(&stk_a);
+	}
+	else if (stk_a && stk_a->head && stk_a->head->next && (stk_a->head->index - stk_a->head->next->index == 1))
+	{
+		printf("case 2\n");
+		sa(stk_a);
+	}
+	if (stk_a && stk_a->head && stk_a->head->index && (stk_a->head->next->index - get_tail_of_stack(stk_a)->index == 2
+		|| stk_a->head->index - get_tail_of_stack(stk_a)->index == 2)){
+		printf("case 2\n");
+		rra(&stk_a);
+	}
+	printf("getting out of first if\n");
+}
+else if (find_node_position_id(stk_b, max_index_stk_b)
+	> ft_size_stack(stk_b) / 2)
+	rrb(&stk_b);
+else if (stk_b->head != NULL)
+	rb(&stk_b);*/
 
 int	stack_is_sorted_by_index(t_stack *stack_a)
 {
