@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/27 22:26:28 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/28 10:22:45 by anamedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,32 +97,40 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
  *		que movimientos ES MAS EFICIENTE realizar si RRA o RA
 */
 //int	best_move_in_node_actual(t_stack *stack_a, int chunk_size)
-int	best_move_in_node_actual(t_stack *stack_a)
+int	best_move_in_node_actual(t_stack *stack_a, int current_chunk)
 {
 	t_node	*current;
 	int		len_stack;
-	int		first_half_count;
-	int		second_half_count;
-	int		i;
+	int		n_ra_moves;
+	int		n_rra_moves;
 
-	current = stack_a->head;
 	len_stack = ft_size_stack(stack_a);
-	first_half_count = 0;
-	second_half_count = 0;
-	i = 0;
-	while (current != NULL)
+	n_ra_moves = 0;
+	current = stack_a->head;
+	while (current != NULL && n_ra_moves < len_stack/2)
 	{
-		if (current->index < len_stack / 2)
-		{
-			if (i < len_stack / 2)
-				first_half_count++;
-			else
-				second_half_count++;
+		if (current->index > current_chunk) {
+			n_ra_moves++;
 		}
-		i++;
+		else {
+			break;
+		}
 		current = current->next;
 	}
-	if (first_half_count >= second_half_count)
+	current = get_tail_of_stack(stack_a);
+	n_rra_moves = 0;
+	while (current != NULL && n_rra_moves < len_stack/2)
+	{
+		if (current->index > current_chunk) {
+			n_rra_moves++;
+		}
+		else {
+			// Salimos del bucle porque hemos encontrado un indice menor al del current_chunk
+			break;
+		}
+		current = current->previous;
+	}
+	if (n_ra_moves >= n_rra_moves)
 		return (1);	//	ra
 	else
 		return (0);	//	rra
