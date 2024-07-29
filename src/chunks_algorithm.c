@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/29 17:42:50 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/29 22:33:01 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,12 @@ int	best_direction_to_rotate(t_stack *stack_a, int current_index)
 	n_ra_moves = 0;
 	current = stack_a->head;
 	int	i = 0;
-	i++;
+/*
 	ft_printf("---------------------\n");
 	ft_printf("BEST DIRECTION_TO_ROTATE(): %d\n", i);
 	ft_printf("---------------------|\n");
+*/
+	i++;
 	while (current != NULL && n_ra_moves < len_stack/2)
 	{
 		if (current->index >= current_index)
@@ -75,24 +77,26 @@ int	best_direction_to_rotate(t_stack *stack_a, int current_index)
 	current = get_tail_of_stack(stack_a);
 	n_rra_moves = 0;
 	//while (current != NULL && n_rra_moves < len_stack/2)
-	while (current != NULL && n_rra_moves < len_stack/2)// ??????
+	while (current != NULL && n_rra_moves < len_stack / 2)// ??????
 	{
 		if (current->index > current_index)
 			n_rra_moves++;
 		else
 		{
 			n_rra_moves++;
-// exit of loop bucle porque hemos encontrado un INDEX menor al del current_index
 			break;
+		// exit of loop bucle porque hemos encontrado un INDEX menor al del current_index
 		}
 		current = current->previous;
 	}
+/*
 	ft_printf("ra MOVES: %d\n", n_ra_moves);
 	ft_printf("rra MOVES: %d\n", n_rra_moves);
 	ft_printf("RA - RRA: %d - %d = %d\n",n_ra_moves, n_rra_moves, n_ra_moves <= n_rra_moves);
 	ft_printf("ra : 1\n");
 	ft_printf("rra: 0\n");
 	ft_printf("---------------------|\n");
+*/
 	if (n_ra_moves <= n_rra_moves)
 		return (1);	//	ra
 	else
@@ -137,43 +141,32 @@ void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 	//	printf("stack a is now empty i moved in chunks well\n");
 }
 
-/*
- * funcion la cual encuentre:
- * cual es el mejor moviemiento para el indice actual:
- * basarnos en:
- *		stack_a->index_to_move_to_a esta dentro del rango del CHUNK ACTUAL
- *		si el siguiente nodo esta dentro del stack_b actual
- *		si la 1ra MITAD del chunk hay INDICES que pertenecen al CHUNK ACTUAL
- *		si la 2da MITAD del chunk hay INDICES que pertenecen al CHUNK ACTUAL
- *		que movimientos ES MAS EFICIENTE realizar si RRA o RA
- *
- *		@current_index: chunk_size * chunk_interation
-*/
-
 int		find_index_position(t_stack *stack_b, int index_to_move_to_a);
 void	rotate_to_top_b(t_stack *stack_b, int position);
 
 void	move_nodes_from_b_to_a(t_stack *stack_a, t_stack *stack_b)
 {
-	int		index_to_move;
-	t_node	*current_b;
-	int		node_to_move_to_a;
-	int i =0;
-
+	int	index_to_move;
+	int	node_to_move_to_a;
+	int i = 0;
 //	ft_printf("MOVE_NODES_B_TO_A() :\n");
-	current_b = stack_b->head;
-	while (current_b != NULL)
+//	while (stack_b != NULL && ft_size_stack(stack_b) != 0)
+//	ft_printf("SIZE STACK B: %d \n", ft_size_stack(stack_b));
+	while (ft_size_stack(stack_b) != 0)
 	{
 //		ft_printf("ITERACION : %d\n", i);
 		index_to_move = ft_size_stack(stack_b) - 1;
-		ft_printf("ITERATION: %d\n", i);
-		ft_printf("INDEX_TO_MOVE STACK_B: %d\n", index_to_move);
+//		ft_printf("ITERATION: %d\n", i);
+//		ft_printf("INDEX_TO_MOVE STACK_B: %d\n", index_to_move);
 		node_to_move_to_a = find_index_position(stack_b, index_to_move);
+
 		rotate_to_top_b(stack_b, node_to_move_to_a);
-		if (index_to_move == node_to_move_to_a)
-			push_a(&stack_b, &stack_a);
+
+		push_a(&stack_b, &stack_a);
+//		if (index_to_move == node_to_move_to_a)
+//			push_a(&stack_b, &stack_a);
 //		last_node_index = get_tail_of_stack(stack_b)->index;
-		current_b = current_b->next;
+//		current_b = current_b->next;
 		i++;
 	}
 }
@@ -181,31 +174,30 @@ void	move_nodes_from_b_to_a(t_stack *stack_a, t_stack *stack_b)
 // Rota el stack_b para que el nodo en la posición dada esté en la cima
 void	rotate_to_top_b(t_stack *stack_b, int position)
 {
-	int	size;
-	int	i;
+//	int	size;
+	int	half_size;
+	int	n_rb_moves;
+	int	n_rrb_moves;
 
-	size = ft_size_stack(stack_b);
-	i = 0;
-	//	4 <= (10/2) = 1
-	//	4 <= 5 = 1
-	//
-	if (position <= size / 2)	// TODO: posible error = !!!!!!!!!!!!!!!!!
+	half_size = ft_size_stack(stack_b) / 2;
+//	size = ft_size_stack(stack_b);
+	n_rb_moves = 0;
+	if (position <= half_size)	//  posible error !!! <=
 	{
-		while (i !=  position)
+		while (n_rb_moves < position)
 		{
 			rb(&stack_b);
-			i++;
+			n_rb_moves++;
 		}
 	}
 	else
 	{
-		i = 0;
-		//	0 < 10 - 7
-		//	0 < 3
-		while (i != size - position)
+		half_size = ft_size_stack(stack_b) - position;
+		n_rrb_moves = 0;
+		while (n_rrb_moves < half_size)
 		{
 			rrb(&stack_b);
-			i++;
+			n_rrb_moves++;
 		}
 	}
 }
@@ -218,12 +210,12 @@ int	find_index_position(t_stack *stack_b, int index_to_move_to_a)
 
 	current = stack_b->head;
 	position = 0;
-	while (current && ft_size_stack(stack_b) / 2)
+	while (current != NULL)
 	{
 		if (current->index == index_to_move_to_a)
-			return position;
-		position++;
+			return (position);
 		current = current->next;
+		position++;
 	}
 	return (position);
 }

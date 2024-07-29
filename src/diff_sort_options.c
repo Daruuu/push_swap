@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:27:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/29 14:56:41 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/29 22:12:09 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,7 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 //	ft_printf("MOVE_B_TO_A()\n");
 
 	move_nodes_from_b_to_a(stack_a, stack_b);
-	/*
-	if (!stack_is_sorted_by_index(stack_a))
-		sa(stack_a);
-	*/
+
 }
 
 t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)

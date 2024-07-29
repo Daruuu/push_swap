@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:27:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/29 15:03:57 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/29 18:20:43 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int ac, char **av)
 
 
 //	ft_printf(" finall hereeeeee\n");
-	print_stacks(stack_a, stack_b);
+//	print_stacks(stack_a, stack_b);
 	free_allocs(ac, stack_a, stack_b, new_arg);
 	return (0);
 }
