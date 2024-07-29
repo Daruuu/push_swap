@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:42:06 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/27 21:35:13 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/29 14:15:20 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,13 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 		chunk_size = size_sa / 8;
 //	ft_printf("CHUNK SIZE: %d\n", chunk_size);
 	move_nodes_from_a_to_b(stack_a, stack_b, chunk_size);
+	ft_printf("TERMINA MOVE NODES A TO B()\n");
 //	exit(EXIT_FAILURE);
+	ft_printf("------------------------------\n");
+	print_stacks(stack_a, stack_b);
+	ft_printf("------------------------------\n");
+	ft_printf("MOVE_B_TO_A()\n");
+
 	move_nodes_from_b_to_a(stack_a, stack_b);
 	/*
 	if (!stack_is_sorted_by_index(stack_a))
