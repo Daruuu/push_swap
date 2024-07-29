@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:02:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/25 11:17:03 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/29 23:15:28 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	number_out_of_range(int ac, char **av)
 	while (i < ac)
 	{
 		num = ft_atoll(av[i]);
-		if (num > 2147483647) 
+		if (num > 2147483647)
 			return (1);
 		if (num < (-2147483648))
 			return (1);

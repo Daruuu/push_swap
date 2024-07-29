@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/29 10:53:37 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/29 23:07:59 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,14 +115,10 @@ void	float_min_number_four_stack(t_stack *stack_a);
 void	float_min_number_five_stack(t_stack *stack_a);
 
 /*	CHUNKS_ALGORITHM.C	*/
-int		find_node_position_id(t_stack *stack, int target_index);
-int		find_better_move(t_stack *stack, int max_index);
-
-void	move_nodes_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size);
-//int		best_move_in_node_actual(t_stack *stack_a);
 int		best_direction_to_rotate(t_stack *stack_a, int current_index);
-
-void	move_nodes_from_b_to_a(t_stack *stk_a, t_stack *stk_b);
-int		stack_is_sorted_by_index(t_stack *stack_a);
+void	move_chunks_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size);
+void	move_chunks_from_b_to_a(t_stack *stack_a, t_stack *stack_b);
+void	rotate_to_top_b(t_stack *stack_b, int position);
+int		find_index_position(t_stack *stack_b, int index_to_move_to_a);
 
 #endif

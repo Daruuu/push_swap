@@ -31,4 +31,5 @@ add_executable(push_swap_clion
         lib/libft/ft_strlen.c
         lib/libft/ft_strchr.c
         lib/libft/ft_substr.c
+        src/functions_no_using.c
 )

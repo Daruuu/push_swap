@@ -79,7 +79,7 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 	else
 		chunk_size = size_sa / 8;
 //	ft_printf("CHUNK SIZE: %d\n", chunk_size);
-	move_nodes_from_a_to_b(stack_a, stack_b, chunk_size);
+	move_chunks_from_a_to_b(stack_a, stack_b, chunk_size);
 
 //	ft_printf("TERMINA MOVE NODES A TO B()\n");
 //	exit(EXIT_FAILURE);
@@ -88,7 +88,7 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 //	ft_printf("------------------------------\n");
 //	ft_printf("MOVE_B_TO_A()\n");
 
-	move_nodes_from_b_to_a(stack_a, stack_b);
+	move_chunks_from_b_to_a(stack_a, stack_b);
 
 }
 
@@ -120,12 +120,12 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 	if (size_sa >= max_case)
 		move_nodes_from_a_to_b(stack_a, stack_b, size_sa / 8);
 	else
-		move_nodes_from_a_to_b(stack_a, stack_b, size_sa / 4);
+		move_chunks_from_a_to_b(stack_a, stack_b, size_sa / 4);
 	size_sb = ft_size_stack(stack_b);
 	if (size_sb >= max_case)
 		move_nodes_from_b_to_a(stack_a, stack_b);
 	else
-		move_nodes_from_b_to_a(stack_a, stack_b);
+		move_chunks_from_b_to_a(stack_a, stack_b);
 	if (stack_is_sorted_by_index(stack_a) == 0)
 		sa(stack_a);
 }

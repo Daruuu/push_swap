@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/27 21:26:11 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/29 23:23:57 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_stack	*init_stack(int ac, char **av)
 	stack = (t_stack *) malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
-	is_stack_null(stack);
-	stack = set_stack_null(stack);
+//	is_stack_null(stack);
+//	stack = set_stack_null(stack);
 	i = 0;
 	while (++i < ac)
 	{
