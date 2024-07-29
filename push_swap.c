@@ -3,10 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/29 14:27:12 by dasalaza          #+#    #+#             */
+/*   Updated: 2024/07/29 15:03:57 by dasalaza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:37 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/29 14:21:04 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/29 14:49:03 by dasalaza		  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +27,7 @@
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
-	t_stack	*stack_b;
+		t_stack	*stack_b;
 	char	**new_arg;
 	int		len_new_ac;
 
@@ -56,7 +68,7 @@ int	main(int ac, char **av)
 	handle_sort_options(&stack_a, &stack_b, stack_a->len);
 
 
-	ft_printf(" finall hereeeeee\n");
+//	ft_printf(" finall hereeeeee\n");
 	print_stacks(stack_a, stack_b);
 	free_allocs(ac, stack_a, stack_b, new_arg);
 	return (0);
