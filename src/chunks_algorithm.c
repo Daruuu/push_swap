@@ -6,48 +6,11 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/30 00:35:31 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/30 12:17:00 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	best_direction_to_rotate(t_stack *stack_a, int current_index)
-{
-	t_node	*current;
-	int		len_stack;
-	int		n_ra_moves;
-	int		n_rra_moves;
-
-	len_stack = ft_size_stack(stack_a);
-	n_ra_moves = 0;
-	current = stack_a->head;
-	while (current != NULL && n_ra_moves < len_stack / 2)
-	{
-		if (current->index >= current_index)
-			n_ra_moves ++;
-		else
-			break ;
-		current = current->next;
-	}
-	current = get_tail_of_stack(stack_a);
-	n_rra_moves = 0;
-	while (current != NULL && n_rra_moves < len_stack / 2)
-	{
-		if (current->index >= current_index)
-			n_rra_moves ++;
-		else
-		{
-			n_rra_moves ++;
-			break ;
-		}
-		current = current->previous;
-	}
-	if (n_ra_moves <= n_rra_moves)
-		return (1);
-	else
-		return (0);
-}
 
 void	move_chunks_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 {
