@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:27:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/29 22:12:09 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/30 00:44:17 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,23 +73,12 @@ void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
 	int	size_sa;
 
 	size_sa = ft_size_stack(stack_a);
-
 	if (size_sa <= CASE_HUNDRED)
 		chunk_size = size_sa / 4;
 	else
 		chunk_size = size_sa / 8;
-//	ft_printf("CHUNK SIZE: %d\n", chunk_size);
 	move_chunks_from_a_to_b(stack_a, stack_b, chunk_size);
-
-//	ft_printf("TERMINA MOVE NODES A TO B()\n");
-//	exit(EXIT_FAILURE);
-//	ft_printf("------------------------------\n");
-//	print_stacks(stack_a, stack_b);
-//	ft_printf("------------------------------\n");
-//	ft_printf("MOVE_B_TO_A()\n");
-
 	move_chunks_from_b_to_a(stack_a, stack_b);
-
 }
 
 t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
@@ -106,27 +95,3 @@ t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
 		sort_with_chunks(*sa, *sb);
 	return (*sa);
 }
-
-/*
- * BACKUP
-void	sort_with_chunks(t_stack *stack_a, t_stack *stack_b)
-{
-	int	size_sa;
-	int	size_sb;
-	int	max_case;
-
-	max_case = MAX_CASE;
-	size_sa = ft_size_stack(stack_a);
-	if (size_sa >= max_case)
-		move_nodes_from_a_to_b(stack_a, stack_b, size_sa / 8);
-	else
-		move_chunks_from_a_to_b(stack_a, stack_b, size_sa / 4);
-	size_sb = ft_size_stack(stack_b);
-	if (size_sb >= max_case)
-		move_nodes_from_b_to_a(stack_a, stack_b);
-	else
-		move_chunks_from_b_to_a(stack_a, stack_b);
-	if (stack_is_sorted_by_index(stack_a) == 0)
-		sa(stack_a);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 20:57:52 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/29 23:23:57 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/30 00:41:08 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ t_stack	*init_stack(int ac, char **av)
 	int		i;
 
 	stack = (t_stack *) malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-//	is_stack_null(stack);
-//	stack = set_stack_null(stack);
+	is_stack_null(stack);
+	stack = set_stack_null(stack);
 	i = 0;
 	while (++i < ac)
 	{
@@ -50,26 +48,6 @@ t_stack	*init_stack_empty(void)
 	stack = (t_stack *) malloc(sizeof(t_stack));
 	stack = set_stack_null(stack);
 	return (stack);
-}
-
-void	print_stack(t_stack *stack)
-{
-	t_node	*current;
-	int		i;
-
-	if (!stack)
-	{
-		ft_printf("stack empty!");
-		return ;
-	}
-	current = stack->head;
-	i = 1;
-	while (current != NULL)
-	{
-		ft_printf("[%d]-> %d\n", current->index, current->data);
-		i++;
-		current = current->next;
-	}
 }
 
 int	ft_size_stack(t_stack *stack)
@@ -112,10 +90,8 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 
 	current_a = stack_a ? stack_a->head : NULL;
 	current_b = stack_b ? stack_b->head : NULL;
-
 	ft_printf("%s\t\t\t%s\n", "Stack A", "Stack B");
 	ft_printf("%s\t\t\t%s\n", "-------", "-------");
-
 	i = 1;
 	while (current_a != NULL || current_b != NULL)
 	{
@@ -126,9 +102,7 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 		}
 		else
 			ft_printf("[xx]-> xxxx");
-
 		ft_printf("\t\t\t");
-
 		if (current_b != NULL)
 		{
 			ft_printf("[%d]-> %d", current_b->index, current_b->data);
@@ -136,11 +110,9 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 		}
 		else
 			ft_printf("[xx]-> xxxx");
-
 		ft_printf("\n");
 		i++;
 	}
-
 	if (stack_a == NULL)
 		ft_printf("Stack A empty!\n");
 	if (stack_b == NULL)

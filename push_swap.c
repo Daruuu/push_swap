@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:27:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/30 00:20:31 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/30 02:16:01 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
-		t_stack	*stack_b;
+	t_stack	*stack_b;
 	char	**new_arg;
 	int		len_new_ac;
 
@@ -47,28 +47,10 @@ int	main(int ac, char **av)
 		ac = len_new_ac;
 	}
 	input_check_argc(ac, av);
-
 	stack_a = init_stack(ac, av);
-//	set_index_stack(stack_a);
-//
-//	int chunk_size = stack_a->len / 4;
-//	int chunk_multiplier = 1;
-//	best_move_in_node_actual(stack_a, chunk_size * chunk_multiplier);
-//	chunk_multiplier = 2;
-//	best_move_in_node_actual(stack_a, chunk_size * chunk_multiplier);
-
 	stack_b = init_stack_empty();
-//	ft_printf("LENGTH OF STACK A: %d \n", ft_size_stack(stack_a));
-
 	set_index_stack(stack_a);
-
-	//ft_printf("STACK WITH INDEX:\n");
-	// print_stack(stack_a);
-
 	handle_sort_options(&stack_a, &stack_b, stack_a->len);
-
-
-//	ft_printf(" finall hereeeeee\n");
 //	print_stacks(stack_a, stack_b);
 	free_allocs(ac, stack_a, stack_b, new_arg);
 	return (0);

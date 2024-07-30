@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:37:13 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/29 23:16:10 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/30 00:39:54 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,24 @@ int	stack_is_sorted_by_index(t_stack *stack_a)
 		current = current->next;
 	}
 	return (TRUE);
+}
+
+void	print_stack(t_stack *stack)
+{
+	t_node	*current;
+	int		i;
+
+	if (!stack)
+	{
+		ft_printf("stack empty!");
+		return ;
+	}
+	current = stack->head;
+	i = 1;
+	while (current != NULL)
+	{
+		ft_printf("[%d]-> %d\n", current->index, current->data);
+		i++;
+		current = current->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/30 00:08:32 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/30 00:35:31 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	move_chunks_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size)
 		if (stk_a->head->index < chunk_size * chunk_multiplier)
 		{
 			push_b(&stk_a, &stk_b);
-			if (stk_b && stk_b->len > 2 && stk_b->head->next && stk_b->head->index
+			if (stk_b && stk_b->head->next && stk_b->head->index
 				< (chunk_size * chunk_multiplier - chunk_size / 2))
 				rb(&stk_b);
 		}
