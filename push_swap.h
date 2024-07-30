@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/29 23:07:59 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/30 12:45:26 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # define TRUE 1
 # define FALSE 0
 # define CASE_HUNDRED 100
-# define MAX_CASE 500
 
 # include "lib/libft/libft.h"
 # include "lib/libft/printf/ft_printf.h"
@@ -58,14 +57,11 @@ int		number_out_of_range(int ac, char **av);
 /*	STACK_UTILS.C	*/
 t_stack	*init_stack(int ac, char **av);
 t_stack	*init_stack_empty(void);
-void	print_stack(t_stack *stack);
 int		ft_size_stack(t_stack *stack);
-int		stack_is_sorted(t_stack *stack_a);
 void	print_stacks(t_stack *stack_a, t_stack *stack_b);
 
 /*	STACK_HELPER.C	*/
 int		min_index_stack(t_stack *stack);
-int		max_index_stack(t_stack *stack);
 t_node	*get_tail_of_stack(t_stack *stack);
 t_node	*get_before_last_node_stack(t_stack *stack);
 t_node	*create_new_node(char **av, int i);
@@ -115,9 +111,11 @@ void	float_min_number_four_stack(t_stack *stack_a);
 void	float_min_number_five_stack(t_stack *stack_a);
 
 /*	CHUNKS_ALGORITHM.C	*/
-int		best_direction_to_rotate(t_stack *stack_a, int target_index);
 void	move_chunks_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size);
 void	move_chunks_from_b_to_a(t_stack *stack_a, t_stack *stack_b);
+
+/*	CHUNKS_AUX.C	*/
+int		best_direction_to_rotate(t_stack *stack_a, int target_index);
 void	rotate_to_top_b(t_stack *stack_b, int position);
 int		find_index_position(t_stack *stack_b, int index_to_move_to_a);
 

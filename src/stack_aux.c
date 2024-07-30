@@ -36,22 +36,6 @@ void	set_index_stack(t_stack *stack)
 	}
 }
 
-int	max_index_stack(t_stack *stack)
-{
-	int		index;
-	t_node	*current;
-
-	current = stack->head;
-	index = -1;
-	while (current)
-	{
-		if (current->index > index)
-			index = current->index;
-		current = current->next;
-	}
-	return (index);
-}
-
 t_node	*find_min_node(t_stack *stack, long int threshold)
 {
 	t_node	*current;
