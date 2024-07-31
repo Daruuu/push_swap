@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 23:58:23 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/30 12:45:26 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/31 15:34:27 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	float_min_number_five_stack(t_stack *stack_a);
 /*	CHUNKS_ALGORITHM.C	*/
 void	move_chunks_from_a_to_b(t_stack *stk_a, t_stack *stk_b, int chunk_size);
 void	move_chunks_from_b_to_a(t_stack *stack_a, t_stack *stack_b);
+void	sort_stack_two_numbers(t_stack *stack_a);
 
 /*	CHUNKS_AUX.C	*/
 int		best_direction_to_rotate(t_stack *stack_a, int target_index);

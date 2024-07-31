@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 20:01:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/25 18:53:36 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/31 15:00:25 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	check_all_validations(int ac, char **av)
 {
-	if (av[1] == NULL || av[2] == NULL)
-		exit(EXIT_FAILURE);
 	if (has_invalid_characters(ac, av))
 	{
 		ft_printf("Error\n");
@@ -37,5 +35,5 @@ void	check_all_validations(int ac, char **av)
 
 void	input_check_argc(int ac, char **av)
 {
-	check_all_validations(ac - 1, av + 1);
+	check_all_validations(ac , av + 1);
 }

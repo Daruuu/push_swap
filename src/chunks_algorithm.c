@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:50:48 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/30 12:17:00 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/31 15:34:04 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,10 @@ void	move_chunks_from_b_to_a(t_stack *stack_a, t_stack *stack_b)
 		rotate_to_top_b(stack_b, node_to_move_to_a);
 		push_a(&stack_b, &stack_a);
 	}
+}
+
+void	sort_stack_two_numbers(t_stack *stack_a)
+{
+	if (stack_a->head->index > stack_a->tail->index)
+		sa(stack_a);
 }

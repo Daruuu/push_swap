@@ -6,7 +6,7 @@
 /*   By: dasalaza <dasalaza@student.42barcelona.c>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:27:12 by dasalaza          #+#    #+#             */
-/*   Updated: 2024/07/30 00:44:17 by dasalaza         ###   ########.fr       */
+/*   Updated: 2024/07/31 15:35:17 by dasalaza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,9 @@ t_stack	*handle_sort_options(t_stack **sa, t_stack **sb, int len_stack)
 {
 	if (!sa)
 		return (NULL);
-	if (len_stack == 3)
+	if (len_stack == 2)
+		sort_stack_two_numbers(*sa);
+	else if (len_stack == 3)
 		sort_stack_three_numbers(*sa);
 	else if (len_stack == 4)
 		sort_stack_four_numbers(*sa, *sb);
